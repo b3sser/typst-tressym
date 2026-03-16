@@ -3,6 +3,7 @@
 #let body-font = "Vollkorn" // Suggested: Vollkorn, Kalam
 
 
+/* * * HEADER * * */
 #let print-header(
   class: str, 
   subclass: str, 
@@ -14,7 +15,6 @@
   xp: int,
   xp-type: str
 ) = {
-  /* * * HEADER * * */
   place(
     top + left,
     dx: 271pt,
@@ -150,135 +150,77 @@
   }
 }
 
+/* * * STATS * * */
 #let print-base-stats(
-  stren: int, 
-  dex: int,
-  con: int,
-  intel: int,
-  wis: int,
-  cha: int
+  stat_list
 ) = {
-  place(
-    center,
-    dx: -249pt,
-    dy: 158pt,
-    text([#stren], size: 26pt)
-  )
-  place(
-    center,
-    dx: -249pt,
-    dy: 229.6pt,
-    text([#dex], size: 26pt)
-  )
-  place(
-    center,
-    dx: -249pt,
-    dy: 301.2pt,
-    text([#con], size: 26pt)
-  )
-  place(
-    center,
-    dx: -249pt,
-    dy: 372.8pt,
-    text([#intel], size: 26pt)
-  )
-  place(
-    center,
-    dx: -249pt,
-    dy: 444.4pt,
-    text([#wis], size: 26pt)
-  )
-  place(
-    center,
-    dx: -249pt,
-    dy: 516pt,
-    text([#cha], size: 26pt)
-  )
+  let pos_y
+  // calculate y coordinate based on position in list
+  for i in range(6) {
+    pos_y = 158pt + (71.6pt*i)
+    place(
+      center,
+      dx: -249pt,
+      dy: pos_y,
+      text([#stat_list.at(i)], size: 26pt)
+    )
+  }
 }
 
 #let print-mod-stats(
-  stren: int, 
-  dex: int,
-  con: int,
-  intel: int,
-  wis: int,
-  cha: int
+  statmod_list
 ) = {
-  place(
-    center,
-    dx: -250pt,
-    dy: 188pt,
-    {
-      if stren >= 0 {
-        text([+#stren], size: 12pt)
-      } else {
-        text([#stren], size: 12pt)
+  let pos_y
+  // calculate y coordinate based on position in list
+  for i in range(6) {
+    pos_y = 188pt + (71.6pt*i)
+    place(
+      center,
+      dx: -250pt,
+      dy: pos_y,
+      {
+        if statmod_list.at(i) >= 0 {
+          text([+#statmod_list.at(i)], size: 12pt)
+        } else {
+          text([#statmod_list.at(i)], size: 12pt)
+        }
       }
-    }
+    )
+  }
+}
+
+/* * * SKILLS * * */
+#let print-skill-mod( skill_prof: bool, stat: int, position: int, prof_bonus: int) = {
+  let skill_mod = stat
+  let pos_y = 319.9pt + (13.5pt*position)
+  // if proficient, add proficiency bonus and print dot
+  if skill_prof {
+    skill_mod = stat + prof_bonus
+
+    place(
+    center,
+    dx: -201.7pt,
+    dy: pos_y+4pt,
+    circle(radius: 3pt, fill: black)
   )
+  }
+  // calculate y coordinate based on position in list
   place(
     center,
-    dx: -250pt,
-    dy: 259.6pt,
+    dx: -187pt,
+    dy: pos_y,
     {
-      if dex >= 0 {
-        text([+#dex], size: 12pt)
+      // add + sign if non-negative number
+      if skill_mod >= 0 {
+        text([+#skill_mod], size: 12pt)
       } else {
-        text([#dex], size: 12pt)
-      }
-    }
-  )
-  place(
-    center,
-    dx: -250pt,
-    dy: 331.2pt,
-    {
-      if con >= 0 {
-        text([+#con], size: 12pt)
-      } else {
-        text([#con], size: 12pt)
-      }
-    }
-  )
-  place(
-    center,
-    dx: -250pt,
-    dy: 402.8pt,
-    {
-      if intel >= 0 {
-        text([+#intel], size: 12pt)
-      } else {
-        text([#intel], size: 12pt)
-      }
-    }
-  )
-  place(
-    center,
-    dx: -250pt,
-    dy: 474.4pt,
-    {
-      if wis >= 0 {
-        text([+#wis], size: 12pt)
-      } else {
-        text([#wis], size: 12pt)
-      }
-    }
-  )
-  place(
-    center,
-    dx: -250pt,
-    dy: 546pt,
-    {
-      if cha >= 0 {
-        text([+#cha], size: 12pt)
-      } else {
-        text([#cha], size: 12pt)
+        text([#skill_mod], size: 12pt)
       }
     }
   )
 }
 
-// Generates a character page
+// Generate character page
 #let character-sheet(
   name: "", // name of the character
   paper-format: "letter", // supports a4 and letter, this will only have minor effect
@@ -366,11 +308,12 @@
   stealth: false,
   survival: false,
 ) = {
-
+/* * * HEADER * * */
 print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
 
 /* * * STATS * * */
-print-base-stats(stren: stren, dex: dex, con: con, intel: intel, wis: wis, cha: cha)
+let stat_list = ( stren, dex, con, intel, wis, cha )
+print-base-stats(stat_list)
 
 strenmod = calculate_modifier(stat: stren) 
 dexmod = calculate_modifier(stat: dex)
@@ -379,14 +322,15 @@ intelmod = calculate_modifier(stat: intel)
 wismod = calculate_modifier(stat: wis)
 chamod = calculate_modifier(stat: cha)
 
-print-mod-stats(stren: strenmod, dex: dexmod, con: conmod, intel: intelmod, wis: wismod, cha: chamod)
+let statmod_list = ( strenmod, dexmod, conmod, intelmod, wismod, chamod )
+print-mod-stats(statmod_list)
 
-prof-bonus = calc_proficiency_bonus(lvl: level)
+prof_bonus = calc_proficiency_bonus(lvl: level)
 place(
   top + left,
   dx: 97.5pt,
   dy: 169.5pt,
-  text([+#prof-bonus], size: 18pt)
+  text([+#prof_bonus], size: 18pt)
 )
 
 /* * * SAVES * * */
