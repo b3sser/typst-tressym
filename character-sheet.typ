@@ -335,7 +335,36 @@
   intelmod: 0,
   wismod: 0,
   chamod: 0,
-  prof-bonus: 2,
+  prof_bonus: 2,
+
+/* * * SAVES * * */
+  strensave: false,
+  dexsave: false,
+  consave: false,
+  intelsave: false,
+  wissave: false,
+  chasave: false,
+
+/* * * SKILLS * * */
+  // half- and double-proficiencies are a planned future features
+  acrobatics: false,
+  animal_handling: false,
+  arcana: false,
+  athletics: false,
+  deception: false,
+  history: false,
+  insight: false,
+  intimidation: false,
+  investigation: false,
+  medicine: false,
+  nature: false,
+  perception: false,
+  performance: false,
+  persuasion: false,
+  religion: false,
+  sleight_of_hand: false,
+  stealth: false,
+  survival: false,
 ) = {
 
 print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
@@ -360,6 +389,35 @@ place(
   text([+#prof-bonus], size: 18pt)
 )
 
+/* * * SAVES * * */
+// put all saves in an array
+let saves_list = ( strensave, dexsave, consave, intelsave, wissave, chasave )
+// iterate over save list with calculation and printing
+for i in range(6) {
+  print-skill-mod(skill_prof: saves_list.at(i), stat: statmod_list.at(i), position: (i -8.6), prof_bonus: prof_bonus)
+}
+
+/* * * SKILLS * * */
+// put all skills in an array
+let skill_list = ( acrobatics,animal_handling,arcana,athletics,deception,history,insight,intimidation,investigation,medicine,nature,perception,performance,persuasion,religion,sleight_of_hand,stealth,survival )
+// hardcode which stat corresponds to which skill
+let skill_bases = ( dexmod,wismod,intelmod,strenmod,chamod,intelmod,wismod,chamod,intelmod,wismod,intelmod,wismod,chamod,chamod,intelmod,dexmod,dexmod,wismod )
+// iterate over skill list with calculation and printing
+for i in range(18) {
+  print-skill-mod(skill_prof: skill_list.at(i), stat: skill_bases.at(i), position: i, prof_bonus: prof_bonus)
+}
+
+// Calculate and print passive perception
+let passive_perception = 10 + wismod
+if perception {
+  passive_perception = 10 + wismod + prof_bonus
+}
+place(
+  center,
+  dx: -264pt,
+  dy: 592.5pt,
+  text([#passive_perception], size: 17pt)
+)
 }
 
 

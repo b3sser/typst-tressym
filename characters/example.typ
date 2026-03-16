@@ -26,6 +26,20 @@
   intel: 10,
   wis: 10,
   cha: 10,
+
+/* * * SAVES * * */
+  // set all saving throws that your character is proficient in to true, all others can be left out to keep the file clean
+  consave: true,
+  chasave: true,
+
+/* * * SKILLS * * */
+  // set all skills that your character is proficient in to true, all others can be left out to keep the file clean
+  // half- and double-proficiencies are a planned future feature
+  athletics: true,
+  insight: true,
+  nature: true,
+  persuasion: true,
+  sleight_of_hand: true,
 )
 
 #import "../characters/testpoints.typ": *
