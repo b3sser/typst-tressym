@@ -220,6 +220,96 @@
   )
 }
 
+/* * * ATTACKS & SPELLCASTING * * */
+#let add_weapon(
+  name,
+  atk-bonus,
+  damage,
+  position
+) = {
+  place(
+    top + left,
+    dx: 225.3pt,
+    dy: 392.2pt + (20.5pt*position),
+    polygon(
+      fill: gray.lighten(70%),
+      stroke: none,
+      (-2.3pt, 15.7pt),
+      (-2.3pt, 2.3pt),
+      (0pt, 0pt),
+      (61.6pt, 0pt),
+      (61.6pt, 13.4pt),
+      (59.3pt, 15.7pt)
+    )
+  )
+  place(
+    top + left,
+    dx: 226pt,
+    dy: 396pt + (20.5pt*position),
+    text(name, size: 12pt)
+  )
+  place(
+    top + left,
+    dx: 293.75pt,
+    dy: 392.2pt + (20.5pt*position),
+    polygon(
+      fill: gray.lighten(70%),
+      stroke: none,
+      (-2.3pt, 15.7pt),
+      (-2.3pt, 2.3pt),
+      (0pt, 0pt),
+      (28.65pt, 0pt),
+      (28.65pt, 13.4pt),
+      (26.35pt, 15.7pt)
+    )
+  )
+  place(
+    center,
+    dx: -1.5pt,
+    dy: 395pt + (20.5pt*position),
+    { // add + sign if non-negative number
+      if type(atk-bonus) == int and atk-bonus >= 0 {
+        text([+#atk-bonus], size: 12pt)
+      } else { text([#atk-bonus], size: 12pt) }
+    }
+  )
+  place(
+    top + left,
+    dx: 329.45pt,
+    dy: 392.2pt + (20.5pt*position),
+    polygon(
+      fill: gray.lighten(70%),
+      stroke: none,
+      (-2.3pt, 15.7pt),
+      (-2.3pt, 2.3pt),
+      (0pt, 0pt),
+      (59.6pt, 0pt),
+      (59.6pt, 13.4pt),
+      (57.3pt, 15.7pt)
+    )
+  )
+  if type(damage) == str {
+    place(
+      top + left,
+      dx: 330pt,
+      dy: 396.5pt + (20.5pt*position),
+      text(damage, size: 10pt)
+    )
+  } else {
+    place(
+      top + left,
+      dx: 330pt,
+      dy: 396.5pt + (20.5pt*position),
+      {text(damage.at(0), size: 10pt)
+      { // add + sign if non-negative number
+        if type(damage.at(1)) == int and damage.at(1) >= 0 { text([+#damage.at(1) ], size: 10pt)
+        } else { text([#damage.at(1) ], size: 10pt)}
+      }
+      text(damage.at(2), size: 10pt)}
+    )
+  }
+}
+
 // Generate character page
 #let character-sheet(
   name: "", // name of the character
@@ -324,6 +414,9 @@
   hitdice-type: none,
   deathsave-s: 0,
   deathsave-f: 0,
+
+/* * * ATTACKS & SPELLCASTING * * */
+  weapons: (),
 ) = {
 /* * * HEADER * * */
 print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
@@ -470,6 +563,38 @@ for i in range(deathsave-f) {
     circle(radius: 3.5pt, fill: black)
   )
 }
+
+  /* * * ATTACKS & SPELLCASTING * * */
+  let weaponnr = 0
+  for weapon in weapons {
+    if type(weapon.at(2)) != str {
+      if type(weapon.at(1)) == int {
+        weapon.at(2) = (weapon.at(2).at(0),weapon.at(1),weapon.at(2).at(1))
+      } else if weapon.at(1) == "sp" or weapon.at(1) == "s" {
+        weapon.at(2) = (weapon.at(2).at(0),strmod,weapon.at(2).at(1))
+      } else if weapon.at(1) == "dp" or weapon.at(1) == "d" {
+        weapon.at(2) = (weapon.at(2).at(0),dexmod,weapon.at(2).at(1))
+      } else {
+        atk = ""
+      }
+    }
+    let atk
+    if type(weapon.at(1)) == int {
+      atk = weapon.at(1)
+    } else if weapon.at(1) == "sp" {
+      atk = strmod + prof_bonus
+    } else if weapon.at(1) == "dp" {
+      atk = dexmod + prof_bonus
+    } else if weapon.at(1) == "s" {
+      atk = strmod
+    } else if weapon.at(1) == "d" {
+      atk = dexmod
+    } else {
+      atk = weapon.at(1)
+    }
+    add_weapon(weapon.at(0),atk,weapon.at(2), weaponnr)
+    weaponnr += 1
+  }
 }
 
 

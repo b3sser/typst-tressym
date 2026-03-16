@@ -52,6 +52,23 @@
   hitdice-type: "d6",
   deathsave-s: 0, // successes; default = 0
   deathsave-f: 0, // failures; default = 0
+
+  /* * * ATTACKS & SPELLCASTING * * */
+  /*
+  + You may add as many weapons as the paper fits.
+  + Field 1: Name (string)
+  + Field 2: Attack Bonus; can be either a number
+    OR "sp", "dp", "s" or "d" to indicate whether to use Strength or Dexterity and whether you are proficient in this weapon. This way the numbers update automatically on level up.
+  + Field 3: Damage; can be either a freeform text
+    OR an array of form (dice, type), e.g. ("1d4", "slash")
+    -> the latter only works in combo with the "sp", etc. from above
+  */
+  weapons: (
+  ("Mace", "sp", ("1d6", "slash.")),
+  ("Shortbow", 3, "1d6+1 pierc." ),
+  ("Longbow", "d", "1d8+1 pierc."),
+  ("Dagger", "dp", ("1d4", "pierc.")),
+  )
 )
 
 #import "../characters/testpoints.typ": *
