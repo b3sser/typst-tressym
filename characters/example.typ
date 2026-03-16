@@ -3,6 +3,7 @@
 #show: it => character-sheet(
   name: "Person MacPersonface",
   language: "en",
+  printer-mono: false, // true for black outlines, false for colored
   it
 )
 

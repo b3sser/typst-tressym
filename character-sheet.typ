@@ -223,17 +223,18 @@
 // Generate character page
 #let character-sheet(
   name: "", // name of the character
-  paper-format: "letter", // supports a4 and letter, this will only have minor effect
   language: "en", // currently this only changes built-in typst localization, not the template-text
+  printer-mono: false, // whether colored or monochrome background is used
   body
 ) = {
   set text(lang: language, size:14pt, font: body-font)
-
-  if paper-format == "letter" {
+  set page(
+    paper: "us-letter",
+    margin: (x: 0%, y: 0%, top: 0%, bottom: 0%)
+  )
+  if printer-mono {
     set page(
-      paper: "us-letter",
-      margin: (x: 0%, y: 0%, top: 0%, bottom: 0%),
-      background: image("page-1.svg", width: 100%)
+      background: image("page-1-mono.svg", width: 100%)
     )
     place(
       top + left,
@@ -242,11 +243,15 @@
       text(name, size: 20pt)
     )
     body
-  } else if paper-format == "a4" {
+  } else {
     set page(
-      paper: "a4", 
-      margin: (left: 0%, right: 0%, top: 0%, bottom: 0%),
-      background: image("page-1.svg", width: 100%)
+      background: image("page-1-col.svg", width: 100%)
+    )
+    place(
+      top + left,
+      dx: 52pt,
+      dy: 65pt,
+      text(name, size: 20pt)
     )
     body
   }
