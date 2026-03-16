@@ -41,6 +41,17 @@
   nature: true,
   persuasion: true,
   sleight_of_hand: true,
+
+/* * * HEALTH * * */
+// "default" indicates what value this will be set to if the line is deleted in this file
+  armorclass: 14, // default = 10+Dex (i.e. not wearing armor)
+  initiative: 0, // default = Dex mod
+  speed: 30, //default = 30ft
+  hp-max: 40, // hp-current and hp-temp are available as well
+  hitdice-total: 5, // default = Level
+  hitdice-type: "d6",
+  deathsave-s: 0, // successes; default = 0
+  deathsave-f: 0, // failures; default = 0
 )
 
 #import "../characters/testpoints.typ": *

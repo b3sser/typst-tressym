@@ -312,6 +312,18 @@
   sleight_of_hand: false,
   stealth: false,
   survival: false,
+
+/* * * HEALTH * * */
+  armorclass: none,
+  initiative: none,
+  speed: 30,
+  hp-max: 0,
+  hp-current: none,
+  hp-temp: none,
+  hitdice-total: none,
+  hitdice-type: none,
+  deathsave-s: 0,
+  deathsave-f: 0,
 ) = {
 /* * * HEADER * * */
 print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
@@ -367,6 +379,97 @@ place(
   dy: 592.5pt,
   text([#passive_perception], size: 17pt)
 )
+
+/* * * HEALTH * * */
+if armorclass == none {
+  armorclass = 10 + dexmod
+}
+place(
+  center,
+  dx: -58pt,
+  dy: 146pt,
+  text([#armorclass], size: 21pt)
+)
+
+if initiative == none {
+  initiative = dexmod
+}
+place(
+  center,
+  dx: -4pt,
+  dy: 146pt,
+  {
+    // add + sign if non-negative number
+    if initiative >= 0 {
+      text([+#initiative], size: 26pt)
+    } else {
+      text([#initiative], size: 26pt)
+    }
+  }
+)
+
+place(
+  center,
+  dx: 56.5pt,
+  dy: 148pt,
+  {text([#speed], size: 22pt)
+  text([ft], size: 17pt)}
+)
+
+place(
+  center,
+  dx: -2pt,
+  dy: 196pt,
+  text([#hp-max], size: 14pt)
+)
+if hp-current != none {
+  place(
+    center,
+    dx: -5pt,
+    dy: 221.5pt,
+    text([#hp-current], size: 14pt)
+  )
+}
+if hp-temp != none {
+  place(
+    center,
+    dx: -5pt,
+    dy: 274pt,
+    text([#hp-temp], size: 14pt)
+  )
+}
+if hitdice-total == none {
+  hitdice-total = level
+}
+place(
+  center,
+  dx: -43pt,
+  dy: 319pt,
+  text([#hitdice-total], size: 10pt)
+)
+place(
+  center,
+  dx: -43pt,
+  dy: 337pt,
+  text([#hitdice-type], size: 18pt)
+)
+
+for i in range(deathsave-s) {
+  place(
+    center,
+    dx: 44.5pt + (12.85pt*i),
+    dy: 323.3pt,
+    circle(radius: 3.5pt, fill: black)
+  )
+}
+for i in range(deathsave-f) {
+  place(
+    center,
+    dx: 44.5pt + (12.85pt*i),
+    dy: 338.3pt,
+    circle(radius: 3.5pt, fill: black)
+  )
+}
 }
 
 
