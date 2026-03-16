@@ -19,6 +19,7 @@
   xp-type: "xp", // supports: xp, milestone, none (if none, space will be used by other fields)
 
 /* * * STATS * * */
+// The sheet is currently big-number-big-field. A switch to put the modifiers in big fields and stats in small fields is a planned future feature.
   stren: 10,
   dex: 10,
   con: 10,

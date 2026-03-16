@@ -9,6 +9,7 @@ TBD
 #### ToDo / Roadmap
 - Support for A4-Paper
 - Support for double proficiency (expertise, etc.), half-proficiency, etc.
+- Allow the user to easily switch whether modifiers or stats go in the big fields
 
 ### Examples:
 TBD
