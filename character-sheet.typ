@@ -265,25 +265,25 @@
   xp-type: "xp", // supports xp, milestone, none
 
 /* * * STATS * * */
-  stren: 10, // can't call this str, since str is string
-  dex: 10,
-  con: 10,
-  intel: 10, // can't call this int, since int is integer
-  wis: 10,
-  cha: 10,
-  strenmod: 0, 
+  strength: 10, // can't call this str, since str is string
+  dexterity: 10,
+  constitution: 10,
+  intelligence: 10, // can't call this int, since int is integer
+  wisdom: 10,
+  charisma: 10,
+  strmod: 0, 
   dexmod: 0,
   conmod: 0,
-  intelmod: 0,
+  intmod: 0,
   wismod: 0,
   chamod: 0,
   prof_bonus: 2,
 
 /* * * SAVES * * */
-  strensave: false,
+  strsave: false,
   dexsave: false,
   consave: false,
-  intelsave: false,
+  intsave: false,
   wissave: false,
   chasave: false,
 
@@ -312,17 +312,17 @@
 print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
 
 /* * * STATS * * */
-let stat_list = ( stren, dex, con, intel, wis, cha )
+let stat_list = ( strength, dexterity, constitution, intelligence, wisdom, charisma )
 print-base-stats(stat_list)
 
-strenmod = calculate_modifier(stat: stren) 
-dexmod = calculate_modifier(stat: dex)
-conmod = calculate_modifier(stat: con)
-intelmod = calculate_modifier(stat: intel)
-wismod = calculate_modifier(stat: wis)
-chamod = calculate_modifier(stat: cha)
+strmod = calculate_modifier(stat: strength) 
+dexmod = calculate_modifier(stat: dexterity)
+conmod = calculate_modifier(stat: constitution)
+intmod = calculate_modifier(stat: intelligence)
+wismod = calculate_modifier(stat: wisdom)
+chamod = calculate_modifier(stat: charisma)
 
-let statmod_list = ( strenmod, dexmod, conmod, intelmod, wismod, chamod )
+let statmod_list = ( strmod, dexmod, conmod, intmod, wismod, chamod )
 print-mod-stats(statmod_list)
 
 prof_bonus = calc_proficiency_bonus(lvl: level)
@@ -335,7 +335,7 @@ place(
 
 /* * * SAVES * * */
 // put all saves in an array
-let saves_list = ( strensave, dexsave, consave, intelsave, wissave, chasave )
+let saves_list = ( strsave, dexsave, consave, intsave, wissave, chasave )
 // iterate over save list with calculation and printing
 for i in range(6) {
   print-skill-mod(skill_prof: saves_list.at(i), stat: statmod_list.at(i), position: (i -8.6), prof_bonus: prof_bonus)
@@ -345,7 +345,7 @@ for i in range(6) {
 // put all skills in an array
 let skill_list = ( acrobatics,animal_handling,arcana,athletics,deception,history,insight,intimidation,investigation,medicine,nature,perception,performance,persuasion,religion,sleight_of_hand,stealth,survival )
 // hardcode which stat corresponds to which skill
-let skill_bases = ( dexmod,wismod,intelmod,strenmod,chamod,intelmod,wismod,chamod,intelmod,wismod,intelmod,wismod,chamod,chamod,intelmod,dexmod,dexmod,wismod )
+let skill_bases = ( dexmod,wismod,intmod,strmod,chamod,intmod,wismod,chamod,intmod,wismod,intmod,wismod,chamod,chamod,intmod,dexmod,dexmod,wismod )
 // iterate over skill list with calculation and printing
 for i in range(18) {
   print-skill-mod(skill_prof: skill_list.at(i), stat: skill_bases.at(i), position: i, prof_bonus: prof_bonus)

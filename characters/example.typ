@@ -20,12 +20,12 @@
 
 /* * * STATS * * */
 // The sheet is currently big-number-big-field. A switch to put the modifiers in big fields and stats in small fields is a planned future feature.
-  stren: 10,
-  dex: 10,
-  con: 10,
-  intel: 10,
-  wis: 10,
-  cha: 10,
+  strength: 12,
+  dexterity: 8,
+  constitution: 16,
+  intelligence: 12,
+  wisdom: 16,
+  charisma: 10,
 
 /* * * SAVES * * */
   // set all saving throws that your character is proficient in to true, all others can be left out to keep the file clean
