@@ -72,7 +72,26 @@
   ("Dagger", "dp", ("1d4", "pierc.")),
   ),
   // Freeform Text to display below weapons list
-  attacks_text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+  attacks_text: [
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  ],
+
+/* * * OTHER PROFICIENCIES & LANGUAGES * * */
+  prof_lang_text: [
+    #strong[Languages:] Common \
+    #strong[Armor:] light, medium, shields \
+    #strong[Weapons:] simple \
+    #strong[Tools:] Thieve's tools, Herbalism kit
+  ],
+
+/* * * EQUIPMENT * * */
+  equipment_text: [
+    Mace, Shortbow, Quiver (20 arrows) \
+    Waterskin, Mess Kit, 10 rations \
+    50ft Hempen Rope
+  ],
+  display_money: true, // true: display money boxes; false: no boxes; default: true
+  money: (4,11,"-",29,0) // cp, sp, ep, gp, pp
 )
 
 #import "../characters/testpoints.typ": *

@@ -420,6 +420,12 @@
 /* * * ATTACKS & SPELLCASTING * * */
   weapons: (),
   attacks_text: str,
+/* * * OTHER PROFICIENCIES & LANGUAGES * * */
+  prof_lang_text: str,
+/* * * EQUIPMENT * * */
+  equipment_text: str,
+  display_money: true,
+  money: (none,none,none,none,none),
 ) = {
 /* * * HEADER * * */
 print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
@@ -613,6 +619,39 @@ for i in range(deathsave-f) {
     block(width: 163pt,par(justify: true, leading:3.5pt, text(attacks_text, size: 10pt)))
   )
 
+/* * * OTHER PROFICIENCIES & LANGUAGES * * */
+  place(
+    top + left,
+    dx: 35.2pt,
+    dy: 629pt,
+    block(width: 163pt,par(justify: true, leading:5.5pt, text(prof_lang_text, size: 10pt)))
+  )
+
+/* * * EQUIPMENT * * */
+  let equip_x = 0pt
+  if display_money {
+    equip_x = 45pt
+    place(
+      top + left,
+      dx: 211.35pt,
+      dy: 596.45pt,
+      image("money-col.svg")
+    )
+    for i in range(5) {
+      place(
+        center,
+        dx: -62.5pt,
+        dy: 599.5pt + i*26.3pt,
+        text([#money.at(i)], size: 18pt)
+      )
+    }
+  }
+  place(
+    top + left,
+    dx: 223.5pt + equip_x,
+    dy: 595pt,
+    block(width: 163pt-equip_x,par(justify: true, leading:4.5pt, text(equipment_text, size: 10pt)))
+  )
 }
 
 
