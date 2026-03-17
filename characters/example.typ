@@ -1,5 +1,6 @@
 #import "../character-sheet.typ": *
 #import "../details-sheet.typ": *
+#import "../spell-sheet.typ": *
 
 #character-sheet(
 /* * * HEADER * * */
@@ -123,4 +124,8 @@
     #lorem(170)],
   treasure: [
     #lorem(130)],
+)
+
+#spell-sheet(
+  spell-rainbows: true, // Fun paper ruling
 )
