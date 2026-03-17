@@ -53,6 +53,8 @@
   deathsave-s: 0, // successes; default = 0
   deathsave-f: 0, // failures; default = 0
 
+  inspiration: "1d4", // number or string
+
   /* * * ATTACKS & SPELLCASTING * * */
   /*
   + You may add as many weapons as the paper fits.

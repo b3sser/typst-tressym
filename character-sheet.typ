@@ -403,7 +403,7 @@
   stealth: false,
   survival: false,
 
-/* * * HEALTH * * */
+/* * * HEALTH & MISC * * */
   armorclass: none,
   initiative: none,
   speed: 30,
@@ -414,6 +414,8 @@
   hitdice-type: none,
   deathsave-s: 0,
   deathsave-f: 0,
+
+  inspiration: none,
 
 /* * * ATTACKS & SPELLCASTING * * */
   weapons: (),
@@ -474,7 +476,7 @@ place(
   text([#passive_perception], size: 17pt)
 )
 
-/* * * HEALTH * * */
+  /* * * HEALTH & MISC * * */
 if armorclass == none {
   armorclass = 10 + dexmod
 }
@@ -564,6 +566,13 @@ for i in range(deathsave-f) {
     circle(radius: 3.5pt, fill: black)
   )
 }
+
+  place(
+    center,
+    dx: -198.5pt,
+    dy: 134.5pt,
+    text([#inspiration], size: 13pt)
+  )
 
   /* * * ATTACKS & SPELLCASTING * * */
   let weaponnr = 0
