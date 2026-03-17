@@ -1,10 +1,6 @@
 #import "../character-sheet.typ": *
 
 #character-sheet(
-/* * * PRINT SETTINGS * * */
-  language: "en",
-  printer-mono: false, // true for black outlines, false for colored
-
 /* * * HEADER * * */
   name: "Person MacPersonface",
   class: "Cleric", 

@@ -1,7 +1,5 @@
 #import "calculations.typ": *
-
-#let body-font = "Vollkorn" // Suggested: Vollkorn, Kalam
-
+#import "characters/settings.typ": *
 
 /* * * HEADER * * */
 #let print-header(
@@ -313,9 +311,6 @@
 
 // Generate character page
 #let character-sheet(
-  language: "en", // currently this only changes built-in typst localization, not the template-text
-  printer-mono: false, // whether colored or monochrome background is used
-
 /* * * HEADER * * */
   name: "", // name of the character
   class: "", 
