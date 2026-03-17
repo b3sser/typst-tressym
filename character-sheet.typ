@@ -312,43 +312,11 @@
 
 // Generate character page
 #let character-sheet(
-  name: "", // name of the character
   language: "en", // currently this only changes built-in typst localization, not the template-text
   printer-mono: false, // whether colored or monochrome background is used
-  body
-) = {
-  set text(lang: language, size:14pt, font: body-font)
-  set page(
-    paper: "us-letter",
-    margin: (x: 0%, y: 0%, top: 0%, bottom: 0%)
-  )
-  if printer-mono {
-    set page(
-      background: image("page-1-mono.svg", width: 100%)
-    )
-    place(
-      top + left,
-      dx: 52pt,
-      dy: 65pt,
-      text(name, size: 20pt)
-    )
-    body
-  } else {
-    set page(
-      background: image("page-1-col.svg", width: 100%)
-    )
-    place(
-      top + left,
-      dx: 52pt,
-      dy: 65pt,
-      text(name, size: 20pt)
-    )
-    body
-  }
-}
 
-#let character-stats(
 /* * * HEADER * * */
+  name: "", // name of the character
   class: "", 
   subclass: "a", // may be displayed differently based on xp-type
   level: 1, 
@@ -426,7 +394,23 @@
   equipment_text: str,
   display_money: true,
   money: (none,none,none,none,none),
+/* * * PERSONALITY * * */
+  personality_traits: str,
+  ideals: str,
+  bonds: str,
+  flaws: str,
+/* * * FEATURES & TRAITS * * */
+  features_traits: str,
+/* * * for rendering * * */
+  body: none
 ) = {
+  set text(lang: language, size:14pt, font: body-font)
+  set page(
+    paper: "us-letter",
+    margin: (x: 0%, y: 0%, top: 0%, bottom: 0%)
+  )
+  
+  body = {
 /* * * HEADER * * */
 print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
 
@@ -631,12 +615,21 @@ for i in range(deathsave-f) {
   let equip_x = 0pt
   if display_money {
     equip_x = 45pt
+    if printer-mono {
+      place(
+        top + left,
+        dx: 211.35pt,
+        dy: 596.45pt,
+        image("money-mono.svg")
+      )
+    } else {
     place(
       top + left,
       dx: 211.35pt,
       dy: 596.45pt,
       image("money-col.svg")
     )
+    }
     for i in range(5) {
       place(
         center,
@@ -652,6 +645,57 @@ for i in range(deathsave-f) {
     dy: 595pt,
     block(width: 163pt-equip_x,par(justify: true, leading:4.5pt, text(equipment_text, size: 10pt)))
   )
+
+  /* * * PERSONALITY * * */
+  place(
+    top + left,
+    dx: 418pt,
+    dy: 142pt,
+    block(width: 153pt,par(justify: true, leading:4.5pt, text(personality_traits, size: 9pt)))
+  )
+  let personality = (ideals, bonds, flaws)
+  for i in range(3) { 
+    place(
+      top + left,
+      dx: 418pt,
+      dy: 210.5pt + i*55.5pt,
+      block(width: 153pt,par(justify: true, leading:4.5pt, text(personality.at(i), size: 9pt)))
+    )
+  }
+
+  /* * * FEATURES & TRAITS * * */
+  place(
+    top + left,
+    dx: 412pt,
+    dy: 387pt,
+    block(width: 164pt,par(justify: true, leading:5pt, text(features_traits, size: 10pt)))
+  )
+  }
+
+  // Place Background and all info added to body above
+  if printer-mono {
+    set page(
+      background: image("page-1-mono.svg", width: 100%)
+    )
+    place(
+      top + left,
+      dx: 52pt,
+      dy: 65pt,
+      text(name, size: 20pt)
+    )
+    body
+  } else {
+    set page(
+      background: image("page-1-col.svg", width: 100%)
+    )
+    place(
+      top + left,
+      dx: 52pt,
+      dy: 65pt,
+      text(name, size: 20pt)
+    )
+    body
+  }
 }
 
 

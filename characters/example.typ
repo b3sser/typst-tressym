@@ -1,14 +1,12 @@
 #import "../character-sheet.typ": *
 
-#show: it => character-sheet(
-  name: "Person MacPersonface",
+#character-sheet(
+/* * * PRINT SETTINGS * * */
   language: "en",
   printer-mono: false, // true for black outlines, false for colored
-  it
-)
 
-#character-stats(
 /* * * HEADER * * */
+  name: "Person MacPersonface",
   class: "Cleric", 
   subclass: "Life",
   level: 3, 
@@ -91,8 +89,14 @@
     50ft Hempen Rope
   ],
   display_money: true, // true: display money boxes; false: no boxes; default: true
-  money: (4,11,"-",29,0) // cp, sp, ep, gp, pp
-)
+  money: (4,11,"-",29,0), // cp, sp, ep, gp, pp
 
-#import "../characters/testpoints.typ": *
-#testpoints()
+/* * * PERSONALITY * * */
+  personality_traits: [I take great pains to always look my best and follow the latest fashions.],
+  ideals: [#strong[Knowledge.] Knowledge is power, and knowing which horse to back is the key to success.],
+  bonds: [Growing up, I had an imaginary friend I could always count on. That friend is still with me. ],
+  flaws: [I don't know when to quit. Especially when everyone else is telling me to.],
+
+/* * * FEATURES & TRAITS * * */
+  features_traits: [Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.]
+)
