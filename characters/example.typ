@@ -20,19 +20,19 @@
 /* * * STATS * * */
   // The sheet is currently big-number-big-field. A switch to put the modifiers in big fields and stats in small fields is a planned future feature.
   strength: 12,
-  dexterity: 8,
+  dexterity: 12,
   constitution: 16,
   intelligence: 12,
   wisdom: 16,
-  charisma: 10,
+  charisma: 8,
 
 /* * * SAVES * * */
-  // set all saving throws that your character is proficient in to true, all others can be left out to keep the file clean
+  // set all saving throws that your character is proficient in to true
   consave: true,
   chasave: true,
 
 /* * * SKILLS * * */
-  // set all skills that your character is proficient in to true, all others can be left out to keep the file clean
+  // set all skills that your character is proficient in to true
   // half- and double-proficiencies are a planned future feature
   athletics: true,
   insight: true,
@@ -41,7 +41,7 @@
   sleight_of_hand: true,
 
 /* * * HEALTH * * */
-// "default" indicates what value this will be set to if the line is deleted in this file
+  // "default" indicates what value this will be set to if the line is deleted from this file
   armorclass: 14, // default = 10+Dex (i.e. not wearing armor)
   initiative: 0, // default = Dex mod
   speed: 30, //default = 30ft
@@ -51,9 +51,10 @@
   deathsave-s: 0, // successes; default = 0
   deathsave-f: 0, // failures; default = 0
 
+/* * * MISC * * */
   inspiration: "1d4", // number or string
 
-  /* * * ATTACKS & SPELLCASTING * * */
+/* * * ATTACKS & SPELLCASTING * * */
   /*
   + You may add as many weapons as the paper fits.
   + Field 1: Name (string)

@@ -179,6 +179,7 @@
       dx: -250pt,
       dy: pos_y,
       {
+        // add + sign if non-negative number
         if statmod_list.at(i) >= 0 {
           text([+#statmod_list.at(i)], size: 12pt)
         } else {
@@ -189,7 +190,7 @@
   }
 }
 
-/* * * SKILLS * * */
+/* * * SKILLS & SAVES* * */
 #let print-skill-mod( skill_prof: bool, stat: int, position: int, prof_bonus: int) = {
   let skill_mod = stat
   let pos_y = 319.9pt + (13.5pt*position)
@@ -198,11 +199,11 @@
     skill_mod = stat + prof_bonus
 
     place(
-    center,
-    dx: -201.7pt,
-    dy: pos_y+4pt,
-    circle(radius: 3pt, fill: black)
-  )
+      center,
+      dx: -201.7pt,
+      dy: pos_y+4pt,
+      circle(radius: 3pt, fill: black)
+    )
   }
   // calculate y coordinate based on position in list
   place(
@@ -371,7 +372,7 @@
   stealth: false,
   survival: false,
 
-/* * * HEALTH & MISC * * */
+/* * * HEALTH * * */
   armorclass: none,
   initiative: none,
   speed: 30,
@@ -383,6 +384,7 @@
   deathsave-s: 0,
   deathsave-f: 0,
 
+/* * * MISC * * */
   inspiration: none,
 
 /* * * ATTACKS & SPELLCASTING * * */
@@ -411,152 +413,153 @@
   )
   
   body = {
-/* * * HEADER * * */
-print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
+  /* * * HEADER * * */
+  print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
 
-/* * * STATS * * */
-let stat_list = ( strength, dexterity, constitution, intelligence, wisdom, charisma )
-print-base-stats(stat_list)
+  /* * * STATS * * */
+  let stat_list = ( strength, dexterity, constitution, intelligence, wisdom, charisma )
+  print-base-stats(stat_list)
 
-strmod = calculate_modifier(stat: strength) 
-dexmod = calculate_modifier(stat: dexterity)
-conmod = calculate_modifier(stat: constitution)
-intmod = calculate_modifier(stat: intelligence)
-wismod = calculate_modifier(stat: wisdom)
-chamod = calculate_modifier(stat: charisma)
+  strmod = calculate_modifier(stat: strength) 
+  dexmod = calculate_modifier(stat: dexterity)
+  conmod = calculate_modifier(stat: constitution)
+  intmod = calculate_modifier(stat: intelligence)
+  wismod = calculate_modifier(stat: wisdom)
+  chamod = calculate_modifier(stat: charisma)
 
-let statmod_list = ( strmod, dexmod, conmod, intmod, wismod, chamod )
-print-mod-stats(statmod_list)
+  let statmod_list = ( strmod, dexmod, conmod, intmod, wismod, chamod )
+  print-mod-stats(statmod_list)
 
-prof_bonus = calc_proficiency_bonus(lvl: level)
-place(
-  top + left,
-  dx: 97.5pt,
-  dy: 169.5pt,
-  text([+#prof_bonus], size: 18pt)
-)
+  prof_bonus = calc_proficiency_bonus(lvl: level)
+  place(
+    top + left,
+    dx: 97.5pt,
+    dy: 169.5pt,
+    text([+#prof_bonus], size: 18pt)
+  )
 
-/* * * SAVES * * */
-// put all saves in an array
-let saves_list = ( strsave, dexsave, consave, intsave, wissave, chasave )
-// iterate over save list with calculation and printing
-for i in range(6) {
-  print-skill-mod(skill_prof: saves_list.at(i), stat: statmod_list.at(i), position: (i -8.6), prof_bonus: prof_bonus)
-}
-
-/* * * SKILLS * * */
-// put all skills in an array
-let skill_list = ( acrobatics,animal_handling,arcana,athletics,deception,history,insight,intimidation,investigation,medicine,nature,perception,performance,persuasion,religion,sleight_of_hand,stealth,survival )
-// hardcode which stat corresponds to which skill
-let skill_bases = ( dexmod,wismod,intmod,strmod,chamod,intmod,wismod,chamod,intmod,wismod,intmod,wismod,chamod,chamod,intmod,dexmod,dexmod,wismod )
-// iterate over skill list with calculation and printing
-for i in range(18) {
-  print-skill-mod(skill_prof: skill_list.at(i), stat: skill_bases.at(i), position: i, prof_bonus: prof_bonus)
-}
-
-// Calculate and print passive perception
-let passive_perception = 10 + wismod
-if perception {
-  passive_perception = 10 + wismod + prof_bonus
-}
-place(
-  center,
-  dx: -264pt,
-  dy: 592.5pt,
-  text([#passive_perception], size: 17pt)
-)
-
-  /* * * HEALTH & MISC * * */
-if armorclass == none {
-  armorclass = 10 + dexmod
-}
-place(
-  center,
-  dx: -58pt,
-  dy: 146pt,
-  text([#armorclass], size: 21pt)
-)
-
-if initiative == none {
-  initiative = dexmod
-}
-place(
-  center,
-  dx: -4pt,
-  dy: 146pt,
-  {
-    // add + sign if non-negative number
-    if initiative >= 0 {
-      text([+#initiative], size: 26pt)
-    } else {
-      text([#initiative], size: 26pt)
-    }
+  /* * * SAVES * * */
+  // put all saves in an array
+  let saves_list = ( strsave, dexsave, consave, intsave, wissave, chasave )
+  // iterate over save list with calculation and printing
+  for i in range(6) {
+    print-skill-mod(skill_prof: saves_list.at(i), stat: statmod_list.at(i), position: (i -8.6), prof_bonus: prof_bonus)
   }
-)
 
-place(
-  center,
-  dx: 56.5pt,
-  dy: 148pt,
-  {text([#speed], size: 22pt)
-  text([ft], size: 17pt)}
-)
+  /* * * SKILLS * * */
+  // put all skills in an array
+  let skill_list = ( acrobatics,animal_handling,arcana,athletics,deception,history,insight,intimidation,investigation,medicine,nature,perception,performance,persuasion,religion,sleight_of_hand,stealth,survival )
+  // hardcode which stat corresponds to which skill
+  let skill_bases = ( dexmod,wismod,intmod,strmod,chamod,intmod,wismod,chamod,intmod,wismod,intmod,wismod,chamod,chamod,intmod,dexmod,dexmod,wismod )
+  // iterate over skill list with calculation and printing
+  for i in range(18) {
+    print-skill-mod(skill_prof: skill_list.at(i), stat: skill_bases.at(i), position: i, prof_bonus: prof_bonus)
+  }
 
-place(
-  center,
-  dx: -2pt,
-  dy: 196pt,
-  text([#hp-max], size: 14pt)
-)
-if hp-current != none {
+  // Calculate and print passive perception
+  let passive_perception = 10 + wismod
+  if perception {
+    passive_perception = 10 + wismod + prof_bonus
+  }
   place(
     center,
-    dx: -5pt,
-    dy: 221.5pt,
-    text([#hp-current], size: 14pt)
+    dx: -264pt,
+    dy: 592.5pt,
+    text([#passive_perception], size: 17pt)
   )
-}
-if hp-temp != none {
-  place(
-    center,
-    dx: -5pt,
-    dy: 274pt,
-    text([#hp-temp], size: 14pt)
-  )
-}
-if hitdice-total == none {
-  hitdice-total = level
-}
-place(
-  center,
-  dx: -43pt,
-  dy: 319pt,
-  text([#hitdice-total], size: 10pt)
-)
-place(
-  center,
-  dx: -43pt,
-  dy: 337pt,
-  text([#hitdice-type], size: 18pt)
-)
 
-for i in range(deathsave-s) {
+  /* * * HEALTH * * */
+  if armorclass == none {
+    armorclass = 10 + dexmod
+  }
   place(
     center,
-    dx: 44.5pt + (12.85pt*i),
-    dy: 323.3pt,
-    circle(radius: 3.5pt, fill: black)
+    dx: -58pt,
+    dy: 146pt,
+    text([#armorclass], size: 21pt)
   )
-}
-for i in range(deathsave-f) {
-  place(
-    center,
-    dx: 44.5pt + (12.85pt*i),
-    dy: 338.3pt,
-    circle(radius: 3.5pt, fill: black)
-  )
-}
 
+  if initiative == none {
+    initiative = dexmod
+  }
+  place(
+    center,
+    dx: -4pt,
+    dy: 146pt,
+    {
+      // add + sign if non-negative number
+      if initiative >= 0 {
+        text([+#initiative], size: 26pt)
+      } else {
+        text([#initiative], size: 26pt)
+      }
+    }
+  )
+
+  place(
+    center,
+    dx: 56.5pt,
+    dy: 148pt,
+    {text([#speed], size: 22pt)
+    text([ft], size: 17pt)}
+  )
+
+  place(
+    center,
+    dx: -2pt,
+    dy: 196pt,
+    text([#hp-max], size: 14pt)
+  )
+  if hp-current != none {
+    place(
+      center,
+      dx: -5pt,
+      dy: 221.5pt,
+      text([#hp-current], size: 14pt)
+    )
+  }
+  if hp-temp != none {
+    place(
+      center,
+      dx: -5pt,
+      dy: 274pt,
+      text([#hp-temp], size: 14pt)
+    )
+  }
+  if hitdice-total == none {
+    hitdice-total = level
+  }
+  place(
+    center,
+    dx: -43pt,
+    dy: 319pt,
+    text([#hitdice-total], size: 10pt)
+  )
+  place(
+    center,
+    dx: -43pt,
+    dy: 337pt,
+    text([#hitdice-type], size: 18pt)
+  )
+
+  for i in range(deathsave-s) {
+    place(
+      center,
+      dx: 44.5pt + (12.85pt*i),
+      dy: 323.3pt,
+      circle(radius: 3.5pt, fill: black)
+    )
+  }
+  for i in range(deathsave-f) {
+    place(
+      center,
+      dx: 44.5pt + (12.85pt*i),
+      dy: 338.3pt,
+      circle(radius: 3.5pt, fill: black)
+    )
+  }
+
+  /* * * MISC * * */
   place(
     center,
     dx: -198.5pt,
@@ -603,7 +606,7 @@ for i in range(deathsave-f) {
     block(width: 163pt,par(justify: true, leading:3.5pt, text(attacks_text, size: 10pt)))
   )
 
-/* * * OTHER PROFICIENCIES & LANGUAGES * * */
+  /* * * OTHER PROFICIENCIES & LANGUAGES * * */
   place(
     top + left,
     dx: 35.2pt,
@@ -611,7 +614,7 @@ for i in range(deathsave-f) {
     block(width: 163pt,par(justify: true, leading:5.5pt, text(prof_lang_text, size: 10pt)))
   )
 
-/* * * EQUIPMENT * * */
+  /* * * EQUIPMENT * * */
   let equip_x = 0pt
   if display_money {
     equip_x = 45pt
@@ -623,12 +626,12 @@ for i in range(deathsave-f) {
         image("money-mono.svg")
       )
     } else {
-    place(
-      top + left,
-      dx: 211.35pt,
-      dy: 596.45pt,
-      image("money-col.svg")
-    )
+      place(
+        top + left,
+        dx: 211.35pt,
+        dy: 596.45pt,
+        image("money-col.svg")
+      )
     }
     for i in range(5) {
       place(
