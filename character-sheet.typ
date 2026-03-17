@@ -677,7 +677,7 @@
     )
     place(
       top + left,
-      dx: 52pt,
+      dx: 51pt,
       dy: 65pt,
       text(name, size: 20pt)
     )
@@ -688,7 +688,7 @@
     )
     place(
       top + left,
-      dx: 52pt,
+      dx: 51pt,
       dy: 65pt,
       text(name, size: 20pt)
     )
