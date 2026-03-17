@@ -1,4 +1,5 @@
 #import "../character-sheet.typ": *
+#import "../details-sheet.typ": *
 
 #character-sheet(
 /* * * HEADER * * */
@@ -96,4 +97,30 @@
 
 /* * * FEATURES & TRAITS * * */
   features_traits: [Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.]
+)
+
+#details-sheet(
+  // Everything for this page is a string.
+  // Use "" or [] as you like, [] will be needed for things like #strong to work
+/* * * HEADER * * */
+  name: "Person MacPersonface", // Yes, you have to enter it again, sorry
+  age: "24 years",
+  height: [6'9½" (207cm)],
+  weight: "258lbs (117kg)",
+  eyes: "golden",
+  skin: "blue",
+  hair: "long wavy white",
+/* * * IMAGES * * */
+  appearance: "/characters/img/person.png",
+  symbol: "/characters/img/symbol.png",
+  symbol-name: "Symbol of the Direction Club",
+/* * * TEXT FIELDS * * */
+  backstory: [
+    #lorem(164)],
+  allies_organizations: [
+    #lorem(100)],
+  additional_features_traits: [
+    #lorem(170)],
+  treasure: [
+    #lorem(130)],
 )
