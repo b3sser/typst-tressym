@@ -417,6 +417,7 @@
 
 /* * * ATTACKS & SPELLCASTING * * */
   weapons: (),
+  attacks_text: str,
 ) = {
 /* * * HEADER * * */
 print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
@@ -595,6 +596,14 @@ for i in range(deathsave-f) {
     add_weapon(weapon.at(0),atk,weapon.at(2), weaponnr)
     weaponnr += 1
   }
+  // Display Attacks & Spellcasting Text below Weapons Table
+  place(
+    top + left,
+    dx: 224pt,
+    dy: 396pt + (20.5pt*weaponnr),
+    block(width: 163pt,par(justify: true, leading:3.5pt, text(attacks_text, size: 10pt)))
+  )
+
 }
 
 

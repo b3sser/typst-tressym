@@ -68,7 +68,9 @@
   ("Shortbow", 3, "1d6+1 pierc." ),
   ("Longbow", "d", "1d8+1 pierc."),
   ("Dagger", "dp", ("1d4", "pierc.")),
-  )
+  ),
+  // Freeform Text to display below weapons list
+  attacks_text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
 )
 
 #import "../characters/testpoints.typ": *
