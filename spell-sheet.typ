@@ -1,4 +1,4 @@
-#import "characters/settings.typ": *
+#import "settings.typ": *
 
 #let spell-sheet(
 /* * * HEADER * * */
