@@ -1,4 +1,4 @@
-#import "settings.typ": *
+#import "characters/settings.typ": *
 
 #let details-sheet(
 /* * * HEADER * * */
