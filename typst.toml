@@ -12,4 +12,4 @@ keywords = ["roleplaying", "dnd", "dungeons-dragons", "rpg", "template", "gaming
 
 [template]
 path = "characters"
-entrypoint = "example.typ"
+entrypoint = "empty.typ"

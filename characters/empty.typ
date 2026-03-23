@@ -1,4 +1,4 @@
-#import "../tressym.typ": *
+#import "@local/tressym-dnd:0.1.0": *
 
 #character-sheet(
   /* * * HEADER * * */
