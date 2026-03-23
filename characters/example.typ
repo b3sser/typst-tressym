@@ -127,5 +127,31 @@
 )
 
 #spell-sheet(
-  spell-rainbows: true, // Fun paper ruling
+/* * * HEADER * * */
+  spellcasting-class: "Magician",
+  spellcasting-ability: "Charisma",
+  spell-save-dc: 18, // String or Int
+  spell-attack-bonus: "+3", // String or Int, Int automatically adds "+"
+
+/* * * SPELLS * * */
+  /* In the () for the appropiate level, place a list of spells.
+  The spell list for each level is sized automatically.
+  If you'd like a line with no text to be printed, add "",
+  When you leave a () empty or delete the line, no header for that spell level will be printed. */ 
+  cantrips: ("Dancing Lights", "Shillelagh", "Vicious Mockery"),
+  lvl1_spells: ("Absorb Elements", "Aid", "Alarm", "Animal Friendship", "Animal Messenger", "Barkskin", "Beast Bond", "Beast Sense", "Commune with Nature", "Conjure Animals", "Conjure Barrage", "Conjure Volley", "Conjure Woodland Beings", "Cordon of Arrows", "Cure Wounds", "Darkvision", "Daylight", "Detect Magic", "Detect Poison and Disease"),
+  lvl2_spells: ("Dominate Beast", "Elemental Weapon", "Enhance Ability", "Ensnaring Strike", "Entangle", "Find Traps", "Flame Arrows", "Fog Cloud", "Freedom of Movement", "Goodberry", "Grasping Vine", "Greater Restoration", "Guardian of Nature", "Gust of Wind", "Hail of Thorns", "Healing Spirit", "Hunter's Mark", "Jump", "Lesser Restoration"),
+  lvl3_spells: ("Lightning Arrow", "Locate Animals or Plants", "Locate Creature", "Locate Object", "Longstrider", "Magic Weapon", "Meld into Stone", "Nondetection", "Pass without Trace", "Plant Growth", "Protection from Energy", "Protection from Poison", "Revivify", "Searing Smite", "Silence", "Snare"),
+  lvl4_spells: ("Speak with Animals", "Speak with Plants", "Spike Growth", "Steel Wind Strike", "Stoneskin", "Summon Beast", "Summon Elemental", "Summon Fey"),
+  lvl5_spells: ("Swift Quiver", "Tree Stride", "Water Breathing", "Water Walk", "Wind Wall", "Wrath of Nature", "Zephyr Strike"),
+  lvl6_spells: ("Tasha's Otherworldly Guys", "Otto's Irresistible Dance"),
+  lvl7_spells: ("Mordenkainens Funny Hideout", "Reverse Gravy"),
+  lvl8_spells: ("Abi-Dalzim's Horrid Quilting", "Glibness"),
+  lvl9_spells: ("Glade of Disaster", "Power Word Feel", "Weird"),
+
+  /* * * SPELL SLOTS * * */
+  // enter the number of total/expended slots in order of spell level, adding a 0 to skip a level
+  slots-total: (4,3,3,3,3,2,2,1,1),
+  slots-expended: (1,2,3,0,0,1)
+  // Troubleshooting: Please note that if you want to add slot numbers for level 1 only, you still need to add a , after your number, else it will not work.
 )
