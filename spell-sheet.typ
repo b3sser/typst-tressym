@@ -2,6 +2,10 @@
 
 #let spell-sheet(
 /* * * HEADER * * */
+  spellcasting-class: none,
+  spellcasting-ability: none,
+  spell-save-dc: none,
+  spell-attack-bonus: none,
   
 /* * * SPELLS * * */
   spell-rainbows: false, // changes the paper rules to rainbow gradients
@@ -19,7 +23,29 @@
 
   body = {
   /* * * HEADER * * */
-  set text(size:13pt)
+  set text(size:23pt)
+  place(
+    top + center,
+    dx: 10.2pt,
+    dy: 63pt,
+    text(spellcasting-ability, size:15pt)
+  )
+  place(
+    top + center,
+    dx: 111pt,
+    dy: 60pt,
+    [#spell-save-dc]
+  )
+  place(
+    top + center,
+    dx: 214.6pt,
+    dy: 60pt,
+    if type(spell-attack-bonus) == int {
+      "+" + [#spell-attack-bonus]
+    } else { 
+      [#spell-attack-bonus]
+    }
+  )
 
   /* * * SPELLS * * */
   let svg-color
