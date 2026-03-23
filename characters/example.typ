@@ -1,6 +1,4 @@
-#import "../character-sheet.typ": *
-#import "../details-sheet.typ": *
-#import "../spell-sheet.typ": *
+#import "../tressym.typ": *
 
 #character-sheet(
 /* * * HEADER * * */
@@ -155,3 +153,8 @@
   slots-expended: (1,2,3,0,0,1)
   // Troubleshooting: Please note that if you want to add slot numbers for level 1 only, you still need to add a , after your number, else it will not work.
 )
+
+= Notes
+Wanna keep your notes here?
+== Test 
+= Test

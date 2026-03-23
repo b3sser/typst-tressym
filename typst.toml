@@ -1,7 +1,7 @@
 [package]
 name = "tressym-dnd"
 version = "0.1.0"
-entrypoint = "character-sheet.typ"
+entrypoint = "tressym.typ"
 authors = ["Bettina Esser <@b3sser>"]
 license = "MIT-0"
 description = "Render Character Sheets for DnD 5e, with auto-calculated stats."
