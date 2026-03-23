@@ -340,7 +340,7 @@
 /* * * HEADER * * */
   name: "", // name of the character
   class: "", 
-  subclass: "a", // may be displayed differently based on xp-type
+  subclass: "", // may be displayed differently based on xp-type
   level: 1, 
   background: "",
   player: "", // name of the player
