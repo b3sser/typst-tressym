@@ -8,6 +8,7 @@ description = "Render Character Sheets for DnD 5e, with auto-calculated stats."
 repository = "https://github.com/b3sser/typst-tressym"
 categories = ["layout", "fun"]
 keywords = ["roleplaying", "dnd", "dungeons-dragons", "rpg", "template", "gaming", "character-sheet", "d&d", "dungeons-and-dragons", "ttrpg", "tabletop", "dungeons", "dragons", "game"]
+exclude = ["example.png"]
 
 
 [template]
