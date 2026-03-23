@@ -15,7 +15,7 @@
   else {return code}
 }
 
-#let alignment-long(stat: int)  = {
+#let calculate-modifier(stat: int)  = {
   return calc.floor((stat -10)/2)
 }
 
@@ -441,12 +441,12 @@
   let stat-list = ( strength, dexterity, constitution, intelligence, wisdom, charisma )
   print-base-stats(stat-list)
 
-  strmod = alignment-long(stat: strength) 
-  dexmod = alignment-long(stat: dexterity)
-  conmod = alignment-long(stat: constitution)
-  intmod = alignment-long(stat: intelligence)
-  wismod = alignment-long(stat: wisdom)
-  chamod = alignment-long(stat: charisma)
+  strmod = calculate-modifier(stat: strength) 
+  dexmod = calculate-modifier(stat: dexterity)
+  conmod = calculate-modifier(stat: constitution)
+  intmod = calculate-modifier(stat: intelligence)
+  wismod = calculate-modifier(stat: wisdom)
+  chamod = calculate-modifier(stat: charisma)
 
   let statmod-list = ( strmod, dexmod, conmod, intmod, wismod, chamod )
   print-mod-stats(statmod-list)
