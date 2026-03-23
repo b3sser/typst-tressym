@@ -73,7 +73,7 @@
       top + left,
       dx: 36pt,
       dy: 131.4pt,
-      image(appearance, width:162pt,height:220pt, fit: "contain")
+      appearance
     )
   }
   if symbol != none {
@@ -81,7 +81,7 @@
       top + left,
       dx: 422pt,
       dy: 163pt,
-      image(symbol, width:140.5pt,height:121pt, fit: "contain")
+      symbol
     )
   }
   place(

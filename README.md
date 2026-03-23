@@ -4,10 +4,10 @@
 ### Features
 - 3-page character sheet for 5th edition 2014 D&D
 - Character Sheet
-    - automatically calcualte proficiency bonus, stat modifiers, skill modifiers and more
+    - automatically calculate proficiency bonus, stat modifiers, skill modifiers and more
     - choose whether to display money fields
 - Character Details Sheet
-    - include images
+    - include images and fit them to the sheet boxes
     - multi-column boxes for text
 - Spell Sheet
     - automatically size sections for each spell level, allowing the user to add more spells than the static original sheet

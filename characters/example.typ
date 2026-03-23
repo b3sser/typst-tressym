@@ -110,8 +110,10 @@
   skin: "blue",
   hair: "long wavy white",
 /* * * IMAGES * * */
-  appearance: "/characters/img/person.png",
-  symbol: "/characters/img/symbol.png",
+  // Image paths are relative to this file
+  // If you leave the other options as they are, the image will be fitted to the boxes on the sheet without distortion
+  appearance: image("./img/person.png", width:162pt,height:220pt, fit: "contain"),
+  symbol: image("./img/symbol.png", width:140.5pt,height:121pt, fit: "contain"),
   symbol-name: "Symbol of the Direction Club",
 /* * * TEXT FIELDS * * */
   backstory: [
