@@ -104,7 +104,7 @@
       top + left,
       dx: spell-x-counter - 0.97pt,
       dy: spell-y-counter,
-      image("/spell-header-cantrips"+svg-color)
+      image("/outlines/spell-header-cantrips"+svg-color)
     )
     spell-y-counter += 37.12pt // size of header
     spell-y-counter += 9.68pt // space between header and first line
@@ -133,7 +133,7 @@
         top + left,
         dx: spell-x-counter - 10.2pt,
         dy: spell-y-counter,
-        image("/spell-divider.svg", width:190.4pt)
+        image("/outlines/spell-divider.svg", width:190.4pt)
       )
       spell-y-counter += 6.66pt // size of divider
       spell-y-counter += 1.55pt // space between divider and header
@@ -151,7 +151,7 @@
       top + left,
       dx: spell-x-counter - 4.6pt,
       dy: spell-y-counter,
-      image("/spell-header-lvl1"+svg-color)
+      image("/outlines/spell-header-lvl1"+svg-color)
     )
     slot-printer(1, spell-x-counter, spell-y-counter + 10.5pt)
     spell-y-counter += 47.89pt // size of header
@@ -187,7 +187,7 @@
         top + left,
         dx: spell-x-counter - 10.2pt,
         dy: spell-y-counter,
-        image("/spell-divider.svg", width:190.4pt)
+        image("/outlines/spell-divider.svg", width:190.4pt)
       )
       spell-y-counter += 6.66pt // size of divider
       spell-y-counter += 0.75pt // space between divider and header
@@ -205,7 +205,7 @@
       top + left,
       dx: spell-x-counter - 0.97pt,
       dy: spell-y-counter,
-      image("/spell-header"+svg-color)
+      image("/outlines/spell-header"+svg-color)
     )
     place(
       center,
@@ -248,7 +248,7 @@
         top + left,
         dx: spell-x-counter - 10.2pt,
         dy: spell-y-counter,
-        image("/spell-divider.svg", width:190.4pt)
+        image("/outlines/spell-divider.svg", width:190.4pt)
       )
       spell-y-counter += 6.66pt // size of divider
     } else {
@@ -265,7 +265,7 @@
       top + left,
       dx: spell-x-counter - 0.97pt,
       dy: spell-y-counter,
-      image("/spell-header"+svg-color)
+      image("/outlines/spell-header"+svg-color)
     )
     place(
       center,
@@ -308,7 +308,7 @@
         top + left,
         dx: spell-x-counter - 10.2pt,
         dy: spell-y-counter,
-        image("/spell-divider.svg", width:190.4pt)
+        image("/outlines/spell-divider.svg", width:190.4pt)
       )
       spell-y-counter += 6.66pt // size of divider
     } else {
@@ -325,7 +325,7 @@
       top + left,
       dx: spell-x-counter - 0.97pt,
       dy: spell-y-counter,
-      image("/spell-header"+svg-color)
+      image("/outlines/spell-header"+svg-color)
     )
     place(
       center,
@@ -368,7 +368,7 @@
         top + left,
         dx: spell-x-counter - 10.2pt,
         dy: spell-y-counter,
-        image("/spell-divider.svg", width:190.4pt)
+        image("/outlines/spell-divider.svg", width:190.4pt)
       )
       spell-y-counter += 6.66pt // size of divider
       spell-y-counter += 0.75pt // space between divider and header
@@ -386,7 +386,7 @@
       top + left,
       dx: spell-x-counter - 0.97pt,
       dy: spell-y-counter,
-      image("/spell-header"+svg-color)
+      image("/outlines/spell-header"+svg-color)
     )
     place(
       center,
@@ -429,7 +429,7 @@
         top + left,
         dx: spell-x-counter - 10.2pt,
         dy: spell-y-counter,
-        image("/spell-divider.svg", width:190.4pt)
+        image("/outlines/spell-divider.svg", width:190.4pt)
       )
       spell-y-counter += 6.66pt // size of divider
       spell-y-counter += 0.75pt // space between divider and header
@@ -447,7 +447,7 @@
       top + left,
       dx: spell-x-counter - 0.97pt,
       dy: spell-y-counter,
-      image("/spell-header"+svg-color)
+      image("/outlines/spell-header"+svg-color)
     )
     place(
       center,
@@ -490,7 +490,7 @@
         top + left,
         dx: spell-x-counter - 10.2pt,
         dy: spell-y-counter,
-        image("/spell-divider.svg", width:190.4pt)
+        image("/outlines/spell-divider.svg", width:190.4pt)
       )
       spell-y-counter += 6.66pt // size of divider
       spell-y-counter += 0.75pt // space between divider and header
@@ -508,7 +508,7 @@
       top + left,
       dx: spell-x-counter - 0.97pt,
       dy: spell-y-counter,
-      image("/spell-header"+svg-color)
+      image("/outlines/spell-header"+svg-color)
     )
     place(
       center,
@@ -551,7 +551,7 @@
         top + left,
         dx: spell-x-counter - 10.2pt,
         dy: spell-y-counter,
-        image("/spell-divider.svg", width:190.4pt)
+        image("/outlines/spell-divider.svg", width:190.4pt)
       )
       spell-y-counter += 6.66pt // size of divider
       spell-y-counter += 0.75pt // space between divider and header
@@ -569,7 +569,7 @@
       top + left,
       dx: spell-x-counter - 0.97pt,
       dy: spell-y-counter,
-      image("/spell-header"+svg-color)
+      image("/outlines/spell-header"+svg-color)
     )
     place(
       center,
@@ -612,7 +612,7 @@
         top + left,
         dx: spell-x-counter - 10.2pt,
         dy: spell-y-counter,
-        image("/spell-divider.svg", width:190.4pt)
+        image("/outlines/spell-divider.svg", width:190.4pt)
       )
       spell-y-counter += 6.66pt // size of divider
       spell-y-counter += 0.75pt // space between divider and header
@@ -630,7 +630,7 @@
       top + left,
       dx: spell-x-counter - 0.97pt,
       dy: spell-y-counter,
-      image("/spell-header"+svg-color)
+      image("/outlines/spell-header"+svg-color)
     )
     place(
       center,
@@ -673,7 +673,7 @@
         top + left,
         dx: spell-x-counter - 10.2pt,
         dy: spell-y-counter,
-        image("/spell-divider.svg", width:190.4pt)
+        image("/outlines/spell-divider.svg", width:190.4pt)
       )
       spell-y-counter += 6.66pt // size of divider
       spell-y-counter += 0.75pt // space between divider and header
@@ -686,7 +686,7 @@
   // Place Background and all info added to body above
   if printer-mono {
     set page(
-      background: image("page-3-mono.svg", width: 100%)
+      background: image("/outlines/page-3-mono.svg", width: 100%)
     )
     place(
       top + left,
@@ -697,7 +697,7 @@
     body
   } else {
     set page(
-      background: image("page-3-col.svg", width: 100%)
+      background: image("/outlines/page-3-col.svg", width: 100%)
     )
     place(
       top + left,

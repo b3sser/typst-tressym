@@ -645,14 +645,14 @@
         top + left,
         dx: 211.35pt,
         dy: 596.45pt,
-        image("money-mono.svg")
+        image("/outlines/money-mono.svg")
       )
     } else {
       place(
         top + left,
         dx: 211.35pt,
         dy: 596.45pt,
-        image("money-col.svg")
+        image("/outlines/money-col.svg")
       )
     }
     for i in range(5) {
@@ -700,7 +700,7 @@
   // Place Background and all info added to body above
   if printer-mono {
     set page(
-      background: image("page-1-mono.svg", width: 100%)
+      background: image("/outlines/page-1-mono.svg", width: 100%)
     )
     place(
       top + left,
@@ -711,7 +711,7 @@
     body
   } else {
     set page(
-      background: image("page-1-col.svg", width: 100%)
+      background: image("/outlines/page-1-col.svg", width: 100%)
     )
     place(
       top + left,

@@ -121,7 +121,7 @@
   // Place Background and all info added to body above
   if printer-mono {
     set page(
-      background: image("page-2-mono.svg", width: 100%)
+      background: image("/outlines/page-2-mono.svg", width: 100%)
     )
     place(
       top + left,
@@ -132,7 +132,7 @@
     body
   } else {
     set page(
-      background: image("page-2-col.svg", width: 100%)
+      background: image("/outlines/page-2-col.svg", width: 100%)
     )
     place(
       top + left,
