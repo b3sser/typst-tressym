@@ -2,7 +2,7 @@
 
 /* * * CALCULATIONS * * */
 // Format alignment code to long form
-#let alignment_long(code: str) = {
+#let alignment-long(code: str) = {
   if code == "LG" {return "Lawful Good"}
   else if code == "NG" {return "Neutral Good"}
   else if code == "CG" {return "Chaotic Good"}
@@ -15,11 +15,11 @@
   else {return code}
 }
 
-#let calculate_modifier(stat: int)  = {
+#let alignment-long(stat: int)  = {
   return calc.floor((stat -10)/2)
 }
 
-#let calc_proficiency_bonus(lvl: int) = {
+#let calc-proficiency-bonus(lvl: int) = {
   if lvl <= 4 { return 2 }
   else if 5 <= lvl and lvl <= 8 { return 3 }
   else if 9 <= lvl and lvl <= 12 { return 4 }
@@ -61,7 +61,7 @@
     top + left,
     dx: 381pt,
     dy: 77pt,
-    alignment_long(code: alignment)
+    alignment-long(code: alignment)
   )
   place(
     top + left,
@@ -176,7 +176,7 @@
 
 /* * * STATS * * */
 #let print-base-stats(
-  stat_list
+  stat-list
 ) = {
   let pos_y
   // calculate y coordinate based on position in list
@@ -186,13 +186,13 @@
       center,
       dx: -249pt,
       dy: pos_y,
-      text([#stat_list.at(i)], size: 26pt)
+      text([#stat-list.at(i)], size: 26pt)
     )
   }
 }
 
 #let print-mod-stats(
-  statmod_list
+  statmod-list
 ) = {
   let pos_y
   // calculate y coordinate based on position in list
@@ -204,10 +204,10 @@
       dy: pos_y,
       {
         // add + sign if non-negative number
-        if statmod_list.at(i) >= 0 {
-          text([+#statmod_list.at(i)], size: 12pt)
+        if statmod-list.at(i) >= 0 {
+          text([+#statmod-list.at(i)], size: 12pt)
         } else {
-          text([#statmod_list.at(i)], size: 12pt)
+          text([#statmod-list.at(i)], size: 12pt)
         }
       }
     )
@@ -215,12 +215,12 @@
 }
 
 /* * * SKILLS & SAVES* * */
-#let print-skill-mod( skill_prof: bool, stat: int, position: int, prof_bonus: int) = {
+#let print-skill-mod( skill-prof: bool, stat: int, position: int, prof-bonus: int) = {
   let skill_mod = stat
   let pos_y = 319.9pt + (13.5pt*position)
   // if proficient, add proficiency bonus and print dot
-  if skill_prof {
-    skill_mod = stat + prof_bonus
+  if skill-prof {
+    skill_mod = stat + prof-bonus
 
     place(
       center,
@@ -362,7 +362,7 @@
   intmod: 0,
   wismod: 0,
   chamod: 0,
-  prof_bonus: 2,
+  prof-bonus: 2,
 
 /* * * SAVES * * */
   strsave: false,
@@ -438,25 +438,25 @@
   print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
 
   /* * * STATS * * */
-  let stat_list = ( strength, dexterity, constitution, intelligence, wisdom, charisma )
-  print-base-stats(stat_list)
+  let stat-list = ( strength, dexterity, constitution, intelligence, wisdom, charisma )
+  print-base-stats(stat-list)
 
-  strmod = calculate_modifier(stat: strength) 
-  dexmod = calculate_modifier(stat: dexterity)
-  conmod = calculate_modifier(stat: constitution)
-  intmod = calculate_modifier(stat: intelligence)
-  wismod = calculate_modifier(stat: wisdom)
-  chamod = calculate_modifier(stat: charisma)
+  strmod = alignment-long(stat: strength) 
+  dexmod = alignment-long(stat: dexterity)
+  conmod = alignment-long(stat: constitution)
+  intmod = alignment-long(stat: intelligence)
+  wismod = alignment-long(stat: wisdom)
+  chamod = alignment-long(stat: charisma)
 
-  let statmod_list = ( strmod, dexmod, conmod, intmod, wismod, chamod )
-  print-mod-stats(statmod_list)
+  let statmod-list = ( strmod, dexmod, conmod, intmod, wismod, chamod )
+  print-mod-stats(statmod-list)
 
-  prof_bonus = calc_proficiency_bonus(lvl: level)
+  prof-bonus = calc-proficiency-bonus(lvl: level)
   place(
     top + left,
     dx: 97.5pt,
     dy: 169.5pt,
-    text([+#prof_bonus], size: 18pt)
+    text([+#prof-bonus], size: 18pt)
   )
 
   /* * * SAVES * * */
@@ -464,7 +464,7 @@
   let saves_list = ( strsave, dexsave, consave, intsave, wissave, chasave )
   // iterate over save list with calculation and printing
   for i in range(6) {
-    print-skill-mod(skill_prof: saves_list.at(i), stat: statmod_list.at(i), position: (i -8.6), prof_bonus: prof_bonus)
+    print-skill-mod(skill-prof: saves_list.at(i), stat: statmod-list.at(i), position: (i -8.6), prof-bonus: prof-bonus)
   }
 
   /* * * SKILLS * * */
@@ -474,13 +474,13 @@
   let skill_bases = ( dexmod,wismod,intmod,strmod,chamod,intmod,wismod,chamod,intmod,wismod,intmod,wismod,chamod,chamod,intmod,dexmod,dexmod,wismod )
   // iterate over skill list with calculation and printing
   for i in range(18) {
-    print-skill-mod(skill_prof: skill_list.at(i), stat: skill_bases.at(i), position: i, prof_bonus: prof_bonus)
+    print-skill-mod(skill-prof: skill_list.at(i), stat: skill_bases.at(i), position: i, prof-bonus: prof-bonus)
   }
 
   // Calculate and print passive perception
   let passive_perception = 10 + wismod
   if perception {
-    passive_perception = 10 + wismod + prof_bonus
+    passive_perception = 10 + wismod + prof-bonus
   }
   place(
     center,
@@ -606,9 +606,9 @@
     if type(weapon.at(1)) == int {
       atk = weapon.at(1)
     } else if weapon.at(1) == "sp" {
-      atk = strmod + prof_bonus
+      atk = strmod + prof-bonus
     } else if weapon.at(1) == "dp" {
-      atk = dexmod + prof_bonus
+      atk = dexmod + prof-bonus
     } else if weapon.at(1) == "s" {
       atk = strmod
     } else if weapon.at(1) == "d" {

@@ -22,7 +22,7 @@
 - 2024 Sheet (maybe)
 
 ### Example:
-![](example.png)
+![three pages of a finished character sheet for Person MacPersonface](example.png)
 
 ### Usage
 1. Make a copy of `example.typ` or `empty.typ` in `characters`.
