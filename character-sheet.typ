@@ -1,4 +1,5 @@
-#import "settings.typ": *
+#import "calculations.typ": *
+#import "characters/settings.typ": *
 
 /* * * CALCULATIONS * * */
 // Format alignment code to long form
