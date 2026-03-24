@@ -74,13 +74,13 @@
     place(
       top + left,
       dx: 270pt,
-      dy: 50pt,
+      dy: 51pt,
       [#class #h(10pt) #level]
     )
     place(
       top + left,
       dx: 381pt,
-      dy: 50pt,
+      dy: 51pt,
       [#subclass]
     )
     place(
@@ -92,7 +92,7 @@
     place(
       top + left,
       dx: 480pt,
-      dy: 50pt,
+      dy: 51pt,
       [#background]
     )
     place(
@@ -117,18 +117,18 @@
       place(
         top + left,
         dx: 270pt,
-        dy: 50pt,
+        dy: 51pt,
         if subclass == "" {
-          [#class #h(10pt) #level]
+          [#class #h(8pt) #level]
         } else {
-          [#class (#subclass) #h(10pt) #level]
+          [#class (#subclass) #level]
         }
       )
 
     place(
       top + left,
       dx: 381pt,
-      dy: 50pt,
+      dy: 51pt,
       [#background]
     )
     place(
@@ -140,7 +140,7 @@
     place(
       top + left,
       dx: 480pt,
-      dy: 50pt,
+      dy: 51pt,
       [#player]
     )
     place(
@@ -432,7 +432,7 @@
 /* * * for rendering * * */
   body: none
 ) = {
-  set text(lang: language, size:14pt, font: body-font)
+  set text(lang: language, size:13pt, font: body-font)
   set page(
     paper: "us-letter",
     margin: (x: 0%, y: 0%, top: 0%, bottom: 0%)
@@ -440,6 +440,7 @@
   
   body = {
   /* * * HEADER * * */
+  
   print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
 
   /* * * STATS * * */
