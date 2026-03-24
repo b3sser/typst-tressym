@@ -24,6 +24,20 @@
 ### Example:
 ![three pages of a finished character sheet for Person MacPersonface](example.png)
 
+### Installation
+**From Typst Universe** (recommended):
+```typst init @preview/tressym-dnd```
+
+**From Github:**
+- Clone the repo to your local typst package directory as explained [here](https://github.com/typst/packages/blob/main/README.md#local-packages)
+- Run `typst init @local/tressym-dnd`
+- Change `#import "@preview/tressym-dnd:0.1.0": *` to `#import "@local/tressym-dnd:0.1.0": *` at the beginning of your character file
+
+OR
+
+- Clone the repo to local directory of your choosing
+- Change `#import "@preview/tressym-dnd:0.1.0": *` to `#import "../tressym.typ": *` at the beginning of your character file
+
 ### Usage
 1. Edit `settings.typ` to your liking
 2. Make a copy of `example.typ` or `empty.typ`.
