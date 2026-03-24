@@ -114,12 +114,17 @@
       text([PLAYER NAME], size: 7pt, font: "Gillius ADF")
     )
   } else {
-    place(
-      top + left,
-      dx: 270pt,
-      dy: 50pt,
-      [#class (#subclass) #h(10pt) #level]
-    )
+      place(
+        top + left,
+        dx: 270pt,
+        dy: 50pt,
+        if subclass == "" {
+          [#class #h(10pt) #level]
+        } else {
+          [#class (#subclass) #h(10pt) #level]
+        }
+      )
+
     place(
       top + left,
       dx: 381pt,
