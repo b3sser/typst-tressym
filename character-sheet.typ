@@ -7,11 +7,11 @@
   else if code == "NG" {return "Neutral Good"}
   else if code == "CG" {return "Chaotic Good"}
   else if code == "LN" {return "Lawful Neutral"}
-  else if code == "NG" {return "True Neutral"}
-  else if code == "CG" {return "Chaotic Neutral"}
-  else if code == "LN" {return "Lawful Evil"}
-  else if code == "NG" {return "Neutral Evil"}
-  else if code == "CG" {return "Chaotic Evil"}
+  else if code == "NN" {return "True Neutral"}
+  else if code == "CN" {return "Chaotic Neutral"}
+  else if code == "LE" {return "Lawful Evil"}
+  else if code == "NE" {return "Neutral Evil"}
+  else if code == "CE" {return "Chaotic Evil"}
   else {return code}
 }
 
