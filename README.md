@@ -15,11 +15,13 @@
 - Choose between classic black outlines or decorative golden and brown outlines via `settings.typ`
 
 #### Planned Features / Roadmap
-- Support for double proficiency (expertise, etc.), half-proficiency, etc. (definitely in v0.2)
-- Allow the user to easily switch whether modifiers or stats go in the big fields (definitely in v0.2 or v0.3)
+- Support for double proficiency (expertise, etc.), half-proficiency, etc. (definitely in 0.2.0)
+- Allow the user to easily switch whether modifiers or stats go in the big fields (definitely in 0.2.0 or 0.3.0)
+- spell preparation circles fillable (0.1.1)
 - Alternate and Reduced Sheets
 - Support for A4-Paper (maybe)
 - 2024 Sheet (maybe)
+- pdf interactions (maybe)
 
 ### Example:
 ![three pages of a finished character sheet for Person MacPersonface](example.png)

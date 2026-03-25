@@ -1,5 +1,3 @@
-#import "characters/settings.typ": *
-
 #let spell-sheet(
 /* * * HEADER * * */
   spellcasting-class: none,
@@ -24,9 +22,15 @@
   slots-expended: list,
 
 /* * * for rendering * * */
+  settings: (
+    language: "en", // only changes built-in lang features, no changes are made to the sheet text
+    printer-mono: true, // true for black outlines, false for colored
+    spell-rainbows: true, // changes the paper rules to rainbow gradients
+    body-font: "Vollkorn"
+  ),
   body: none
 ) = {
-  set text(lang: language, size:14pt, font: body-font)
+  set text(lang: settings.at("language"), size:14pt, font: settings.at("body-font"))
   set page(
     paper: "us-letter",
     margin: (x: 0%, y: 0%, top: 0%, bottom: 0%)
@@ -63,7 +67,7 @@
 
   // Set string to append at the end of files names when getting graphics
   let svg-color
-  if printer-mono {
+  if settings.at("printer-mono") {
     svg-color = "-mono.svg"
   } else {
     svg-color = "-col.svg"
@@ -71,7 +75,7 @@
 
   // Set stroke to use for all spell underlines
   let spell-stroke = 0.4pt + black.lighten(40%)
-  if spell-rainbows {
+  if settings.at("spell-rainbows") {
     spell-stroke = 1pt + gradient.linear(..color.map.rainbow)
   }
 
@@ -684,7 +688,7 @@
 
   }
   // Place Background and all info added to body above
-  if printer-mono {
+  if settings.at("printer-mono") {
     set page(
       background: image("/outlines/page-3-mono.svg", width: 100%)
     )

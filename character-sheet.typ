@@ -1,5 +1,3 @@
-#import "characters/settings.typ": *
-
 /* * * CALCULATIONS * * */
 // Format alignment code to long form
 #let alignment-long(code: str) = {
@@ -430,9 +428,15 @@
 /* * * FEATURES & TRAITS * * */
   features_traits: str,
 /* * * for rendering * * */
+  settings: (
+    language: "en", // only changes built-in lang features, no changes are made to the sheet text
+    printer-mono: true, // true for black outlines, false for colored
+    spell-rainbows: true, // changes the paper rules to rainbow gradients
+    body-font: "Vollkorn"
+  ),
   body: none
 ) = {
-  set text(lang: language, size:13pt, font: body-font)
+  set text(lang: settings.at("language"), size:13pt, font: settings.at("body-font"))
   set page(
     paper: "us-letter",
     margin: (x: 0%, y: 0%, top: 0%, bottom: 0%)
@@ -644,7 +648,7 @@
   let equip_x = 0pt
   if display_money {
     equip_x = 45pt
-    if printer-mono {
+    if settings.at("printer-mono") {
       place(
         top + left,
         dx: 211.35pt,
@@ -702,7 +706,7 @@
   }
 
   // Place Background and all info added to body above
-  if printer-mono {
+  if settings.at("printer-mono") {
     set page(
       background: image("/outlines/page-1-mono.svg", width: 100%)
     )

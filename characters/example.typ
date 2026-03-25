@@ -1,4 +1,11 @@
 #import "@local/tressym-dnd:0.1.0": *
+/* * * SETTINGS * * */
+#let settings = (
+  language: "en", // only changes built-in lang features, no changes are made to the sheet text
+  printer-mono: true, // true for black outlines, false for colored
+  spell-rainbows: true, // changes the paper rules to rainbow gradients
+  body-font: "Vollkorn" // The spacing, leading, font sizes and placing in this template were optimized for Vollkorn font. You may of course experiment with different fonts if you like, a popular choice for character sheets is e.g. Kalam.
+)
 
 #character-sheet(
 /* * * HEADER * * */
