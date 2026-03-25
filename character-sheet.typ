@@ -274,9 +274,9 @@
   )
   place(
     top + left,
-    dx: 226pt,
+    dx: 224pt,
     dy: 396pt + (20.5pt*position),
-    text(name, size: 12pt)
+    text(name, size: 10pt)
   )
   place(
     top + left,
@@ -440,7 +440,6 @@
   
   body = {
   /* * * HEADER * * */
-  
   print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
 
   /* * * STATS * * */
