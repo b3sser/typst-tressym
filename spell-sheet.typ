@@ -43,7 +43,7 @@
     top + center,
     dx: 10.2pt,
     dy: 63pt,
-    text(spellcasting-ability, size:15pt)
+    text(spellcasting-ability, size:13pt)
   )
   place(
     top + center,
