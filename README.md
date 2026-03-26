@@ -41,9 +41,9 @@ OR
 - Change `#import "@preview/tressym-dnd:0.1.0": *` to `#import "../tressym.typ": *` at the beginning of your character file
 
 ### Usage
-1. Edit `settings.typ` to your liking
-2. Make a copy of `example.typ` or `empty.typ`.
+1. Make a copy of `example.typ` or `empty.typ`.
     This can have any filename you'd like.
+2. Edit the SETTINGS section to your liking
 3. Fill the fields with your characters data
     - You may delete code lines for fields you'd like to leave blank / on their default value.
     - The `example.typ` and `empty.typ` files includes info on how to use each field and what input it expects in comments.
