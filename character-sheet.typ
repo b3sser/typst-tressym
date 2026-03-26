@@ -530,8 +530,14 @@
     center,
     dx: 56.5pt,
     dy: 148pt,
-    {text([#speed], size: 22pt)
-    text([ft], size: 17pt)}
+    {
+      if type(speed) == int {
+        text([#speed], size: 22pt)
+        text([ft], size: 17pt)
+      } else {
+        text([#speed], size: 22pt)
+      }
+    }
   )
 
   place(
