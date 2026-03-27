@@ -33,35 +33,35 @@
 /* * * SAVES * * */
   // set all saving throws that your character is proficient in to true
   // you may delete any lines that are set to "false"
-  strsave: false,
-  dexsave: false,
-  consave: false,
-  intsave: false,
-  wissave: false,
-  chasave: false,
+  strsave: true,
+  dexsave: true,
+  consave: true,
+  intsave: true,
+  wissave: true,
+  chasave: true,
 
 /* * * SKILLS * * */
   // set all skills that your character is proficient in to true
   // you may delete any lines that are set to "false"
   // half- and double-proficiencies are a planned future feature
-  acrobatics: false,
-  animal_handling: false,
-  arcana: false,
-  athletics: false,
-  deception: false,
-  history: false,
-  insight: false,
-  intimidation: false,
-  investigation: false,
-  medicine: false,
-  nature: false,
-  perception: false,
-  performance: false,
-  persuasion: false,
-  religion: false,
-  sleight_of_hand: false,
-  stealth: false,
-  survival: false,
+  acrobatics: true,
+  animal_handling: true,
+  arcana: true,
+  athletics: true,
+  deception: true,
+  history: true,
+  insight: true,
+  intimidation: true,
+  investigation: true,
+  medicine: true,
+  nature: true,
+  perception: true,
+  performance: true,
+  persuasion: true,
+  religion: true,
+  sleight_of_hand: true,
+  stealth: true,
+  survival: true,
 
 /* * * HEALTH * * */
   // "default" indicates what value this will be set to if the line is deleted from this file
