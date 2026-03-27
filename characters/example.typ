@@ -2,12 +2,13 @@
 /* * * SETTINGS * * */
 #let settings = (
   language: "en", // only changes built-in lang features, no changes are made to the sheet text
-  printer-mono: true, // true for black outlines, false for colored
-  spell-rainbows: true, // changes the paper rules to rainbow gradients
+  printer-mono: false, // true for black outlines, false for colored
+  spell-rainbows: true, // changes the paper rules of the spell list to rainbow gradients
   body-font: "Vollkorn" // The spacing, leading, font sizes and placing in this template were optimized for Vollkorn font. You may of course experiment with different fonts if you like, a popular choice for character sheets is e.g. Kalam.
 )
 
 #character-sheet(
+  settings: settings,
 /* * * HEADER * * */
   name: "Person MacPersonface",
   class: "Cleric", 
@@ -106,6 +107,7 @@
 )
 
 #details-sheet(
+  settings: settings,
   // Everything for this page is a string.
   // Use "" or [] as you like, [] will be needed for things like #strong to work
 /* * * HEADER * * */
@@ -134,6 +136,7 @@
 )
 
 #spell-sheet(
+  settings: settings,
 /* * * HEADER * * */
   spellcasting-class: "Magician",
   spellcasting-ability: "Charisma",

@@ -19,8 +19,8 @@
 /* * * for rendering * * */
   settings: (
     language: "en", // only changes built-in lang features, no changes are made to the sheet text
-    printer-mono: true, // true for black outlines, false for colored
-    spell-rainbows: true, // changes the paper rules to rainbow gradients
+    printer-mono: false, // true for black outlines, false for colored
+    spell-rainbows: false, // changes the paper rules to rainbow gradients
     body-font: "Vollkorn"
   ),
   body: none
