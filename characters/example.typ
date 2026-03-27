@@ -95,6 +95,7 @@
   ],
   display_money: true, // true: display money boxes; false: no boxes; default: true
   money: (4,11,"-",29,0), // cp, sp, ep, gp, pp
+  big_equip: false, // Gives you a bigger equipment box with two columns, making the Features & Traits box smaller in exchange
 
 /* * * PERSONALITY * * */
   personality_traits: [I take great pains to always look my best and follow the latest fashions.],
@@ -103,7 +104,8 @@
   flaws: [I don't know when to quit. Especially when everyone else is telling me to.],
 
 /* * * FEATURES & TRAITS * * */
-  features_traits: [Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.]
+  features_traits: [
+    #lorem(80)]
 )
 
 #details-sheet(

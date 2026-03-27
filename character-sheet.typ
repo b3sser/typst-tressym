@@ -420,6 +420,7 @@
   equipment_text: str,
   display_money: true,
   money: (none,none,none,none,none),
+  big_equip: false,
 /* * * PERSONALITY * * */
   personality_traits: str,
   ideals: str,
@@ -682,7 +683,11 @@
     top + left,
     dx: 223.5pt + equip_x,
     dy: 595pt,
-    block(width: 163pt-equip_x,par(justify: true, leading:4.5pt, text(equipment_text, size: 10pt)))
+    if big_equip {
+      block(width: 352pt-equip_x, height: 167pt, columns(2, gutter: 8pt)[#par(justify: true, leading:4.8pt, text(equipment_text, size: 10pt))])
+    } else {
+      block(width: 163pt-equip_x,par(justify: true, leading:4.5pt, text(equipment_text, size: 10pt)))
+    }
   )
 
   /* * * PERSONALITY * * */
@@ -707,33 +712,59 @@
     top + left,
     dx: 412pt,
     dy: 387pt,
-    block(width: 164pt,par(justify: true, leading:5pt, text(features_traits, size: 10pt)))
+    block(width: 164pt,par(justify: true, leading:4.6pt, text(features_traits, size: 10pt)))
   )
   }
 
   // Place Background and all info added to body above
   if settings.at("printer-mono") {
-    set page(
-      background: image("/outlines/page-1-mono.svg", width: 100%)
-    )
-    place(
-      top + left,
-      dx: 51pt,
-      dy: 65pt,
-      text(name, size: 20pt)
-    )
-    body
+    if big_equip {
+      set page(
+        background: image("/outlines/page-1-mono-bigequip.svg", width: 100%)
+      )
+      place(
+        top + left,
+        dx: 51pt,
+        dy: 65pt,
+        text(name, size: 20pt)
+      )
+      body
+    } else {
+      set page(
+        background: image("/outlines/page-1-mono.svg", width: 100%)
+      )
+      place(
+        top + left,
+        dx: 51pt,
+        dy: 65pt,
+        text(name, size: 20pt)
+      )
+      body
+    }
   } else {
-    set page(
-      background: image("/outlines/page-1-col.svg", width: 100%)
-    )
-    place(
-      top + left,
-      dx: 51pt,
-      dy: 65pt,
-      text(name, size: 20pt)
-    )
-    body
+    if big_equip {
+      set page(
+        background: image("/outlines/page-1-col-bigequip.svg", width: 100%)
+      )
+      place(
+        top + left,
+        dx: 51pt,
+        dy: 65pt,
+        text(name, size: 20pt)
+      )
+      body
+    } else {
+      set page(
+        background: image("/outlines/page-1-col.svg", width: 100%)
+      )
+      place(
+        top + left,
+        dx: 51pt,
+        dy: 65pt,
+        text(name, size: 20pt)
+      )
+      body
+    }
   }
 }
 
