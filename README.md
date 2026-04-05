@@ -11,14 +11,13 @@
     - multi-column boxes for text
 - Spell Sheet
     - automatically size sections for each spell level, allowing the user to add more spells than the static original sheet
-    - enable `spell-rainbows` in `settings.typ` for added visual fun
-- Choose between classic black outlines or decorative golden and brown outlines via `settings.typ`
+- Various Customization Options (read below)
 
 #### Planned Features / Roadmap
-- Support for double proficiency (expertise, etc.), half-proficiency, etc. (definitely in 0.2.0)
-- Allow the user to easily switch whether modifiers or stats go in the big fields (definitely in 0.2.0 or 0.3.0)
-- spell preparation circles fillable (0.1.1)
-- Alternate and Reduced Sheets
+- Support for double proficiency (expertise, etc.), half-proficiency, etc. (planned for 0.2.0)
+- Allow the user to easily switch whether modifiers or stats go in the big fields (planned for 0.2.0 or 0.3.0)
+- spell preparation circles fillable (planned for 0.1.1)
+- Further Customization Options, Alternate or Reduced Sheets (gradually over multiple versions)
 - Support for A4-Paper (maybe)
 - 2024 Sheet (maybe)
 - pdf interactions (maybe)
@@ -48,7 +47,15 @@ OR
     - You may delete code lines for fields you'd like to leave blank / on their default value.
     - The `example.typ` and `empty.typ` files includes info on how to use each field and what input it expects in comments.
     - Each page has its own block. You can render only select pages by deleting one of the blocks from your file.
-4. Export to pdf
+4. Export to pdf (i.e. via tinymist or cmd)
+
+### Customization
+The template comes with various ways of altering a sheet, differing from the standard pdf character sheet. If you are unsure, just test each option in your preview.
+- **Mono / Col:** Pick between field outlines in standard black or in modern gold/brown
+- **Spell Rainbows:** Change the paper ruling of the spell sheet from black to rainbow gradients
+- **Money Display:** Show the standard boxes for each coin type or remove them, enlarging the space for Equipment text
+- **Big Equipment:** Shrink the FEATURES & TRAITS box to instead enlarge the EQUIPMENT box to a two-column one (compatible with money display)
+- **XP type:** Pick between "XP" and "MILESTONE" text in the header, or remove the XP field entirely (e.g. for a OneShot character), using the freed up space for an extra "SUBCLASS" field
 
 ### Contribute
 If you find bugs or have feature requests please submit an issue or pull request to [tressym's github repo](https://github.com/b3sser/typst-tressym).
