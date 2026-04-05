@@ -40,12 +40,12 @@ OR
 - Change `#import "@preview/tressym-dnd:0.1.0": *` to `#import "../tressym.typ": *` at the beginning of your character file
 
 ### Usage
-1. Make a copy of `example.typ` or `empty.typ`.
+1. Make a copy of `example.typ`, `empty.typ` or `empty-mini.typ`.
     This can have any filename you'd like.
 2. Edit the SETTINGS section to your liking
 3. Fill the fields with your characters data
     - You may delete code lines for fields you'd like to leave blank / on their default value.
-    - The `example.typ` and `empty.typ` files includes info on how to use each field and what input it expects in comments.
+    - The `example.typ` and `empty.typ` files includes info on how to use each field and what input it expects in comments ("reading the code explains the code"). If you are a pro and would like a more lightweight sheet, choose `empty-mini.typ` instead.
     - Each page has its own block. You can render only select pages by deleting one of the blocks from your file.
 4. Export to pdf (i.e. via tinymist or cmd)
 
