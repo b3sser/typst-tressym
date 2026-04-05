@@ -15,7 +15,6 @@
 
 #### Planned Features / Roadmap
 - Support for double proficiency (expertise, etc.), half-proficiency, etc. (planned for 0.2.X)
-- Allow the user to easily switch whether modifiers or stats go in the big fields (planned for 0.2.X)
 - Further Customization Options, Alternate or Reduced Sheets (gradually over multiple versions)
 - Option to overwrite any and all auto-calculated stats on the user end (planned for 0.2.X)
 - Support for A4-Paper (maybe)
@@ -56,6 +55,7 @@ The template comes with various ways of altering a sheet, differing from the sta
 - **Money Display:** Show the standard boxes for each coin type or remove them, enlarging the space for Equipment text
 - **Big Equipment:** Shrink the FEATURES & TRAITS box to instead enlarge the EQUIPMENT box to a two-column one (compatible with money display)
 - **XP type:** Pick between "XP" and "MILESTONE" text in the header, or remove the XP field entirely (e.g. for a OneShot character), using the freed up space for an extra "SUBCLASS" field
+- **Stat or Mod in Big Field?** `big-number-big-field` Choose whether Stats are printed in the big boxes and Modifiers in small ovals underneath, or the other way around
 
 ### Contribute
 If you find bugs or have feature requests please submit an issue or pull request to [tressym's github repo](https://github.com/b3sser/typst-tressym).

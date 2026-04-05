@@ -22,13 +22,15 @@
   xp-type: "xp", // supports: xp, milestone, none (if none, space will be used by other fields)
 
 /* * * STATS * * */
-  // The sheet is currently big-number-big-field. A switch to put the modifiers in big fields and stats in small fields is a planned future feature.
   strength: 10,
   dexterity: 10,
   constitution: 10,
   intelligence: 10,
   wisdom: 10,
   charisma: 10,
+
+  // true: Stat in big field; false: Modifier in big field
+  big-number-big-field: true,
 
 /* * * SAVES * * */
   // set all saving throws that your character is proficient in to true

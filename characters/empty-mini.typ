@@ -29,6 +29,8 @@
   wisdom: 10,
   charisma: 10,
 
+  big-number-big-field: true,
+
 /* * * SAVES * * */
   strsave: true,
   dexsave: true,

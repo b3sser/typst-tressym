@@ -17,6 +17,7 @@ The template comes with various ways of altering a sheet, differing from the sta
 - **Money Display:** `display-money` Show the standard boxes for each coin type or remove them, enlarging the space for Equipment text
 - **Big Equipment:** `big-equip` Shrink the FEATURES & TRAITS box to instead enlarge the EQUIPMENT box to a two-column one (compatible with money display)
 - **XP type:** `xp-type` Pick between "XP" and "MILESTONE" text in the header, or remove the XP field entirely (e.g. for a OneShot character), using the freed up space for an extra "SUBCLASS" field
+- **Stat or Mod in Big Field?** `big-number-big-field` Choose whether Stats are printed in the big boxes and Modifiers in small ovals underneath, or the other way around
 
 ## Contribute
 If you find bugs or have feature requests please submit an issue or pull request to [tressym's github repo](https://github.com/b3sser/typst-tressym).

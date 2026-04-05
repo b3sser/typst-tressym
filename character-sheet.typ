@@ -178,8 +178,9 @@
 }
 
 /* * * STATS * * */
-#let print-base-stats(
-  stat-list
+#let print-big-stats(
+  stat-list,
+  mod-yn
 ) = {
   let pos_y
   // calculate y coordinate based on position in list
@@ -189,13 +190,22 @@
       center,
       dx: -249pt,
       dy: pos_y,
-      text([#stat-list.at(i)], size: 26pt)
+      
+      {
+        // add + sign if non-negative number
+        if stat-list.at(i) >= 0 and mod-yn {
+          text([+#stat-list.at(i)], size: 26pt)
+        } else {
+          text([#stat-list.at(i)], size: 26pt)
+        }
+      }
     )
   }
 }
 
-#let print-mod-stats(
-  statmod-list
+#let print-small-stats(
+  stat-list,
+  mod-yn
 ) = {
   let pos_y
   // calculate y coordinate based on position in list
@@ -207,10 +217,10 @@
       dy: pos_y,
       {
         // add + sign if non-negative number
-        if statmod-list.at(i) >= 0 {
-          text([+#statmod-list.at(i)], size: 12pt)
+        if stat-list.at(i) >= 0 and mod-yn {
+          text([+#stat-list.at(i)], size: 12pt)
         } else {
-          text([#statmod-list.at(i)], size: 12pt)
+          text([#stat-list.at(i)], size: 12pt)
         }
       }
     )
@@ -366,6 +376,7 @@
   wismod: 0,
   chamod: 0,
   prof-bonus: 2,
+  big-number-big-field: true,
 
 /* * * SAVES * * */
   strsave: false,
@@ -449,7 +460,6 @@
 
   /* * * STATS * * */
   let stat-list = ( strength, dexterity, constitution, intelligence, wisdom, charisma )
-  print-base-stats(stat-list)
 
   strmod = calculate-modifier(stat: strength) 
   dexmod = calculate-modifier(stat: dexterity)
@@ -459,7 +469,14 @@
   chamod = calculate-modifier(stat: charisma)
 
   let statmod-list = ( strmod, dexmod, conmod, intmod, wismod, chamod )
-  print-mod-stats(statmod-list)
+
+  if big-number-big-field {
+    print-big-stats(stat-list, false)
+    print-small-stats(statmod-list, true)
+  } else {
+    print-big-stats(statmod-list, true)
+    print-small-stats(stat-list, false)
+  }
 
   prof-bonus = calc-proficiency-bonus(lvl: level)
   place(
