@@ -14,9 +14,10 @@
 - Various Customization Options (read below)
 
 #### Planned Features / Roadmap
-- Support for double proficiency (expertise, etc.), half-proficiency, etc. (planned for 0.2.0)
-- Allow the user to easily switch whether modifiers or stats go in the big fields (planned for 0.2.0 or 0.3.0)
+- Support for double proficiency (expertise, etc.), half-proficiency, etc. (planned for 0.2.X)
+- Allow the user to easily switch whether modifiers or stats go in the big fields (planned for 0.2.X)
 - Further Customization Options, Alternate or Reduced Sheets (gradually over multiple versions)
+- Option to overwrite any and all auto-calculated stats on the user end (planned for 0.2.X)
 - Support for A4-Paper (maybe)
 - 2024 Sheet (maybe)
 - pdf interactions (maybe)
