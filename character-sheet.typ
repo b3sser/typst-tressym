@@ -418,9 +418,9 @@
   prof_lang_text: str,
 /* * * EQUIPMENT * * */
   equipment_text: str,
-  display_money: true,
+  display-money: true,
   money: (none,none,none,none,none),
-  big_equip: false,
+  big-equip: false,
 /* * * PERSONALITY * * */
   personality_traits: str,
   ideals: str,
@@ -653,7 +653,7 @@
 
   /* * * EQUIPMENT * * */
   let equip_x = 0pt
-  if display_money {
+  if display-money {
     equip_x = 45pt
     if settings.at("printer-mono") {
       place(
@@ -683,7 +683,7 @@
     top + left,
     dx: 223.5pt + equip_x,
     dy: 595pt,
-    if big_equip {
+    if big-equip {
       block(width: 352pt-equip_x, height: 167pt, columns(2, gutter: 8pt)[#par(justify: true, leading:4.8pt, text(equipment_text, size: 10pt))])
     } else {
       block(width: 163pt-equip_x,par(justify: true, leading:4.5pt, text(equipment_text, size: 10pt)))
@@ -718,7 +718,7 @@
 
   // Place Background and all info added to body above
   if settings.at("printer-mono") {
-    if big_equip {
+    if big-equip {
       set page(
         background: image("/outlines/page-1-mono-bigequip.svg", width: 100%)
       )
@@ -742,7 +742,7 @@
       body
     }
   } else {
-    if big_equip {
+    if big-equip {
       set page(
         background: image("/outlines/page-1-col-bigequip.svg", width: 100%)
       )

@@ -93,9 +93,9 @@
     Waterskin, Mess Kit, 10 rations \
     50ft Hempen Rope
   ],
-  display_money: true, // true: display money boxes; false: no boxes; default: true
+  display-money: true, // true: display money boxes; false: no boxes; default: true
   money: (4,11,"-",29,0), // cp, sp, ep, gp, pp
-  big_equip: false, // Gives you a bigger equipment box with two columns, making the Features & Traits box smaller in exchange
+  big-equip: false, // Gives you a bigger equipment box with two columns, making the Features & Traits box smaller in exchange
 
 /* * * PERSONALITY * * */
   personality_traits: [I take great pains to always look my best and follow the latest fashions.],

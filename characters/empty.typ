@@ -106,9 +106,9 @@
 /* * * EQUIPMENT * * */
   equipment_text: [
   ],
-  display_money: true, // true: display money boxes; false: no boxes; default: true
+  display-money: true, // true: display money boxes; false: no boxes; default: true
   money: (0,0,"-",0,0), // cp, sp, ep, gp, pp
-  big_equip: true, // Gives you a bigger equipment box with two columns, making the Features & Traits box smaller in exchange
+  big-equip: true, // Gives you a bigger equipment box with two columns, making the Features & Traits box smaller in exchange
 
 /* * * PERSONALITY * * */
   personality_traits: [],
