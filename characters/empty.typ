@@ -155,14 +155,15 @@
 /* * * HEADER * * */
   spellcasting-class: "",
   spellcasting-ability: "",
-  spell-save-dc: "", // String or Int
-  spell-attack-bonus: "", // String or Int, Int automatically adds "+"
+  spell-save-dc: "", // string or int
+  spell-attack-bonus: "", // string or int, int automatically adds "+"
 
 /* * * SPELLS * * */
-  /* In the () for the appropiate level, place a list of spells.
+  /* In the () for the appropiate level, place a list of spells, each spell name in "".
   The spell list for each level is sized automatically.
+  To mark some spells prepared, wrap them in extra () and add a boolean for preparedness, like so: lvl1_spells: ((true, "Spell Name 1"), "Spell Name 2", (false, "Spell Name 3")). This can be mixed with simple string spells.
   If you'd like a line with no text to be printed, add "",
-  When you leave a () empty or delete the line, no header for that spell level will be printed. */ 
+  When you leave a () empty or delete the parameter entirely, no header for that spell level will be printed. */ 
   cantrips: (),
   lvl1_spells: (),
   lvl2_spells: (),

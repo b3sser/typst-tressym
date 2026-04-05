@@ -171,13 +171,21 @@
         top + left,
         dx: spell-x-counter + 0.35pt,
         dy: -6.2pt + spell-y-counter,
-        circle(radius: 3pt, stroke: 0.7pt + black)
+        if type(i) == array and i.at(0) {
+          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
+        } else {
+          circle(radius: 3pt, stroke: 0.7pt + black)
+        }
       )
       place(
         top + left,
         dx: spell-x-counter + 11pt,
         dy: spell-y-counter - 10pt,
-        [#i]
+        if type(i) == array {
+          [#i.at(1)]
+        } else {
+          [#i] 
+        }
       )
       if spell-y-counter >= 742pt {
         spell-x-counter += 189pt
@@ -232,13 +240,21 @@
         top + left,
         dx: spell-x-counter + 0.35pt,
         dy: -6.2pt + spell-y-counter,
-        circle(radius: 3pt, stroke: 0.7pt + black)
+        if type(i) == array and i.at(0) {
+          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
+        } else {
+          circle(radius: 3pt, stroke: 0.7pt + black)
+        }
       )
       place(
         top + left,
         dx: spell-x-counter + 11pt,
         dy: spell-y-counter - 10pt,
-        [#i]
+        if type(i) == array {
+          [#i.at(1)]
+        } else {
+          [#i] 
+        }
       )
       if spell-y-counter >= 742pt {
         spell-x-counter += 189pt
@@ -292,13 +308,21 @@
         top + left,
         dx: spell-x-counter + 0.35pt,
         dy: -6.2pt + spell-y-counter,
-        circle(radius: 3pt, stroke: 0.7pt + black)
+        if type(i) == array and i.at(0) {
+          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
+        } else {
+          circle(radius: 3pt, stroke: 0.7pt + black)
+        }
       )
       place(
         top + left,
         dx: spell-x-counter + 11pt,
         dy: spell-y-counter - 10pt,
-        [#i]
+        if type(i) == array {
+          [#i.at(1)]
+        } else {
+          [#i] 
+        }
       )
       if spell-y-counter >= 742pt {
         spell-x-counter += 189pt
@@ -352,13 +376,21 @@
         top + left,
         dx: spell-x-counter + 0.35pt,
         dy: -6.2pt + spell-y-counter,
-        circle(radius: 3pt, stroke: 0.7pt + black)
+        if type(i) == array and i.at(0) {
+          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
+        } else {
+          circle(radius: 3pt, stroke: 0.7pt + black)
+        }
       )
       place(
         top + left,
         dx: spell-x-counter + 11pt,
         dy: spell-y-counter - 10pt,
-        [#i]
+        if type(i) == array {
+          [#i.at(1)]
+        } else {
+          [#i] 
+        }
       )
       if spell-y-counter >= 742pt {
         spell-x-counter += 189pt
@@ -413,13 +445,21 @@
         top + left,
         dx: spell-x-counter + 0.35pt,
         dy: -6.2pt + spell-y-counter,
-        circle(radius: 3pt, stroke: 0.7pt + black)
+        if type(i) == array and i.at(0) {
+          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
+        } else {
+          circle(radius: 3pt, stroke: 0.7pt + black)
+        }
       )
       place(
         top + left,
         dx: spell-x-counter + 11pt,
         dy: spell-y-counter - 10pt,
-        [#i]
+        if type(i) == array {
+          [#i.at(1)]
+        } else {
+          [#i] 
+        }
       )
       if spell-y-counter >= 742pt {
         spell-x-counter += 189pt
@@ -474,13 +514,21 @@
         top + left,
         dx: spell-x-counter + 0.35pt,
         dy: -6.2pt + spell-y-counter,
-        circle(radius: 3pt, stroke: 0.7pt + black)
+        if type(i) == array and i.at(0) {
+          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
+        } else {
+          circle(radius: 3pt, stroke: 0.7pt + black)
+        }
       )
       place(
         top + left,
         dx: spell-x-counter + 11pt,
         dy: spell-y-counter - 10pt,
-        [#i]
+        if type(i) == array {
+          [#i.at(1)]
+        } else {
+          [#i] 
+        }
       )
       if spell-y-counter >= 742pt {
         spell-x-counter += 189pt
@@ -535,13 +583,21 @@
         top + left,
         dx: spell-x-counter + 0.35pt,
         dy: -6.2pt + spell-y-counter,
-        circle(radius: 3pt, stroke: 0.7pt + black)
+        if type(i) == array and i.at(0) {
+          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
+        } else {
+          circle(radius: 3pt, stroke: 0.7pt + black)
+        }
       )
       place(
         top + left,
         dx: spell-x-counter + 11pt,
         dy: spell-y-counter - 10pt,
-        [#i]
+        if type(i) == array {
+          [#i.at(1)]
+        } else {
+          [#i] 
+        }
       )
       if spell-y-counter >= 742pt {
         spell-x-counter += 189pt
@@ -596,13 +652,21 @@
         top + left,
         dx: spell-x-counter + 0.35pt,
         dy: -6.2pt + spell-y-counter,
-        circle(radius: 3pt, stroke: 0.7pt + black)
+        if type(i) == array and i.at(0) {
+          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
+        } else {
+          circle(radius: 3pt, stroke: 0.7pt + black)
+        }
       )
       place(
         top + left,
         dx: spell-x-counter + 11pt,
         dy: spell-y-counter - 10pt,
-        [#i]
+        if type(i) == array {
+          [#i.at(1)]
+        } else {
+          [#i] 
+        }
       )
       if spell-y-counter >= 742pt {
         spell-x-counter += 189pt
@@ -657,13 +721,21 @@
         top + left,
         dx: spell-x-counter + 0.35pt,
         dy: -6.2pt + spell-y-counter,
-        circle(radius: 3pt, stroke: 0.7pt + black)
+        if type(i) == array and i.at(0) {
+          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
+        } else {
+          circle(radius: 3pt, stroke: 0.7pt + black)
+        }
       )
       place(
         top + left,
         dx: spell-x-counter + 11pt,
         dy: spell-y-counter - 10pt,
-        [#i]
+        if type(i) == array {
+          [#i.at(1)]
+        } else {
+          [#i] 
+        }
       )
       if spell-y-counter >= 742pt {
         spell-x-counter += 189pt
