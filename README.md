@@ -41,12 +41,12 @@ The template comes with various ways of altering a sheet, differing from the sta
 **From Github:**
 - Clone the repo to your local typst package directory as explained [here](https://github.com/typst/packages/blob/main/README.md#local-packages)
 - Run `typst init @local/tressym-dnd`
-- Change `#import "@preview/tressym-dnd:0.2.0": *` to `#import "@local/tressym-dnd:0.2.0": *` at the beginning of your character file
+- Change `#import "@preview/tressym-dnd:0.2.1": *` to `#import "@local/tressym-dnd:0.2.1": *` at the beginning of your character file
 
 OR
 
 - Clone the repo to local directory of your choosing
-- Change `#import "@preview/tressym-dnd:0.2.0": *` to `#import "../tressym.typ": *` at the beginning of your character file
+- Change `#import "@preview/tressym-dnd:0.2.1": *` to `#import "../tressym.typ": *` at the beginning of your character file
 
 ### Usage
 1. Make a copy of `example.typ`, `empty.typ` or `empty-mini.typ`.

@@ -1,4 +1,4 @@
-#import "@local/tressym-dnd:0.2.0": *
+#import "@local/tressym-dnd:0.2.1": *
 /* * * SETTINGS * * */
 #let settings = (
   language: "en",
