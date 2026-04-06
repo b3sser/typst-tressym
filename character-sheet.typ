@@ -871,6 +871,23 @@
 
   /* * * EQUIPMENT * * */
   let equip_x = 0pt
+
+  if big-equip  == true {
+    place(
+      top + left,
+      dx: 216pt,
+      dy: 380.4pt,
+      image("/outlines/equipment-big"+svg-color)
+    )
+  } else {
+    place(
+      top + left,
+      dx: 216pt,
+      dy: 380.4pt,
+      image("/outlines/equipment-small"+svg-color)
+    )
+  }
+  
   if display-money {
     equip_x = 45pt
     place(
@@ -888,6 +905,7 @@
       )
     }
   }
+
   place(
     top + left,
     dx: 223.5pt + equip_x,
@@ -927,69 +945,35 @@
 
   // Place Background and all info added to body above
   if settings.at("printer-mono") {
-    if big-equip {
-      set page(
-        background: image("/outlines/page-1-mono-bigequip.svg", width: 100%)
+    set page(
+      background: image("/outlines/page-1-mono.svg", width: 100%)
+    )
+    place(
+      top + left,
+      dx: 49pt,
+      dy: 65pt,
+      block(
+        height: 3cm,
+        width: 7.3cm,
+        fit-to-width(name, max-text-size: 21pt)
       )
-      place(
-        top + left,
-        dx: 49pt,
-        dy: 65pt,
-        block(
-          height: 3cm,
-          width: 7.3cm,
-          fit-to-width(name, max-text-size: 21pt)
-        )
-      )
-      body
-    } else {
-      set page(
-        background: image("/outlines/page-1-mono.svg", width: 100%)
-      )
-      place(
-        top + left,
-        dx: 49pt,
-        dy: 65pt,
-        block(
-          height: 3cm,
-          width: 7.3cm,
-          fit-to-width(name, max-text-size: 21pt)
-        )
-      )
-      body
-    }
+    )
+    body
   } else {
-    if big-equip {
-      set page(
-        background: image("/outlines/page-1-col-bigequip.svg", width: 100%)
+    set page(
+      background: image("/outlines/page-1-col.svg", width: 100%)
+    )
+    place(
+      top + left,
+      dx: 49pt,
+      dy: 65pt,
+      block(
+        height: 3cm,
+        width: 7.3cm,
+        fit-to-width(name, max-text-size: 21pt)
       )
-      place(
-        top + left,
-        dx: 49pt,
-        dy: 65pt,
-        block(
-          height: 3cm,
-          width: 7.3cm,
-          fit-to-width(name, max-text-size: 21pt)
-        )
-      )
-      body
-    } else {
-      set page(
-        background: image("/outlines/page-1-col.svg", width: 100%)
-      )
-      place(
-        top + left,
-        dx: 49pt,
-        dy: 65pt,
-        block(
-          height: 3cm,
-          width: 7.3cm,
-          fit-to-width(name, max-text-size: 21pt)
-        )
-      )
-      body
-    }
+    )
+    body
   }
 }
 
