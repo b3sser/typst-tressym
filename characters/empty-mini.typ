@@ -40,6 +40,7 @@
   chasave: true,
 
 /* * * SKILLS * * */
+  // bool or float
   acrobatics: true,
   animal_handling: true,
   arcana: true,

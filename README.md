@@ -5,7 +5,7 @@
 - 3-page character sheet for 5th edition 2014 D&D
 - Character Sheet
     - automatically calculate proficiency bonus, stat modifiers, skill modifiers and more
-    - choose whether to display money fields
+    - support double and half proficiencies (Expertise, Jack of All Trades, ...)
 - Character Details Sheet
     - include images and fit them to the sheet boxes
     - multi-column boxes for text
@@ -13,10 +13,18 @@
     - automatically size sections for each spell level, allowing the user to add more spells than the static original sheet
 - Various Customization Options (read below)
 
+#### Customization
+The template comes with various ways of altering a sheet, differing from the standard pdf character sheet. If you are unsure, just test each option in your preview.
+- **Mono / Col:** Pick between field outlines in standard black or in modern gold/brown
+- **Spell Rainbows:** Change the paper ruling of the spell sheet from black to rainbow gradients
+- **Money Display:** Show the standard boxes for each coin type or remove them, enlarging the space for Equipment text
+- **Big Equipment:** Shrink the FEATURES & TRAITS box to instead enlarge the EQUIPMENT box to a two-column one (compatible with money display)
+- **XP type:** Pick between "XP" and "MILESTONE" text in the header, or remove the XP field entirely (e.g. for a OneShot character), using the freed up space for an extra "SUBCLASS" field
+- **Stat or Mod in Big Field?** `big-number-big-field` Choose whether Stats are printed in the big boxes and Modifiers in small ovals underneath, or the other way around
+
 #### Planned Features / Roadmap
-- Support for double proficiency (expertise, etc.), half-proficiency, etc. (planned for 0.2.X)
 - Further Customization Options, Alternate or Reduced Sheets (gradually over multiple versions)
-- Option to overwrite any and all auto-calculated stats on the user end (planned for 0.2.X)
+- Option to overwrite any and all auto-calculated stats on the user end (planned for 0.2.1 or 0.3.X)
 - Support for A4-Paper (maybe)
 - 2024 Sheet (maybe)
 - pdf interactions (maybe)
@@ -46,16 +54,7 @@ OR
     - You may delete code lines for fields you'd like to leave blank / on their default value.
     - The `example.typ` and `empty.typ` files includes info on how to use each field and what input it expects in comments ("reading the code explains the code"). If you are a pro and would like a more lightweight sheet, choose `empty-mini.typ` instead.
     - Each page has its own block. You can render only select pages by deleting one of the blocks from your file.
-4. Export to pdf (i.e. via tinymist or cmd)
-
-### Customization
-The template comes with various ways of altering a sheet, differing from the standard pdf character sheet. If you are unsure, just test each option in your preview.
-- **Mono / Col:** Pick between field outlines in standard black or in modern gold/brown
-- **Spell Rainbows:** Change the paper ruling of the spell sheet from black to rainbow gradients
-- **Money Display:** Show the standard boxes for each coin type or remove them, enlarging the space for Equipment text
-- **Big Equipment:** Shrink the FEATURES & TRAITS box to instead enlarge the EQUIPMENT box to a two-column one (compatible with money display)
-- **XP type:** Pick between "XP" and "MILESTONE" text in the header, or remove the XP field entirely (e.g. for a OneShot character), using the freed up space for an extra "SUBCLASS" field
-- **Stat or Mod in Big Field?** `big-number-big-field` Choose whether Stats are printed in the big boxes and Modifiers in small ovals underneath, or the other way around
+4. Export to pdf (e.g. via tinymist or cmd)
 
 ### Contribute
 If you find bugs or have feature requests please submit an issue or pull request to [tressym's github repo](https://github.com/b3sser/typst-tressym).

@@ -39,12 +39,23 @@
 
 /* * * SKILLS * * */
   // set all skills that your character is proficient in to true
-  // half- and double-proficiencies are a planned future feature
-  athletics: true,
-  insight: true,
+  // you may delete any lines that would be "false"
+  //
+  acrobatics: true,
+  arcana: 0.5,
+  athletics: 1,
+  deception: 1.5,
+  history: 2,
   nature: true,
   persuasion: true,
   sleight_of_hand: true,
+
+  /* Half or Double Proficiency:
+  -> Number instead of true/false.
+  -> 0.5 for half, 2 for double, 1.5, 2.5, etc. 1 == true, 0 == false.
+  -> Can be any float, results are rounded down.
+  -> Circles will change to indicate the extra proficiency, up to 2
+  */
 
 /* * * HEALTH * * */
   // "default" indicates what value this will be set to if the line is deleted from this file

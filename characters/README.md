@@ -8,7 +8,7 @@
     - You may delete code lines for fields you'd like to leave blank / on their default value.
     - The `example.typ` and `empty.typ` files includes info on how to use each field and what input it expects in comments ("reading the code explains the code"). If you are a pro and would like a more lightweight sheet, choose `empty-mini.typ` instead.
     - Each page has its own block. You can render only select pages by deleting one of the blocks from your file.
-4. Export to pdf (i.e. via tinymist or cmd)
+4. Export to pdf (e.g. via tinymist or cmd)
 
 ## Customization
 The template comes with various ways of altering a sheet, differing from the standard pdf character sheet. If you are unsure, just test each option in your preview.

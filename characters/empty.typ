@@ -44,15 +44,14 @@
 
 /* * * SKILLS * * */
   // set all skills that your character is proficient in to true
-  // you may delete any lines that are set to "false"
-  // half- and double-proficiencies are a planned future feature
+  // you may delete any lines that would be "false"
   acrobatics: true,
-  animal_handling: true,
-  arcana: true,
-  athletics: true,
-  deception: true,
-  history: true,
-  insight: true,
+  animal_handling: 0,
+  arcana: 0.5,
+  athletics: 1,
+  deception: 1.5,
+  history: 2,
+  insight: 2.5,
   intimidation: true,
   investigation: true,
   medicine: true,
@@ -64,6 +63,11 @@
   sleight_of_hand: true,
   stealth: true,
   survival: true,
+
+  /* For Half Proficiency (Bard: Jack of All Trades) or Double Proficiency (Bard: Expertise, Ranger: Deft Explorer, Rogue: Expertise), use a number instead of true/false.
+  -> 0.5 for half, 2 for double, 1.5, 2.5, etc. 1 == true, 0 == false.
+  -> Can be any float, results are rounded down.
+  -> Circles will change to indicate the extra proficiency, up to 2 */
 
 /* * * HEALTH * * */
   // "default" indicates what value this will be set to if the line is deleted from this file

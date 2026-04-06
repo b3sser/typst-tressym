@@ -228,19 +228,85 @@
 }
 
 /* * * SKILLS & SAVES* * */
-#let print-skill-mod( skill-prof: bool, stat: int, position: int, prof-bonus: int) = {
+#let half-prof = tiling(
+  size: (8pt, 8pt),
+  relative: "parent",
+  spacing: (5.77pt, 0pt),
+    square(
+      size: 8pt,
+      fill: black,
+    )
+)
+
+#let onehalf-prof = tiling(
+  size: (8pt, 8pt),
+  relative: "parent",
+  spacing: (3.1pt, 0pt),
+    square(
+      size: 8pt,
+      fill: black,
+    )
+)
+
+#let print-skill-mod( skill-prof: none, stat: int, position: int, prof-bonus: int) = {
   let skill_mod = stat
   let pos_y = 319.9pt + (13.5pt*position)
-  // if proficient, add proficiency bonus and print dot
-  if skill-prof {
-    skill_mod = stat + prof-bonus
+  // check if simple or advanced proficiency entry
+  if type(skill-prof) == bool {
+    // if proficient, add proficiency bonus and print dot
+    if skill-prof {
+      skill_mod = stat + prof-bonus
 
-    place(
-      center,
-      dx: -201.7pt,
-      dy: pos_y+4pt,
-      circle(radius: 3pt, fill: black)
-    )
+      place(
+        center,
+        dx: -201.7pt,
+        dy: pos_y+3.7pt,
+        circle(radius: 3pt, fill: black)
+      )
+    }
+  } else if type(skill-prof) == float or type(skill-prof) == int {
+    skill_mod = calc.floor(stat + (prof-bonus * skill-prof))
+    if skill-prof > 1.8 { // around 2 and above
+      place(
+        center,
+        dx: -201.7pt,
+        dy: pos_y+3.7pt,
+        circle(radius: 3pt, fill: black)
+      )
+      place(
+        center,
+        dx: -201.7pt + 3.5pt,
+        dy: pos_y+3.7pt,
+        circle(radius: 3pt, stroke: 0.7pt + gray, fill: black)
+      )
+    } else if skill-prof > 1.3 { // around 1.5
+      place(
+        center,
+        dx: -201.7pt,
+        dy: pos_y+3.7pt,
+        circle(radius: 3pt, fill: black)
+      )
+      place(
+        center,
+        dx: -201.7pt + 3.5pt,
+        dy: pos_y+3.7pt,
+        circle(radius: 3pt, stroke: 0.7pt + gray, fill: onehalf-prof)
+      )
+    } else if skill-prof > 0.8 { // around normal 1
+      place(
+        center,
+        dx: -201.7pt,
+        dy: pos_y+3.7pt,
+        circle(radius: 3pt, fill: black)
+      )
+    } else if skill-prof > 0.3 { // around 0.5
+      place(
+        center,
+        dx: -201.7pt,
+        dy: pos_y+3.7pt,
+        circle(radius: 3pt, fill: half-prof)
+      )
+    }
   }
   // calculate y coordinate based on position in list
   place(
@@ -491,7 +557,7 @@
   let saves_list = ( strsave, dexsave, consave, intsave, wissave, chasave )
   // iterate over save list with calculation and printing
   for i in range(6) {
-    print-skill-mod(skill-prof: saves_list.at(i), stat: statmod-list.at(i), position: (i -8.6), prof-bonus: prof-bonus)
+    print-skill-mod(skill-prof: saves_list.at(i), stat: statmod-list.at(i), position: (i -8.54), prof-bonus: prof-bonus)
   }
 
   /* * * SKILLS * * */
