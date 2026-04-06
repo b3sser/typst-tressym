@@ -167,7 +167,9 @@
 /* * * SPELLS * * */
   /* In the () for the appropiate level, place a list of spells, each spell name in "".
   The spell list for each level is sized automatically.
-  To mark some spells prepared, wrap them in extra () and add a boolean for preparedness, like so: lvl1_spells: ((true, "Spell Name 1"), "Spell Name 2", (false, "Spell Name 3")). This can be mixed with simple string spells.
+  To mark some spells prepared, wrap them in extra () and add a boolean for preparedness
+  -> like so: (true, "Spell Name 1") or so ("Spell Name 2", true)
+  -> This can be mixed with simple string spells.
   If you'd like a line with no text to be printed, add "",
   When you leave a () empty or delete the parameter entirely, no header for that spell level will be printed. */ 
   cantrips: (),

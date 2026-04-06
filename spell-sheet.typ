@@ -109,6 +109,12 @@
     }
   }
 
+  // Flip entries in an array of lenght 2
+  let array-flipper(arr) = {
+    return (arr.at(1), arr.at(0))
+  }
+
+  // Print Cantrips
   if cantrips.len() > 0 {
     place(
       top + left,
@@ -173,6 +179,10 @@
         dy: spell-y-counter,
         line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
       )
+      // Unify order of array entries
+      if type(i) == array and type(i.at(0)) != bool {
+        i = array-flipper(i)
+      }
       place(
         top + left,
         dx: spell-x-counter + 0.35pt,
@@ -242,6 +252,10 @@
         dy: spell-y-counter,
         line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
       )
+      // Unify order of array entries
+      if type(i) == array and type(i.at(0)) != bool {
+        i = array-flipper(i)
+      }
       place(
         top + left,
         dx: spell-x-counter + 0.35pt,
@@ -310,6 +324,10 @@
         dy: spell-y-counter,
         line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
       )
+      // Unify order of array entries
+      if type(i) == array and type(i.at(0)) != bool {
+        i = array-flipper(i)
+      }
       place(
         top + left,
         dx: spell-x-counter + 0.35pt,
@@ -378,6 +396,10 @@
         dy: spell-y-counter,
         line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
       )
+      // Unify order of array entries
+      if type(i) == array and type(i.at(0)) != bool {
+        i = array-flipper(i)
+      }
       place(
         top + left,
         dx: spell-x-counter + 0.35pt,
@@ -447,6 +469,10 @@
         dy: spell-y-counter,
         line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
       )
+      // Unify order of array entries
+      if type(i) == array and type(i.at(0)) != bool {
+        i = array-flipper(i)
+      }
       place(
         top + left,
         dx: spell-x-counter + 0.35pt,
@@ -516,6 +542,10 @@
         dy: spell-y-counter,
         line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
       )
+      // Unify order of array entries
+      if type(i) == array and type(i.at(0)) != bool {
+        i = array-flipper(i)
+      }
       place(
         top + left,
         dx: spell-x-counter + 0.35pt,
@@ -585,6 +615,10 @@
         dy: spell-y-counter,
         line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
       )
+      // Unify order of array entries
+      if type(i) == array and type(i.at(0)) != bool {
+        i = array-flipper(i)
+      }
       place(
         top + left,
         dx: spell-x-counter + 0.35pt,
@@ -654,6 +688,10 @@
         dy: spell-y-counter,
         line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
       )
+      // Unify order of array entries
+      if type(i) == array and type(i.at(0)) != bool {
+        i = array-flipper(i)
+      }
       place(
         top + left,
         dx: spell-x-counter + 0.35pt,
@@ -723,6 +761,10 @@
         dy: spell-y-counter,
         line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
       )
+      // Unify order of array entries
+      if type(i) == array and type(i.at(0)) != bool {
+        i = array-flipper(i)
+      }
       place(
         top + left,
         dx: spell-x-counter + 0.35pt,

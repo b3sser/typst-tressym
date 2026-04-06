@@ -144,7 +144,7 @@
   spell-attack-bonus: "", // string or int
 
 /* * * SPELLS * * */
-  // List of strings or (bool, str) pairs
+  // List of strings, (bool, str) pairs and/or (str, bool) pairs
   cantrips: (),
   lvl1_spells: (),
   lvl2_spells: (),
