@@ -130,7 +130,7 @@
 #details-sheet(
   settings: settings,
   // Everything for this page is a string.
-  // Use "" or [] as you like, [] will be needed for things like #strong to work
+  // Use "" or [] as you like, [] will be needed for linebreaks and text styling to work
 /* * * HEADER * * */
   name: "", // Yes, you have to enter it again, sorry
   age: "",

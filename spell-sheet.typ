@@ -1,3 +1,5 @@
+#import "@preview/one-liner:0.3.0": fit-to-width
+
 #let spell-sheet(
 /* * * HEADER * * */
   spellcasting-class: none,
@@ -41,9 +43,13 @@
   set text(size:23pt)
   place(
     top + center,
-    dx: 10.2pt,
-    dy: 63pt,
-    text(spellcasting-ability, size:13pt)
+    dx: 10.3pt,
+    dy: 63.5pt,
+    block(
+      height: 3cm,
+      width: 2.3cm,
+      fit-to-width(spellcasting-ability, max-text-size: 21pt)
+    )
   )
   place(
     top + center,
@@ -766,9 +772,13 @@
     )
     place(
       top + left,
-      dx: 51pt,
-      dy: 67pt,
-      text(spellcasting-class, size: 23pt)
+      dx: 50pt,
+      dy: 68pt,
+      block(
+        height: 3cm,
+        width: 7.3cm,
+        fit-to-width(spellcasting-class, max-text-size: 23pt)
+      )
     )
     body
   } else {
@@ -777,9 +787,13 @@
     )
     place(
       top + left,
-      dx: 51pt,
-      dy: 67pt,
-      text(spellcasting-class, size: 23pt)
+      dx: 50pt,
+      dy: 68pt,
+      block(
+        height: 3cm,
+        width: 7.3cm,
+        fit-to-width(spellcasting-class, max-text-size: 23pt)
+      )
     )
     body
   }

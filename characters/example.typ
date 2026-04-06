@@ -83,7 +83,7 @@
   */
   weapons: (
   ("Mace", "sp", ("1d6", "slash.")),
-  ("Shortbow", 3, "1d6+1 pierc." ),
+  ("Shortbow", 3, "1d6+1 piercing" ),
   ("Longbow", "d", "1d8+1 pierc."),
   ("Dagger", "dp", ("1d4", "pierc.")),
   ),
@@ -124,7 +124,7 @@
 #details-sheet(
   settings: settings,
   // Everything for this page is a string.
-  // Use "" or [] as you like, [] will be needed for things like #strong to work
+  // Use "" or [] as you like, [] will be needed for linebreaks and text styling to work
 /* * * HEADER * * */
   name: "Person MacPersonface", // Yes, you have to enter it again, sorry
   age: "24 years",

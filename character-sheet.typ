@@ -1,3 +1,5 @@
+#import "@preview/one-liner:0.3.0": fit-to-width
+
 /* * * CALCULATIONS * * */
 // Format alignment code to long form
 #let alignment-long(code: str) = {
@@ -47,7 +49,11 @@
     top + left,
     dx: 270pt,
     dy: 77pt,
-    [#species]
+    block(
+        height: 2cm,
+        width: 3.8cm,
+        fit-to-width(species, max-text-size: 14pt)
+    )
   )
   place(
     top + left,
@@ -57,9 +63,13 @@
   )
   place(
     top + left,
-    dx: 381pt,
+    dx: 382pt,
     dy: 77pt,
-    alignment-long(code: alignment)
+    block(
+        height: 2cm,
+        width: 3.3cm,
+        fit-to-width(alignment-long(code: alignment), max-text-size: 14pt)
+    )
   )
   place(
     top + left,
@@ -73,13 +83,21 @@
       top + left,
       dx: 270pt,
       dy: 51pt,
-      [#class #h(10pt) #level]
+      block(
+        height: 2cm,
+        width: 3.8cm,
+        fit-to-width([#class -- #level], max-text-size: 14pt)
+      )
     )
     place(
       top + left,
-      dx: 381pt,
+      dx: 382pt,
       dy: 51pt,
-      [#subclass]
+      block(
+        height: 2cm,
+        width: 3.3cm,
+        fit-to-width(subclass, max-text-size: 14pt)
+      )
     )
     place(
       top + left,
@@ -91,7 +109,11 @@
       top + left,
       dx: 480pt,
       dy: 51pt,
-      [#background]
+      block(
+        height: 2cm,
+        width: 3.2cm,
+        fit-to-width(background, max-text-size: 14pt)
+      )
     )
     place(
       top + left,
@@ -103,7 +125,11 @@
       top + left,
       dx: 480pt,
       dy: 77pt,
-      [#player]
+      block(
+        height: 2cm,
+        width: 3.2cm,
+        fit-to-width(player, max-text-size: 14pt)
+      )
     )
     place(
       top + left,
@@ -112,22 +138,34 @@
       text([PLAYER NAME], size: 7pt, font: "Gillius ADF")
     )
   } else {
-      place(
-        top + left,
-        dx: 270pt,
-        dy: 51pt,
-        if subclass == "" {
-          [#class #h(8pt) #level]
-        } else {
-          [#class (#subclass) #level]
-        }
+    place(
+      top + left,
+      dx: 270pt,
+      dy: 51pt,
+      block(
+        height: 2cm,
+        width: 3.8cm,
+        fit-to-width(
+          if subclass == "" {
+            [#class -- #level]
+          } else {
+            [#class (#subclass) -- #level]
+          },
+          max-text-size: 14pt
+        )
       )
+      
+    )
 
     place(
       top + left,
-      dx: 381pt,
+      dx: 382pt,
       dy: 51pt,
-      [#background]
+      block(
+        height: 2cm,
+        width: 3.3cm,
+        fit-to-width(background, max-text-size: 14pt)
+      )
     )
     place(
       top + left,
@@ -139,7 +177,11 @@
       top + left,
       dx: 480pt,
       dy: 51pt,
-      [#player]
+      block(
+        height: 2cm,
+        width: 3.2cm,
+        fit-to-width(player, max-text-size: 14pt)
+      )
     )
     place(
       top + left,
@@ -152,7 +194,11 @@
         top + left,
         dx: 480pt,
         dy: 77pt,
-        [#xp]
+        block(
+          height: 2cm,
+          width: 3.2cm,
+          fit-to-width([#xp], max-text-size: 14pt)
+        )
       )
       place(
         top + left,
@@ -165,7 +211,11 @@
         top + left,
         dx: 480pt,
         dy: 77pt,
-        [#xp]
+        block(
+          height: 2cm,
+          width: 3.2cm,
+          fit-to-width([#xp], max-text-size: 14pt)
+        )
       )
       place(
         top + left,
@@ -325,7 +375,7 @@
 }
 
 /* * * ATTACKS & SPELLCASTING * * */
-#let add_weapon(
+#let add-weapon(
   name,
   atk-bonus,
   damage,
@@ -350,7 +400,11 @@
     top + left,
     dx: 224pt,
     dy: 396pt + (20.5pt*position),
-    text(name, size: 10pt)
+    block(
+      height: 3cm,
+      width: 2.18cm,
+      fit-to-width(name, max-text-size: 12pt)
+    )
   )
   place(
     top + left,
@@ -397,7 +451,11 @@
       top + left,
       dx: 330pt,
       dy: 396.5pt + (20.5pt*position),
-      text(damage, size: 10pt)
+      block(
+        height: 3cm,
+        width: 2.02cm,
+        fit-to-width(damage, max-text-size: 12pt)
+      )
     )
   } else {
     place(
@@ -715,7 +773,7 @@
     } else {
       atk = weapon.at(1)
     }
-    add_weapon(weapon.at(0),atk,weapon.at(2), weaponnr)
+    add-weapon(weapon.at(0),atk,weapon.at(2), weaponnr)
     weaponnr += 1
   }
   // Display Attacks & Spellcasting Text below Weapons Table
@@ -807,9 +865,13 @@
       )
       place(
         top + left,
-        dx: 51pt,
+        dx: 49pt,
         dy: 65pt,
-        text(name, size: 20pt)
+        block(
+          height: 3cm,
+          width: 7.3cm,
+          fit-to-width(name, max-text-size: 21pt)
+        )
       )
       body
     } else {
@@ -818,9 +880,13 @@
       )
       place(
         top + left,
-        dx: 51pt,
+        dx: 49pt,
         dy: 65pt,
-        text(name, size: 20pt)
+        block(
+          height: 3cm,
+          width: 7.3cm,
+          fit-to-width(name, max-text-size: 21pt)
+        )
       )
       body
     }
@@ -831,9 +897,13 @@
       )
       place(
         top + left,
-        dx: 51pt,
+        dx: 49pt,
         dy: 65pt,
-        text(name, size: 20pt)
+        block(
+          height: 3cm,
+          width: 7.3cm,
+          fit-to-width(name, max-text-size: 21pt)
+        )
       )
       body
     } else {
@@ -842,9 +912,13 @@
       )
       place(
         top + left,
-        dx: 51pt,
+        dx: 49pt,
         dy: 65pt,
-        text(name, size: 20pt)
+        block(
+          height: 3cm,
+          width: 7.3cm,
+          fit-to-width(name, max-text-size: 21pt)
+        )
       )
       body
     }

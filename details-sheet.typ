@@ -1,3 +1,5 @@
+#import "@preview/one-liner:0.3.0": fit-to-width
+
 #let details-sheet(
 /* * * HEADER * * */
   name: str,
@@ -38,37 +40,61 @@
     top + left,
     dx: 268pt,
     dy: 52pt,
-    [#age]
+    block(
+        height: 2cm,
+        width: 3.8cm,
+        fit-to-width(age, max-text-size: 14pt)
+    )
   )
   place(
     top + left,
     dx: 378pt,
     dy: 52pt,
-    [#height]
+    block(
+        height: 2cm,
+        width: 3.3cm,
+        fit-to-width(height, max-text-size: 14pt)
+    )
   )
   place(
     top + left,
     dx: 474pt,
     dy: 52pt,
-    [#weight]
+    block(
+        height: 2cm,
+        width: 3.5cm,
+        fit-to-width(weight, max-text-size: 14pt)
+    )
   )
   place(
     top + left,
     dx: 268pt,
     dy: 80pt,
-    [#eyes]
+    block(
+        height: 2cm,
+        width: 3.8cm,
+        fit-to-width(eyes, max-text-size: 14pt)
+    )
   )
   place(
     top + left,
     dx: 378pt,
     dy: 80pt,
-    [#skin]
+    block(
+        height: 2cm,
+        width: 3.3cm,
+        fit-to-width(skin, max-text-size: 14pt)
+    )
   )
   place(
     top + left,
     dx: 474pt,
     dy: 80pt,
-    [#hair]
+    block(
+        height: 2cm,
+        width: 3.5cm,
+        fit-to-width(hair, max-text-size: 14pt)
+    )
   )
 
   /* * * IMAGES * * */
@@ -92,7 +118,11 @@
     center,
     dx: 186.1pt,
     dy: 152.6pt,
-    text(symbol-name, size: 10pt)
+    block(
+        height: 2cm,
+        width: 5cm,
+        fit-to-width(symbol-name, max-text-size: 13pt)
+    )
   )
 
   /* * * TEXT FIELDS * * */
@@ -129,9 +159,13 @@
     )
     place(
       top + left,
-      dx: 51pt,
-      dy: 69pt,
-      text(name, size: 20pt)
+      dx: 49pt,
+      dy: 70pt,
+      block(
+        height: 3cm,
+        width: 7.3cm,
+        fit-to-width(name, max-text-size: 21pt)
+      )
     )
     body
   } else {
@@ -140,9 +174,13 @@
     )
     place(
       top + left,
-      dx: 51pt,
-      dy: 69pt,
-      text(name, size: 20pt)
+      dx: 49pt,
+      dy: 70pt,
+      block(
+        height: 3cm,
+        width: 7.3cm,
+        fit-to-width(name, max-text-size: 21pt)
+      )
     )
     body
   }
