@@ -1,6 +1,6 @@
 [package]
 name = "tressym-dnd"
-version = "0.1.1"
+version = "0.2.0"
 entrypoint = "tressym.typ"
 authors = ["Bettina Esser <@b3sser>"]
 license = "MIT-0"
