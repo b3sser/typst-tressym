@@ -24,7 +24,10 @@ The template comes with various ways of altering a sheet, differing from the sta
 
 #### Planned Features / Roadmap
 - Further Customization Options, Alternate or Reduced Sheets (gradually over multiple versions)
-- Option to overwrite any and all auto-calculated stats on the user end (planned for 0.2.1 or 0.3.X)
+- Option to overwrite any and all auto-calculated stats on the user end (planned for 0.2.2)
+- Fix auto-calculation for multiclassers (planned for 0.2.1)
+- Enhance usability of spell preparedness (planned for 0.2.1)
+- Add Passive Insight and Passive Investigation as customization option (planned for 0.2.2)
 - Support for A4-Paper (maybe)
 - 2024 Sheet (maybe)
 - pdf interactions (maybe)
