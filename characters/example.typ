@@ -62,6 +62,8 @@
   -> Circles will change to indicate the extra proficiency, up to 2
   */
 
+  more-passive: true, // false: Passive Perception only, true: plus Passive Insight & Investigation
+
 /* * * HEALTH * * */
   // "default" indicates what value this will be set to if the line is deleted from this file
   armorclass: 14, // default = 10+Dex (i.e. not wearing armor)
@@ -102,7 +104,7 @@
     #strong[Languages:] Common \
     #strong[Armor:] light, medium, shields \
     #strong[Weapons:] simple \
-    #strong[Tools:] Thieve's tools, Herbalism kit
+    #strong[Tools:] Thieves' tools, Herbalism kit
   ],
 
 /* * * EQUIPMENT * * */

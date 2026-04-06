@@ -21,12 +21,12 @@ The template comes with various ways of altering a sheet, differing from the sta
 - **Money Display:** Show the standard boxes for each coin type or remove them, enlarging the space for Equipment text
 - **Big Equipment:** Shrink the FEATURES & TRAITS box to instead enlarge the EQUIPMENT box to a two-column one (compatible with money display)
 - **XP type:** Pick between "XP" and "MILESTONE" text in the header, or remove the XP field entirely (e.g. for a OneShot character), using the freed up space for an extra "SUBCLASS" field
-- **Stat or Mod in Big Field?** `big-number-big-field` Choose whether Stats are printed in the big boxes and Modifiers in small ovals underneath, or the other way around
+- **Stat or Mod in Big Field?** Choose whether Stats are printed in the big boxes and Modifiers in small ovals underneath, or the other way around
+- **More Passive Stats:** If your table frequently uses Passive Checks for more than Perception, you can enable two extra fields that show Passive Insight and Passive Investigation
 
 #### Planned Features / Roadmap
 - Further Customization Options, Alternate or Reduced Sheets (gradually over multiple versions)
 - Option to overwrite any and all auto-calculated stats on the user end (planned for 0.2.2)
-- Add Passive Insight and Passive Investigation as customization option (planned for 0.2.2)
 - Support for A4-Paper (maybe)
 - 2024 Sheet (maybe)
 - pdf interactions (maybe)

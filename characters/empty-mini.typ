@@ -61,6 +61,8 @@
   stealth: true,
   survival: true,
 
+  more-passive: false,
+
 /* * * HEALTH * * */
   armorclass: none, // default = 10+Dex
   initiative: none, // default = Dex mod

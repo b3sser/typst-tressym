@@ -74,6 +74,8 @@
   -> Can be any float, results are rounded down.
   -> Circles will change to indicate the extra proficiency, up to 2 */
 
+  more-passive: false, // false: Passive Perception only, true: plus Passive Insight & Investigation
+  
 /* * * HEALTH * * */
   // "default" indicates what value this will be set to if the line is deleted from this file
   armorclass: none, // default = 10+Dex (i.e. not wearing armor)

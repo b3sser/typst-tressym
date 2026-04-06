@@ -546,6 +546,10 @@
 
 /* * * MISC * * */
   inspiration: none,
+  passive-perception: none,
+  passive-insight: none,
+  passive-investigation: none,
+  more-passive: false,
 
 /* * * ATTACKS & SPELLCASTING * * */
   weapons: (),
@@ -580,6 +584,15 @@
   )
   
   body = {
+
+  // Set string to append at the end of files names when getting graphics
+  let svg-color
+  if settings.at("printer-mono") {
+    svg-color = "-mono.svg"
+  } else {
+    svg-color = "-col.svg"
+  }
+
   /* * * HEADER * * */
   print-header(class: class, subclass: subclass, level: {if level-print != "" {level-print} else {level}}, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
 
@@ -629,17 +642,80 @@
     print-skill-mod(skill-prof: skill_list.at(i), stat: skill_bases.at(i), position: i, prof-bonus: prof-bonus)
   }
 
-  // Calculate and print passive perception
-  let passive_perception = 10 + wismod
-  if perception {
-    passive_perception = 10 + wismod + prof-bonus
+  /* PASSIVE STATS */
+  if type(perception) == bool and perception {
+    passive-perception = 10 + wismod + prof-bonus
+  } else if type(perception) == float or type(perception) == int {
+    passive-perception = 10 + wismod + calc.floor(prof-bonus * perception)
+  } else {
+    passive-perception = 10 + wismod
   }
   place(
     center,
     dx: -264pt,
     dy: 592.5pt,
-    text([#passive_perception], size: 17pt)
+    text([#passive-perception], size: 17pt)
   )
+
+  if more-passive  == true {
+    place(
+      top + left,
+      dx: 27pt,
+      dy: 585.86pt,
+      image("/outlines/passive-all"+svg-color)
+    )
+    place(
+      top + left,
+      dx: 88.7pt,
+      dy: 597.7pt,
+      text([PASSIVE PERCEPTION], size: 6pt, font: "Gillius ADF", tracking:0.1pt)
+    )
+    place(
+      center,
+      dx: -220pt,
+      dy: 622.05pt,
+      text([PASSIVE \ INSIGHT], size: 6pt, font: "Gillius ADF", tracking:0.1pt)
+    )
+    if type(insight) == bool and insight {
+      passive-insight = 10 + wismod + prof-bonus
+    } else if type(insight) == float or type(insight) == int {
+      passive-insight = 10 + wismod + calc.floor(prof-bonus * insight)
+    } else {
+      passive-insight = 10 + wismod
+    }
+    place(
+      center,
+      dx: -264pt,
+      dy: 621pt,
+      text([#passive-insight], size: 17pt)
+    )
+    place(
+      center,
+      dx: -130pt,
+      dy: 622.05pt,
+      text([PASSIVE \ INVESTIGATION], size: 6pt, font: "Gillius ADF", tracking:0.1pt)
+    )
+    if type(investigation) == bool and investigation {
+      passive-investigation = 10 + intmod + prof-bonus
+    } else if type(investigation) == float or type(investigation) == int {
+      passive-investigation = 10 + intmod + calc.floor(prof-bonus * investigation)
+    } else {
+      passive-investigation = 10 + intmod
+    }
+    place(
+      center,
+      dx: -174pt,
+      dy: 621pt,
+      text([#passive-investigation], size: 17pt)
+    )
+  } else {
+    place(
+      top + left,
+      dx: 27pt,
+      dy: 585.86pt,
+      image("/outlines/passive-percept"+svg-color)
+    )
+  }
 
   /* * * HEALTH * * */
   if armorclass == none {
@@ -789,29 +865,20 @@
   place(
     top + left,
     dx: 35.2pt,
-    dy: 629pt,
-    block(width: 163pt,par(justify: true, leading:5.5pt, text(prof_lang_text, size: 10pt)))
+    dy: if more-passive {629pt + 20.25pt} else {629pt},
+    block(width: 163pt, par(justify: true, leading:5.5pt, text(prof_lang_text, size: 10pt)))
   )
 
   /* * * EQUIPMENT * * */
   let equip_x = 0pt
   if display-money {
     equip_x = 45pt
-    if settings.at("printer-mono") {
-      place(
-        top + left,
-        dx: 211.35pt,
-        dy: 596.45pt,
-        image("/outlines/money-mono.svg")
-      )
-    } else {
-      place(
-        top + left,
-        dx: 211.35pt,
-        dy: 596.45pt,
-        image("/outlines/money-col.svg")
-      )
-    }
+    place(
+      top + left,
+      dx: 211.35pt,
+      dy: 596.45pt,
+      image("/outlines/money"+svg-color)
+    )
     for i in range(5) {
       place(
         center,
