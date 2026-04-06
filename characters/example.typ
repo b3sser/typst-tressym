@@ -13,7 +13,12 @@
   name: "Person MacPersonface",
   class: "Cleric", 
   subclass: "Life",
-  level: 3, 
+  level: 3,
+  /* MULTICLASSING
+  -> put your TOTAL level (e.g. 8) above, so the proficiency bonus, etc. are calculated correctly
+  -> put the text to print as level (e.g. "3 + 5") here:
+  level-print: "",
+  */
   background: "Journeyman",
   player: "Person",
   species: "Leonin",

@@ -479,6 +479,7 @@
   class: "", 
   subclass: "", // may be displayed differently based on xp-type
   level: 1, 
+  level-print: "",
   background: "",
   player: "", // name of the player
   species: "", // species (5e-2024) or race (5e-2014)
@@ -580,7 +581,7 @@
   
   body = {
   /* * * HEADER * * */
-  print-header(class: class, subclass: subclass, level: level, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
+  print-header(class: class, subclass: subclass, level: {if level-print != "" {level-print} else {level}}, background: background, player: player, species: species, alignment: alignment, xp: xp, xp-type: xp-type)
 
   /* * * STATS * * */
   let stat-list = ( strength, dexterity, constitution, intelligence, wisdom, charisma )

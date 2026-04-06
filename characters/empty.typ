@@ -14,6 +14,11 @@
   class: "", 
   subclass: "",
   level: 1, 
+  /* MULTICLASSING
+  -> put your TOTAL level (e.g. 8) above, so the proficiency bonus, etc. are calculated correctly
+  -> put the text to print as level (e.g. "3 + 5") here:
+  level-print: "",
+  */
   background: "",
   player: "", // name of the player
   species: "", // species (5e-2024) or race (5e-2014)

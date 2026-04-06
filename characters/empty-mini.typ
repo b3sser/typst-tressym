@@ -14,6 +14,7 @@
   class: "", 
   subclass: "",
   level: 1, 
+  // level-print: "", // for multiclassers
   background: "",
   player: "",
   species: "",
