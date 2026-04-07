@@ -38,7 +38,6 @@ These are not listed in `example` or `empty`, as to not clutter those, so here i
 
 ## Troubleshooting
 - Arguments that are passed, but left empty (e.g. `level; ,`) can lead to errors. Please make sure to either pass a valid value OR remove the argument to use default/auto-calculated values.
-- If you want to add the number of total slots for level 1 only, you still need to add a `,` after your number, or it won't be interpreted as an array, but a single int, thus not being parsed correctly.
 
 ## Contribute
 If you find bugs or have feature requests please submit an issue or pull request to [tressym's github repo](https://github.com/b3sser/typst-tressym).

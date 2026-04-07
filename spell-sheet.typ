@@ -20,8 +20,8 @@
   lvl9_spells: (),
 
 /* * * SPELL SLOTS * * */
-  slots-total: (),
-  slots-expended: list,
+  slots-total: array,
+  slots-expended: array,
 
 /* * * for rendering * * */
   settings: (
@@ -90,6 +90,13 @@
   let spell-y-counter = 137.8pt
 
   // Print numbers of total and expended spell slots of a specific level at a specific xy-offset
+  if type(slots-total) != array {
+    slots-total = (slots-total,)
+  }
+  if type(slots-expended) != array {
+    slots-expended = (slots-expended,)
+  }
+
   let slot-printer(lvl, xcounter, ycounter) = {
     if slots-total.len() >= lvl and slots-total.at(lvl -1) != 0 {
       place(
@@ -115,6 +122,9 @@
   }
 
   // Print Cantrips
+  if type(cantrips) == str {
+    cantrips = (cantrips,)
+  }
   if cantrips.len() > 0 {
     place(
       top + left,
@@ -158,6 +168,9 @@
     }
   }
   
+  if type(lvl1_spells) == str or (type(lvl1_spells) == array and lvl1_spells.len() == 2 and (type(lvl1_spells.at(0)) == bool or type(lvl1_spells.at(1)) == bool)) {
+    lvl1_spells = (lvl1_spells,)
+  }
   if lvl1_spells.len() > 0 {
     if (spell-y-counter + 41pt) >= 750pt {
       spell-x-counter += 189pt
@@ -224,79 +237,14 @@
     }
   }
 
-  if lvl2_spells.len() > 0 {
-    if (spell-y-counter + 41pt) >= 750pt {
-      spell-x-counter += 189pt
-      spell-y-counter = 137.8pt
-    }
-    place(
-      top + left,
-      dx: spell-x-counter - 0.97pt,
-      dy: spell-y-counter,
-      image("/outlines/spell-header"+svg-color)
-    )
-    place(
-      center,
-      dx: spell-x-counter - 297.7pt,
-      dy: 14.4pt + spell-y-counter, // 14.4pt is the space 
-      text([#strong[2]], size: 11pt, font: "Noto Sans")
-    )
-    slot-printer(2, spell-x-counter, spell-y-counter)
-    spell-y-counter += 37.12pt // size of header
-    spell-y-counter += 11pt // space between header and first line
-    for i in lvl2_spells {
-      place(
-        top + left,
-        dx: spell-x-counter + 8.4pt,
-//        dy: 582.2pt + i*14pt,
-        dy: spell-y-counter,
-        line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
-      )
-      // Unify order of array entries
-      if type(i) == array and type(i.at(0)) != bool {
-        i = array-flipper(i)
-      }
-      place(
-        top + left,
-        dx: spell-x-counter + 0.35pt,
-        dy: -6.2pt + spell-y-counter,
-        if type(i) == array and i.at(0) {
-          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
-        } else {
-          circle(radius: 3pt, stroke: 0.7pt + black)
-        }
-      )
-      place(
-        top + left,
-        dx: spell-x-counter + 11pt,
-        dy: spell-y-counter - 10pt,
-        if type(i) == array {
-          [#i.at(1)]
-        } else {
-          [#i] 
-        }
-      )
-      if spell-y-counter >= 742pt {
-        spell-x-counter += 189pt
-        spell-y-counter = 137.8pt
-      }
-      spell-y-counter += 14pt
-    }
-    if spell-y-counter >= 151.9pt {
-      spell-y-counter -= 11pt // space between last line and divider
-      place(
-        top + left,
-        dx: spell-x-counter - 10.2pt,
-        dy: spell-y-counter,
-        image("/outlines/spell-divider.svg", width:190.4pt)
-      )
-      spell-y-counter += 6.66pt // size of divider
-    } else {
-      spell-y-counter -= 14pt
-    }
-  }
+  // combine the spell lists, so we can use a for loop
+  let spells-above-1 = (lvl2_spells, lvl3_spells, lvl4_spells, lvl5_spells, lvl6_spells, lvl7_spells, lvl8_spells, lvl9_spells)
 
-  if lvl3_spells.len() > 0 {
+  for i in range(spells-above-1.len()) {
+    if type(spells-above-1.at(i)) == str or (type(spells-above-1.at(i)) == array and spells-above-1.at(i).len() == 2 and (type(spells-above-1.at(i).at(0)) == bool or type(spells-above-1.at(i).at(1)) == bool)) {
+      spells-above-1.at(i) = (spells-above-1.at(i),)
+    }
+    if spells-above-1.at(i).len() > 0 {
     if (spell-y-counter + 41pt) >= 750pt {
       spell-x-counter += 189pt
       spell-y-counter = 137.8pt
@@ -311,12 +259,12 @@
       center,
       dx: spell-x-counter - 297.7pt,
       dy: 14.4pt + spell-y-counter, // 14.4pt is the space 
-      text([#strong[3]], size: 11pt, font: "Noto Sans")
+      text([#strong[#(i+1)]], size: 11pt, font: "Noto Sans")
     )
-    slot-printer(3, spell-x-counter, spell-y-counter)
+    slot-printer(i+1, spell-x-counter, spell-y-counter)
     spell-y-counter += 37.12pt // size of header
     spell-y-counter += 11pt // space between header and first line
-    for i in lvl3_spells {
+    for i in spells-above-1.at(i) {
       place(
         top + left,
         dx: spell-x-counter + 8.4pt,
@@ -367,445 +315,7 @@
       spell-y-counter -= 14pt
     }
   }
-
-  if lvl4_spells.len() > 0 {
-    if (spell-y-counter + 41pt) >= 750pt {
-      spell-x-counter += 189pt
-      spell-y-counter = 137.8pt
-    }
-    place(
-      top + left,
-      dx: spell-x-counter - 0.97pt,
-      dy: spell-y-counter,
-      image("/outlines/spell-header"+svg-color)
-    )
-    place(
-      center,
-      dx: spell-x-counter - 297.7pt,
-      dy: 14.4pt + spell-y-counter, // 14.4pt is the space 
-      text([#strong[4]], size: 11pt, font: "Noto Sans")
-    )
-    slot-printer(4, spell-x-counter, spell-y-counter)
-    spell-y-counter += 37.12pt // size of header
-    spell-y-counter += 11pt // space between header and first line
-    for i in lvl4_spells {
-      place(
-        top + left,
-        dx: spell-x-counter + 8.4pt,
-//        dy: 582.2pt + i*14pt,
-        dy: spell-y-counter,
-        line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
-      )
-      // Unify order of array entries
-      if type(i) == array and type(i.at(0)) != bool {
-        i = array-flipper(i)
-      }
-      place(
-        top + left,
-        dx: spell-x-counter + 0.35pt,
-        dy: -6.2pt + spell-y-counter,
-        if type(i) == array and i.at(0) {
-          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
-        } else {
-          circle(radius: 3pt, stroke: 0.7pt + black)
-        }
-      )
-      place(
-        top + left,
-        dx: spell-x-counter + 11pt,
-        dy: spell-y-counter - 10pt,
-        if type(i) == array {
-          [#i.at(1)]
-        } else {
-          [#i] 
-        }
-      )
-      if spell-y-counter >= 742pt {
-        spell-x-counter += 189pt
-        spell-y-counter = 137.8pt
-      }
-      spell-y-counter += 14pt
-    }
-    if spell-y-counter >= 151.9pt {
-      spell-y-counter -= 11pt // space between last line and divider
-      place(
-        top + left,
-        dx: spell-x-counter - 10.2pt,
-        dy: spell-y-counter,
-        image("/outlines/spell-divider.svg", width:190.4pt)
-      )
-      spell-y-counter += 6.66pt // size of divider
-      spell-y-counter += 0.75pt // space between divider and header
-    } else {
-      spell-y-counter -= 14pt
-    }
   }
-
-  if lvl5_spells.len() > 0 {
-    if (spell-y-counter + 41pt) >= 750pt {
-      spell-x-counter += 189pt
-      spell-y-counter = 137.8pt
-    }
-    place(
-      top + left,
-      dx: spell-x-counter - 0.97pt,
-      dy: spell-y-counter,
-      image("/outlines/spell-header"+svg-color)
-    )
-    place(
-      center,
-      dx: spell-x-counter - 297.7pt,
-      dy: 14.4pt + spell-y-counter, // 14.4pt is the space 
-      text([#strong[5]], size: 11pt, font: "Noto Sans")
-    )
-    slot-printer(5, spell-x-counter, spell-y-counter)
-    spell-y-counter += 37.12pt // size of header
-    spell-y-counter += 11pt // space between header and first line
-    for i in lvl5_spells {
-      place(
-        top + left,
-        dx: spell-x-counter + 8.4pt,
-//        dy: 582.2pt + i*14pt,
-        dy: spell-y-counter,
-        line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
-      )
-      // Unify order of array entries
-      if type(i) == array and type(i.at(0)) != bool {
-        i = array-flipper(i)
-      }
-      place(
-        top + left,
-        dx: spell-x-counter + 0.35pt,
-        dy: -6.2pt + spell-y-counter,
-        if type(i) == array and i.at(0) {
-          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
-        } else {
-          circle(radius: 3pt, stroke: 0.7pt + black)
-        }
-      )
-      place(
-        top + left,
-        dx: spell-x-counter + 11pt,
-        dy: spell-y-counter - 10pt,
-        if type(i) == array {
-          [#i.at(1)]
-        } else {
-          [#i] 
-        }
-      )
-      if spell-y-counter >= 742pt {
-        spell-x-counter += 189pt
-        spell-y-counter = 137.8pt
-      }
-      spell-y-counter += 14pt
-    }
-    if spell-y-counter >= 151.9pt {
-      spell-y-counter -= 11pt // space between last line and divider
-      place(
-        top + left,
-        dx: spell-x-counter - 10.2pt,
-        dy: spell-y-counter,
-        image("/outlines/spell-divider.svg", width:190.4pt)
-      )
-      spell-y-counter += 6.66pt // size of divider
-      spell-y-counter += 0.75pt // space between divider and header
-    } else {
-      spell-y-counter -= 14pt
-    }
-  }
-
-  if lvl6_spells.len() > 0 {
-    if (spell-y-counter + 41pt) >= 750pt {
-      spell-x-counter += 189pt
-      spell-y-counter = 137.8pt
-    }
-    place(
-      top + left,
-      dx: spell-x-counter - 0.97pt,
-      dy: spell-y-counter,
-      image("/outlines/spell-header"+svg-color)
-    )
-    place(
-      center,
-      dx: spell-x-counter - 297.7pt,
-      dy: 14.4pt + spell-y-counter, // 14.4pt is the space 
-      text([#strong[6]], size: 11pt, font: "Noto Sans")
-    )
-    slot-printer(6, spell-x-counter, spell-y-counter)
-    spell-y-counter += 37.12pt // size of header
-    spell-y-counter += 11pt // space between header and first line
-    for i in lvl6_spells {
-      place(
-        top + left,
-        dx: spell-x-counter + 8.4pt,
-//        dy: 582.2pt + i*14pt,
-        dy: spell-y-counter,
-        line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
-      )
-      // Unify order of array entries
-      if type(i) == array and type(i.at(0)) != bool {
-        i = array-flipper(i)
-      }
-      place(
-        top + left,
-        dx: spell-x-counter + 0.35pt,
-        dy: -6.2pt + spell-y-counter,
-        if type(i) == array and i.at(0) {
-          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
-        } else {
-          circle(radius: 3pt, stroke: 0.7pt + black)
-        }
-      )
-      place(
-        top + left,
-        dx: spell-x-counter + 11pt,
-        dy: spell-y-counter - 10pt,
-        if type(i) == array {
-          [#i.at(1)]
-        } else {
-          [#i] 
-        }
-      )
-      if spell-y-counter >= 742pt {
-        spell-x-counter += 189pt
-        spell-y-counter = 137.8pt
-      }
-      spell-y-counter += 14pt
-    }
-    if spell-y-counter >= 151.9pt {
-      spell-y-counter -= 11pt // space between last line and divider
-      place(
-        top + left,
-        dx: spell-x-counter - 10.2pt,
-        dy: spell-y-counter,
-        image("/outlines/spell-divider.svg", width:190.4pt)
-      )
-      spell-y-counter += 6.66pt // size of divider
-      spell-y-counter += 0.75pt // space between divider and header
-    } else {
-      spell-y-counter -= 14pt
-    }
-  }
-  
-  if lvl7_spells.len() > 0 {
-    if (spell-y-counter + 41pt) >= 750pt {
-      spell-x-counter += 189pt
-      spell-y-counter = 137.8pt
-    }
-    place(
-      top + left,
-      dx: spell-x-counter - 0.97pt,
-      dy: spell-y-counter,
-      image("/outlines/spell-header"+svg-color)
-    )
-    place(
-      center,
-      dx: spell-x-counter - 297.7pt,
-      dy: 14.4pt + spell-y-counter, // 14.4pt is the space 
-      text([#strong[7]], size: 11pt, font: "Noto Sans")
-    )
-    slot-printer(7, spell-x-counter, spell-y-counter)
-    spell-y-counter += 37.12pt // size of header
-    spell-y-counter += 11pt // space between header and first line
-    for i in lvl7_spells {
-      place(
-        top + left,
-        dx: spell-x-counter + 8.4pt,
-//        dy: 582.2pt + i*14pt,
-        dy: spell-y-counter,
-        line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
-      )
-      // Unify order of array entries
-      if type(i) == array and type(i.at(0)) != bool {
-        i = array-flipper(i)
-      }
-      place(
-        top + left,
-        dx: spell-x-counter + 0.35pt,
-        dy: -6.2pt + spell-y-counter,
-        if type(i) == array and i.at(0) {
-          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
-        } else {
-          circle(radius: 3pt, stroke: 0.7pt + black)
-        }
-      )
-      place(
-        top + left,
-        dx: spell-x-counter + 11pt,
-        dy: spell-y-counter - 10pt,
-        if type(i) == array {
-          [#i.at(1)]
-        } else {
-          [#i] 
-        }
-      )
-      if spell-y-counter >= 742pt {
-        spell-x-counter += 189pt
-        spell-y-counter = 137.8pt
-      }
-      spell-y-counter += 14pt
-    }
-    if spell-y-counter >= 151.9pt {
-      spell-y-counter -= 11pt // space between last line and divider
-      place(
-        top + left,
-        dx: spell-x-counter - 10.2pt,
-        dy: spell-y-counter,
-        image("/outlines/spell-divider.svg", width:190.4pt)
-      )
-      spell-y-counter += 6.66pt // size of divider
-      spell-y-counter += 0.75pt // space between divider and header
-    } else {
-      spell-y-counter -= 14pt
-    }
-  }
-  
-  if lvl8_spells.len() > 0 {
-    if (spell-y-counter + 41pt) >= 750pt {
-      spell-x-counter += 189pt
-      spell-y-counter = 137.8pt
-    }
-    place(
-      top + left,
-      dx: spell-x-counter - 0.97pt,
-      dy: spell-y-counter,
-      image("/outlines/spell-header"+svg-color)
-    )
-    place(
-      center,
-      dx: spell-x-counter - 297.7pt,
-      dy: 14.4pt + spell-y-counter, // 14.4pt is the space 
-      text([#strong[8]], size: 11pt, font: "Noto Sans")
-    )
-    slot-printer(8, spell-x-counter, spell-y-counter)
-    spell-y-counter += 37.12pt // size of header
-    spell-y-counter += 11pt // space between header and first line
-    for i in lvl8_spells {
-      place(
-        top + left,
-        dx: spell-x-counter + 8.4pt,
-//        dy: 582.2pt + i*14pt,
-        dy: spell-y-counter,
-        line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
-      )
-      // Unify order of array entries
-      if type(i) == array and type(i.at(0)) != bool {
-        i = array-flipper(i)
-      }
-      place(
-        top + left,
-        dx: spell-x-counter + 0.35pt,
-        dy: -6.2pt + spell-y-counter,
-        if type(i) == array and i.at(0) {
-          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
-        } else {
-          circle(radius: 3pt, stroke: 0.7pt + black)
-        }
-      )
-      place(
-        top + left,
-        dx: spell-x-counter + 11pt,
-        dy: spell-y-counter - 10pt,
-        if type(i) == array {
-          [#i.at(1)]
-        } else {
-          [#i] 
-        }
-      )
-      if spell-y-counter >= 742pt {
-        spell-x-counter += 189pt
-        spell-y-counter = 137.8pt
-      }
-      spell-y-counter += 14pt
-    }
-    if spell-y-counter >= 151.9pt {
-      spell-y-counter -= 11pt // space between last line and divider
-      place(
-        top + left,
-        dx: spell-x-counter - 10.2pt,
-        dy: spell-y-counter,
-        image("/outlines/spell-divider.svg", width:190.4pt)
-      )
-      spell-y-counter += 6.66pt // size of divider
-      spell-y-counter += 0.75pt // space between divider and header
-    } else {
-      spell-y-counter -= 14pt
-    }
-  }
-  
-  if lvl9_spells.len() > 0 {
-    if (spell-y-counter + 41pt) >= 750pt {
-      spell-x-counter += 189pt
-      spell-y-counter = 137.8pt
-    }
-    place(
-      top + left,
-      dx: spell-x-counter - 0.97pt,
-      dy: spell-y-counter,
-      image("/outlines/spell-header"+svg-color)
-    )
-    place(
-      center,
-      dx: spell-x-counter - 297.7pt,
-      dy: 14.4pt + spell-y-counter, // 14.4pt is the space 
-      text([#strong[9]], size: 11pt, font: "Noto Sans")
-    )
-    slot-printer(9, spell-x-counter, spell-y-counter)
-    spell-y-counter += 37.12pt // size of header
-    spell-y-counter += 11pt // space between header and first line
-    for i in lvl9_spells {
-      place(
-        top + left,
-        dx: spell-x-counter + 8.4pt,
-//        dy: 582.2pt + i*14pt,
-        dy: spell-y-counter,
-        line(start: (0pt, 0pt), length: 163.1pt, stroke: spell-stroke)
-      )
-      // Unify order of array entries
-      if type(i) == array and type(i.at(0)) != bool {
-        i = array-flipper(i)
-      }
-      place(
-        top + left,
-        dx: spell-x-counter + 0.35pt,
-        dy: -6.2pt + spell-y-counter,
-        if type(i) == array and i.at(0) {
-          circle(radius: 3pt, stroke: 0.7pt + black, fill: black)
-        } else {
-          circle(radius: 3pt, stroke: 0.7pt + black)
-        }
-      )
-      place(
-        top + left,
-        dx: spell-x-counter + 11pt,
-        dy: spell-y-counter - 10pt,
-        if type(i) == array {
-          [#i.at(1)]
-        } else {
-          [#i] 
-        }
-      )
-      if spell-y-counter >= 742pt {
-        spell-x-counter += 189pt
-        spell-y-counter = 137.8pt
-      }
-      spell-y-counter += 14pt
-    }
-    if spell-y-counter >= 151.9pt {
-      spell-y-counter -= 11pt // space between last line and divider
-      place(
-        top + left,
-        dx: spell-x-counter - 10.2pt,
-        dy: spell-y-counter,
-        image("/outlines/spell-divider.svg", width:190.4pt)
-      )
-      spell-y-counter += 6.66pt // size of divider
-      spell-y-counter += 0.75pt // space between divider and header
-    } else {
-      spell-y-counter -= 14pt
-    }
-  }
-
   }
   // Place Background and all info added to body above
   if settings.at("printer-mono") {

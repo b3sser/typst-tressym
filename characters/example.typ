@@ -187,7 +187,6 @@
   // enter the number of total/expended slots in order of spell level, adding a 0 to skip a level
   slots-total: (4,3,3,3,3,2,2,1,1),
   slots-expended: (1,2,3,0,0,1)
-  // Troubleshooting: Please note that if you want to add slot numbers for level 1 only, you still need to add a , after your number, else it will not work.
 )
 
 // If you'd like, you can continue with a normal document before, after or inbetween the character sheet!

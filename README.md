@@ -36,17 +36,19 @@ The template comes with various ways of altering a sheet, differing from the sta
 
 ### Installation
 **From Typst Universe** (recommended):
+
 ```typst init @preview/tressym-dnd```
+(some systems may require adding `:0.2.3`)
 
 **From Github:**
 - Clone the repo to your local typst package directory as explained [here](https://github.com/typst/packages/blob/main/README.md#local-packages)
 - Run `typst init @local/tressym-dnd`
-- Change `#import "@preview/tressym-dnd:0.2.2": *` to `#import "@local/tressym-dnd:0.2.2": *` at the beginning of your character file
+- Change `#import "@preview/tressym-dnd:0.2.3": *` to `#import "@local/tressym-dnd:0.2.3": *` at the beginning of your character file
 
 OR
 
 - Clone the repo to local directory of your choosing
-- Change `#import "@preview/tressym-dnd:0.2.2": *` to `#import "../tressym.typ": *` at the beginning of your character file
+- Change `#import "@preview/tressym-dnd:0.2.3": *` to `#import "../tressym.typ": *` at the beginning of your character file
 
 ### Usage
 1. Make a copy of `example.typ`, `empty.typ` or `empty-mini.typ`.
@@ -57,6 +59,25 @@ OR
     - The `example.typ` and `empty.typ` files includes info on how to use each field and what input it expects in comments ("reading the code explains the code"). If you are a pro and would like a more lightweight sheet, choose `empty-mini.typ` instead.
     - Each page has its own block. You can render only select pages by deleting one of the blocks from your file.
 4. Export to pdf (e.g. via tinymist or cmd)
+
+#### Overwriting auto-calculation
+All stats that are usually automatically calculated can be overwritten by the user, by passing them as additional arguments to the sheet.
+These are not listed in `example` or `empty`, as to not clutter those, so here is a list:
+- Proficiency Bonus: `prof-bonus` (only write the number, do not add `+`)
+- Stat Modifiers: `strmod`, `dexmod`, `conmod`, `intmod`, `wismod`, `chamod` (do not add `+`)
+- Save Modifiers: `strsavemod`, `dexsavemod`, ...
+    - for filling the circles correctly, a normal save proficiency entry is still needed, only the number changes with the overwrite
+- Skill Modifiers: `acrobaticsmod`, `animal_handlingmod`, `arcanamod`, ...
+    - for filling the circles correctly, a normal proficiency entry is still needed, only the number changes with the overwrite
+    - note that overwriting skill mods will also affect the passive skills, unless you overwrite those as well
+- Weapons: No need to overwrite, just use the option without auto-calculation
+- Passive Stats: `passive-perception`, `passive-insight`, `passive-investigation`
+- Overwrites can be `int`, `float` or `string` and will still print correctly.
+    - However, be aware that if the overwritten stat is used in calculations later, you will have to overwrite all other stats dependant on this one if you pass a string.
+    - Example: Setting `perceptionmod: "abc",` will cause an error in the calculation of passive perception, so you have to ALSO set `passive-perception: 16,` or `passive-perception: "def",`
+
+#### Troubleshooting
+- Arguments that are passed, but left empty (e.g. `level; ,`) can lead to errors. Please make sure to either pass a valid value OR remove the argument to use default/auto-calculated values.
 
 ### Contribute
 If you find bugs or have feature requests please submit an issue or pull request to [tressym's github repo](https://github.com/b3sser/typst-tressym).
