@@ -34,6 +34,8 @@ The template comes with various ways of altering a sheet, differing from the sta
 ### Example:
 ![three pages of a finished character sheet for Person MacPersonface](example.png)
 
+For example code, please refer to `example.typ`.
+
 ### Installation
 **From Typst Universe** (recommended):
 
@@ -90,4 +92,5 @@ If you find bugs or have feature requests please submit an issue or pull request
     - Names of Spells, Classes, Species in the example document are being used as per the Fan Contect Policy.
     - No specific class mechanics, spell descriptions, stat blocks, etc. are being published.
     - This template is and always will be available for free.
-- This template is strictly intended for personal, non-commercial use.
+    - The license given in the manifest file covers only the `typst` implementation, example images in `img` and the `md` notes, not the contents of `\outlines\`, nor the name and concepts of the game Dungeons&Dragons presented herein.
+- This template is intended for personal, non-commercial use.

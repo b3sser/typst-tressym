@@ -1,4 +1,4 @@
-#import "@local/tressym-dnd:0.2.2": *
+#import "@preview/tressym-dnd:0.2.3": *
 /* * * SETTINGS * * */
 #let settings = (
   language: "en", // only changes built-in lang features, no changes are made to the sheet text
