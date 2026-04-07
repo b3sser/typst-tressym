@@ -27,7 +27,7 @@
   xp-type: "xp", // supports: xp, milestone, none (if none, space will be used by other fields)
 
 /* * * STATS * * */
-  strength: 12,
+  strength: 14,
   dexterity: 12,
   constitution: 16,
   intelligence: 12,
@@ -45,7 +45,6 @@
 /* * * SKILLS * * */
   // set all skills that your character is proficient in to true
   // you may delete any lines that would be "false"
-  //
   acrobatics: true,
   arcana: 0.5,
   athletics: 1,
@@ -65,7 +64,7 @@
   more-passive: true, // false: Passive Perception only, true: plus Passive Insight & Investigation
 
 /* * * HEALTH * * */
-  // "default" indicates what value this will be set to if the line is deleted from this file
+  // "default" indicates what value this will be set to if the line is deleted (auto-calculation)
   armorclass: 14, // default = 10+Dex (i.e. not wearing armor)
   initiative: 0, // default = Dex mod
   speed: 30, //default = 30ft

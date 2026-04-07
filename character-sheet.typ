@@ -277,7 +277,7 @@
   }
 }
 
-/* * * SKILLS & SAVES* * */
+/* * * HALF & DOUBLE PROFICIENCIES * * */
 #let half-prof = tiling(
   size: (8pt, 8pt),
   relative: "parent",
@@ -297,82 +297,6 @@
       fill: black,
     )
 )
-
-#let print-skill-mod( skill-prof: none, stat: int, position: int, prof-bonus: int) = {
-  let skill_mod = stat
-  let pos_y = 319.9pt + (13.5pt*position)
-  // check if simple or advanced proficiency entry
-  if type(skill-prof) == bool {
-    // if proficient, add proficiency bonus and print dot
-    if skill-prof {
-      skill_mod = stat + prof-bonus
-
-      place(
-        center,
-        dx: -201.7pt,
-        dy: pos_y+3.7pt,
-        circle(radius: 3pt, fill: black)
-      )
-    }
-  } else if type(skill-prof) == float or type(skill-prof) == int {
-    skill_mod = calc.floor(stat + (prof-bonus * skill-prof))
-    if skill-prof > 1.8 { // around 2 and above
-      place(
-        center,
-        dx: -201.7pt,
-        dy: pos_y+3.7pt,
-        circle(radius: 3pt, fill: black)
-      )
-      place(
-        center,
-        dx: -201.7pt + 3.5pt,
-        dy: pos_y+3.7pt,
-        circle(radius: 3pt, stroke: 0.7pt + gray, fill: black)
-      )
-    } else if skill-prof > 1.3 { // around 1.5
-      place(
-        center,
-        dx: -201.7pt,
-        dy: pos_y+3.7pt,
-        circle(radius: 3pt, fill: black)
-      )
-      place(
-        center,
-        dx: -201.7pt + 3.5pt,
-        dy: pos_y+3.7pt,
-        circle(radius: 3pt, stroke: 0.7pt + gray, fill: onehalf-prof)
-      )
-    } else if skill-prof > 0.8 { // around normal 1
-      place(
-        center,
-        dx: -201.7pt,
-        dy: pos_y+3.7pt,
-        circle(radius: 3pt, fill: black)
-      )
-    } else if skill-prof > 0.3 { // around 0.5
-      place(
-        center,
-        dx: -201.7pt,
-        dy: pos_y+3.7pt,
-        circle(radius: 3pt, fill: half-prof)
-      )
-    }
-  }
-  // calculate y coordinate based on position in list
-  place(
-    center,
-    dx: -187pt,
-    dy: pos_y,
-    {
-      // add + sign if non-negative number
-      if skill_mod >= 0 {
-        text([+#skill_mod], size: 12pt)
-      } else {
-        text([#skill_mod], size: 12pt)
-      }
-    }
-  )
-}
 
 /* * * ATTACKS & SPELLCASTING * * */
 #let add-weapon(
@@ -494,13 +418,13 @@
   intelligence: 10, // can't call this int, since int is integer
   wisdom: 10,
   charisma: 10,
-  strmod: 0, 
-  dexmod: 0,
-  conmod: 0,
-  intmod: 0,
-  wismod: 0,
-  chamod: 0,
-  prof-bonus: 2,
+  strmod: none, 
+  dexmod: none,
+  conmod: none,
+  intmod: none,
+  wismod: none,
+  chamod: none,
+  prof-bonus: none,
   big-number-big-field: true,
 
 /* * * SAVES * * */
@@ -510,6 +434,13 @@
   intsave: false,
   wissave: false,
   chasave: false,
+
+  strsavemod: none,
+  dexsavemod: none,
+  consavemod: none,
+  intsavemod: none,
+  wissavemod: none,
+  chasavemod: none,
 
 /* * * SKILLS * * */
   // half- and double-proficiencies are a planned future features
@@ -531,6 +462,25 @@
   sleight_of_hand: false,
   stealth: false,
   survival: false,
+
+  acrobaticsmod: none,
+  animal_handlingmod: none,
+  arcanamod: none,
+  athleticsmod: none,
+  deceptionmod: none,
+  historymod: none,
+  insightmod: none,
+  intimidationmod: none,
+  investigationmod: none,
+  medicinemod: none,
+  naturemod: none,
+  perceptionmod: none,
+  performancemod: none,
+  persuasionmod: none,
+  religionmod: none,
+  sleight_of_handmod: none,
+  stealthmod: none,
+  survivalmod: none,
 
 /* * * HEALTH * * */
   armorclass: none,
@@ -598,15 +548,13 @@
 
   /* * * STATS * * */
   let stat-list = ( strength, dexterity, constitution, intelligence, wisdom, charisma )
-
-  strmod = calculate-modifier(stat: strength) 
-  dexmod = calculate-modifier(stat: dexterity)
-  conmod = calculate-modifier(stat: constitution)
-  intmod = calculate-modifier(stat: intelligence)
-  wismod = calculate-modifier(stat: wisdom)
-  chamod = calculate-modifier(stat: charisma)
-
   let statmod-list = ( strmod, dexmod, conmod, intmod, wismod, chamod )
+  // Calculate Stat Modifiers
+  for i in range(6) {
+    if statmod-list.at(i) == none { // If not overwritten by user, auto-calculate
+      statmod-list.at(i) = calc.floor((stat-list.at(i) -10)/2)
+    }
+  }
 
   if big-number-big-field {
     print-big-stats(stat-list, false)
@@ -616,7 +564,9 @@
     print-small-stats(stat-list, false)
   }
 
-  prof-bonus = calc-proficiency-bonus(lvl: level)
+  if prof-bonus == none { // If not overwritten by user, auto-calculate
+    prof-bonus = calc-proficiency-bonus(lvl: level)
+  }
   place(
     top + left,
     dx: 97.5pt,
@@ -624,31 +574,124 @@
     text([+#prof-bonus], size: 18pt)
   )
 
+  /* * * SKILLS & SAVES * * */
+  let calc-skill-mod(skill-prof: none, base-stat-mod: int) = {
+    // Check whether simple or advanced proficiency entry
+    if type(skill-prof) == bool { // simple proficiency entry
+      if skill-prof { // proficient
+        return base-stat-mod + prof-bonus
+      } else {
+        return base-stat-mod
+      }
+    } else if type(skill-prof) == float or type(skill-prof) == int { // advanced proficiency entry
+      return calc.floor(base-stat-mod + (prof-bonus * skill-prof))
+    } else {
+      return none
+    }
+  }
+
+  let print-skill-mod(skill-prof: none, skill-mod: int, position: int) = {
+    // calculate y coordinate based on position in list
+    let pos_y = 319.9pt + (13.5pt*position)
+    // Print appropiate dot
+    if type(skill-prof) == bool { // if simple proficiency entry
+      // if proficient, add proficiency bonus and print dot
+      if skill-prof {
+        place(
+          center,
+          dx: -201.7pt,
+          dy: pos_y+3.7pt,
+          circle(radius: 3pt, fill: black)
+        )
+      }
+    } else if type(skill-prof) == float or type(skill-prof) == int { // if advanced proficiency entry
+      if skill-prof > 1.8 { // around 2 and above
+        place(
+          center,
+          dx: -201.7pt,
+          dy: pos_y+3.7pt,
+          circle(radius: 3pt, fill: black)
+        )
+        place(
+          center,
+          dx: -201.7pt + 3.5pt,
+          dy: pos_y+3.7pt,
+          circle(radius: 3pt, stroke: 0.7pt + gray, fill: black)
+        )
+      } else if skill-prof > 1.3 { // around 1.5
+        place(
+          center,
+          dx: -201.7pt,
+          dy: pos_y+3.7pt,
+          circle(radius: 3pt, fill: black)
+        )
+        place(
+          center,
+          dx: -201.7pt + 3.5pt,
+          dy: pos_y+3.7pt,
+          circle(radius: 3pt, stroke: 0.7pt + gray, fill: onehalf-prof)
+        )
+      } else if skill-prof > 0.8 { // around normal 1
+        place(
+          center,
+          dx: -201.7pt,
+          dy: pos_y+3.7pt,
+          circle(radius: 3pt, fill: black)
+        )
+      } else if skill-prof > 0.3 { // around 0.5
+        place(
+          center,
+          dx: -201.7pt,
+          dy: pos_y+3.7pt,
+          circle(radius: 3pt, fill: half-prof)
+        )
+      }
+    }
+    // Print actual modifier
+    place(
+      center,
+      dx: -187pt,
+      dy: pos_y,
+      {
+        // add + sign if non-negative number
+        //if skill-mod >= 0 {
+        //  text([+#skill-mod], size: 12pt)
+        //} else {
+          text([#skill-mod], size: 12pt)
+        //}
+      }
+    )
+  }
+
   /* * * SAVES * * */
   // put all saves in an array
-  let saves_list = ( strsave, dexsave, consave, intsave, wissave, chasave )
+  let save_list = ( strsave, dexsave, consave, intsave, wissave, chasave )
+  let savemod_list = ( strsavemod, dexsavemod, consavemod, intsavemod, wissavemod, chasavemod )
   // iterate over save list with calculation and printing
   for i in range(6) {
-    print-skill-mod(skill-prof: saves_list.at(i), stat: statmod-list.at(i), position: (i -8.54), prof-bonus: prof-bonus)
+    if savemod_list.at(i) == none { // If not overwritten by user, auto-calculate
+      savemod_list.at(i) = calc-skill-mod(skill-prof: save_list.at(i), base-stat-mod: statmod-list.at(i))
+    }
+    print-skill-mod(skill-prof: save_list.at(i), skill-mod: savemod_list.at(i), position: (i -8.54))
   }
 
   /* * * SKILLS * * */
   // put all skills in an array
   let skill_list = ( acrobatics,animal_handling,arcana,athletics,deception,history,insight,intimidation,investigation,medicine,nature,perception,performance,persuasion,religion,sleight_of_hand,stealth,survival )
+  let skillmod_list = ( acrobaticsmod,animal_handlingmod,arcanamod,athleticsmod,deceptionmod,historymod,insightmod,intimidationmod,investigationmod,medicinemod,naturemod,perceptionmod,performancemod,persuasionmod,religionmod,sleight_of_handmod,stealthmod,survivalmod )
   // hardcode which stat corresponds to which skill
-  let skill_bases = ( dexmod,wismod,intmod,strmod,chamod,intmod,wismod,chamod,intmod,wismod,intmod,wismod,chamod,chamod,intmod,dexmod,dexmod,wismod )
+  let skill_bases = ( 1,4,3,0,5,3,4,5,3,4,3,4,5,5,3,1,1,4 ) // relative to statmod-list
   // iterate over skill list with calculation and printing
   for i in range(18) {
-    print-skill-mod(skill-prof: skill_list.at(i), stat: skill_bases.at(i), position: i, prof-bonus: prof-bonus)
+    if skillmod_list.at(i) == none { // If not overwritten by user, auto-calculate
+      skillmod_list.at(i) = calc-skill-mod(skill-prof: skill_list.at(i), base-stat-mod: statmod-list.at(skill_bases.at(i)))
+    }
+    print-skill-mod(skill-prof: skill_list.at(i), skill-mod: skillmod_list.at(i), position: i) 
   }
 
   /* PASSIVE STATS */
-  if type(perception) == bool and perception {
-    passive-perception = 10 + wismod + prof-bonus
-  } else if type(perception) == float or type(perception) == int {
-    passive-perception = 10 + wismod + calc.floor(prof-bonus * perception)
-  } else {
-    passive-perception = 10 + wismod
+  if passive-perception == none { // If not overwritten by user, auto-calculate
+    passive-perception = 10 + skillmod_list.at(11)
   }
   place(
     center,
@@ -676,12 +719,8 @@
       dy: 622.05pt,
       text([PASSIVE \ INSIGHT], size: 6pt, font: "Gillius ADF", tracking:0.1pt)
     )
-    if type(insight) == bool and insight {
-      passive-insight = 10 + wismod + prof-bonus
-    } else if type(insight) == float or type(insight) == int {
-      passive-insight = 10 + wismod + calc.floor(prof-bonus * insight)
-    } else {
-      passive-insight = 10 + wismod
+    if passive-insight == none { // If not overwritten by user, auto-calculate
+      passive-insight = 10 + skillmod_list.at(6)
     }
     place(
       center,
@@ -695,12 +734,8 @@
       dy: 622.05pt,
       text([PASSIVE \ INVESTIGATION], size: 6pt, font: "Gillius ADF", tracking:0.1pt)
     )
-    if type(investigation) == bool and investigation {
-      passive-investigation = 10 + intmod + prof-bonus
-    } else if type(investigation) == float or type(investigation) == int {
-      passive-investigation = 10 + intmod + calc.floor(prof-bonus * investigation)
-    } else {
-      passive-investigation = 10 + intmod
+    if passive-investigation == none { // If not overwritten by user, auto-calculate
+      passive-investigation = 10 + skillmod_list.at(8)
     }
     place(
       center,

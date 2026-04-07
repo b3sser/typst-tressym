@@ -20,5 +20,22 @@ The template comes with various ways of altering a sheet, differing from the sta
 - **Stat or Mod in Big Field?** `big-number-big-field` Choose whether Stats are printed in the big boxes and Modifiers in small ovals underneath, or the other way around
 - **More Passive Stats:** `more-passive` If your table frequently uses Passive Checks for more than Perception, you can enable two extra fields that show Passive Insight and Passive Investigation
 
+## Overwriting auto-calculation
+All stats that are usually automatically calculated can be overwritten by the user, by passing them as additional arguments to the sheet.
+These are not listed in `example` or `empty`, as to not clutter those, so here is a list:
+- Proficiency Bonus: `prof-bonus` (only write the number, do not add `+`)
+- Stat Modifiers: `strmod`, `dexmod`, `conmod`, `intmod`, `wismod`, `chamod` (do not add `+`)
+- Save Modifiers: `strsavemod`, `dexsavemod`, ...
+    - for filling the circles correctly, a normal save proficiency entry is still needed, only the number changes with the overwrite
+- Skill Modifiers: `acrobaticsmod`, `animal_handlingmod`, `arcanamod`, ...
+    - for filling the circles correctly, a normal proficiency entry is still needed, only the number changes with the overwrite
+    - note that overwriting skill mods will also affect the passive skills, unless you overwrite those as well
+- Weapons: No need to overwrite, just use the option without auto-calculation
+- Passive Stats: `passive-perception`, `passive-insight`, `passive-investigation`
+
+## Troubleshooting
+- Arguments that are passed, but left empty (e.g. `level; ,`) can lead to errors. Please make sure to either pass a valid value OR remove the argument to use default/auto-calculated values.
+- If you want to add the number of total slots for level 1 only, you still need to add a `,` after your number, or it won't be interpreted as an array, but a single int, thus not being parsed correctly.
+
 ## Contribute
 If you find bugs or have feature requests please submit an issue or pull request to [tressym's github repo](https://github.com/b3sser/typst-tressym).

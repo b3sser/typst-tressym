@@ -12,7 +12,8 @@
 - Spell Sheet
     - automatically size sections for each spell level, allowing the user to add more spells than the static original sheet
     - optional: mark spells as prepared and track expended spell slots
-- Various Customization Options (read below)
+- All auto-calculation can be overwritten (see `/characters/README.md`)
+- Various Customization Options (see below)
 
 #### Customization
 The template comes with various ways of altering a sheet, differing from the standard pdf character sheet. If you are unsure, just test each option in your preview.
@@ -26,7 +27,6 @@ The template comes with various ways of altering a sheet, differing from the sta
 
 #### Planned Features / Roadmap
 - Further Customization Options, Alternate or Reduced Sheets (gradually over multiple versions)
-- Option to overwrite any and all auto-calculated stats on the user end (planned for 0.2.3)
 - Support for A4-Paper (maybe)
 - 2024 Sheet (maybe)
 - pdf interactions (maybe)

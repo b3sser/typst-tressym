@@ -77,7 +77,7 @@
   more-passive: false, // false: Passive Perception only, true: plus Passive Insight & Investigation
   
 /* * * HEALTH * * */
-  // "default" indicates what value this will be set to if the line is deleted from this file
+  // "default" indicates what value this will be set to if the line is deleted (auto-calculation)
   armorclass: none, // default = 10+Dex (i.e. not wearing armor)
   initiative: none, // default = Dex mod
   speed: 30, //default = 30ft
