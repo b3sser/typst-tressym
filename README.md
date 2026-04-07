@@ -1,7 +1,7 @@
 # Tressym
 ## Render D&D 5e Character Sheets with auto-calculation
 
-### Features
+## Features
 - 3-page character sheet for 5th edition 2014 D&D
 - Character Sheet
     - automatically calculate proficiency bonus, stat modifiers, skill modifiers and more
@@ -15,28 +15,18 @@
 - All auto-calculation can be overwritten (see `/characters/README.md`)
 - Various Customization Options (see below)
 
-#### Customization
-The template comes with various ways of altering a sheet, differing from the standard pdf character sheet. If you are unsure, just test each option in your preview.
-- **Mono / Col:** Pick between field outlines in standard black or in modern gold/brown
-- **Spell Rainbows:** Change the paper ruling of the spell sheet from black to rainbow gradients
-- **Money Display:** Show the standard boxes for each coin type or remove them, enlarging the space for Equipment text
-- **Big Equipment:** Shrink the FEATURES & TRAITS box to instead enlarge the EQUIPMENT box to a two-column one (compatible with money display)
-- **XP type:** Pick between "XP" and "MILESTONE" text in the header, or remove the XP field entirely (e.g. for a OneShot character), using the freed up space for an extra "SUBCLASS" field
-- **Stat or Mod in Big Field?** Choose whether Stats are printed in the big boxes and Modifiers in small ovals underneath, or the other way around
-- **More Passive Stats:** If your table frequently uses Passive Checks for more than Perception, you can enable two extra fields that show Passive Insight and Passive Investigation
-
-#### Planned Features / Roadmap
+### Planned Features / Roadmap
 - Further Customization Options, Alternate or Reduced Sheets (gradually over multiple versions)
 - Support for A4-Paper (maybe)
 - 2024 Sheet (maybe)
 - pdf interactions (maybe)
 
-### Example:
+## Example:
 ![three pages of a finished character sheet for Person MacPersonface](example.png)
 
 For example code, please refer to `example.typ`.
 
-### Installation
+## Installation
 **From Typst Universe** (recommended):
 
 ```typst init @preview/tressym-dnd```
@@ -52,7 +42,7 @@ OR
 - Clone the repo to local directory of your choosing
 - Change `#import "@preview/tressym-dnd:0.2.3": *` to `#import "../tressym.typ": *` at the beginning of your character file
 
-### Usage
+## Usage
 1. Make a copy of `example.typ`, `empty.typ` or `empty-mini.typ`.
     This can have any filename you'd like.
 2. Edit the SETTINGS section to your liking
@@ -62,7 +52,17 @@ OR
     - Each page has its own block. You can render only select pages by deleting one of the blocks from your file.
 4. Export to pdf (e.g. via tinymist or cmd)
 
-#### Overwriting auto-calculation
+### Customization
+The template comes with various ways of altering a sheet, differing from the standard pdf character sheet. If you are unsure, just test each option in your preview.
+- **Mono / Col:** `settings -> printer-mono` Pick between field outlines in standard black or in modern gold/brown
+- **Spell Rainbows:** `settings -> spell-rainbows` Change the paper ruling of the spell sheet from black to rainbow gradients
+- **Money Display:** `display-money` Show the standard boxes for each coin type or remove them, enlarging the space for Equipment text
+- **Big Equipment:** `big-equip` Shrink the FEATURES & TRAITS box to instead enlarge the EQUIPMENT box to a two-column one (compatible with money display)
+- **XP type:** `xp-type` Pick between "XP" and "MILESTONE" text in the header, or remove the XP field entirely (e.g. for a OneShot character), using the freed up space for an extra "SUBCLASS" field
+- **Stat or Mod in Big Field?** `big-number-big-field` Choose whether Stats are printed in the big boxes and Modifiers in small ovals underneath, or the other way around
+- **More Passive Stats:** `more-passive` If your table frequently uses Passive Checks for more than Perception, you can enable two extra fields that show Passive Insight and Passive Investigation
+
+### Overwriting auto-calculation
 All stats that are usually automatically calculated can be overwritten by the user, by passing them as additional arguments to the sheet.
 These are not listed in `example` or `empty`, as to not clutter those, so here is a list:
 - Proficiency Bonus: `prof-bonus` (only write the number, do not add `+`)
@@ -78,13 +78,13 @@ These are not listed in `example` or `empty`, as to not clutter those, so here i
     - However, be aware that if the overwritten stat is used in calculations later, you will have to overwrite all other stats dependant on this one if you pass a string.
     - Example: Setting `perceptionmod: "abc",` will cause an error in the calculation of passive perception, so you have to ALSO set `passive-perception: 16,` or `passive-perception: "def",`
 
-#### Troubleshooting
+### Troubleshooting
 - Arguments that are passed, but left empty (e.g. `level; ,`) can lead to errors. Please make sure to either pass a valid value OR remove the argument to use default/auto-calculated values.
 
-### Contribute
+## Contribute
 If you find bugs or have feature requests please submit an issue or pull request to [tressym's github repo](https://github.com/b3sser/typst-tressym).
 
-### Credits & Licensing
+## Credits & Licensing
 - This package was inspired by the LaTeX DnD 5e Character Sheet by [matsavage](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template).
 - The game Dungeons&Dragons and the layout of the character sheet belong to Wizards of the Coast.
     - This template is a fan project and not officialy endorsed by WotC. It was made with regard to the Fan Content Policy.
