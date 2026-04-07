@@ -27,7 +27,7 @@
   ),
   body: none
 ) = {
-  set text(lang: settings.at("language"), size:14pt, font: settings.at("body-font"))
+  set text(lang: settings.at("language", default: "en"), size:14pt, font: settings.at("body-font", default: "Vollkorn"))
   set page(
     paper: "us-letter",
     margin: (x: 0%, y: 0%, top: 0%, bottom: 0%)
@@ -153,7 +153,7 @@
   }
 
   // Place Background and all info added to body above
-  if settings.at("printer-mono") {
+  if settings.at("printer-mono", default: false) {
     set page(
       background: image("/outlines/page-2-mono.svg", width: 100%)
     )

@@ -527,7 +527,7 @@
   ),
   body: none
 ) = {
-  set text(lang: settings.at("language"), size:13pt, font: settings.at("body-font"))
+  set text(lang: settings.at("language", default: "en"), size:13pt, font: settings.at("body-font", default: "Vollkorn"))
   set page(
     paper: "us-letter",
     margin: (x: 0%, y: 0%, top: 0%, bottom: 0%)
@@ -537,7 +537,7 @@
 
   // Set string to append at the end of files names when getting graphics
   let svg-color
-  if settings.at("printer-mono") {
+  if settings.at("printer-mono", default: false) {
     svg-color = "-mono.svg"
   } else {
     svg-color = "-col.svg"
@@ -983,7 +983,7 @@
   }
 
   // Place Background and all info added to body above
-  if settings.at("printer-mono") {
+  if settings.at("printer-mono", default: false) {
     set page(
       background: image("/outlines/page-1-mono.svg", width: 100%)
     )
