@@ -1,4 +1,4 @@
-#import "@preview/tressym-dnd:0.2.3": *
+#import "@local/tressym-dnd:0.2.3": *
 /* * * SETTINGS * * */
 #let settings = (
   language: "en",
@@ -43,7 +43,7 @@
 /* * * SKILLS * * */
   // bool or float
   acrobatics: true,
-  animal_handling: true,
+  animal-handling: true,
   arcana: true,
   athletics: true,
   deception: true,
@@ -57,7 +57,7 @@
   performance: true,
   persuasion: true,
   religion: true,
-  sleight_of_hand: true,
+  sleight-of-hand: true,
   stealth: true,
   survival: true,
 
@@ -83,11 +83,11 @@
   weapons: (
   ("Weapon Name", 0, "1d6+1 slash." ),
   ),
-  attacks_text: [
+  attacks-text: [
   ],
 
 /* * * OTHER PROFICIENCIES & LANGUAGES * * */
-  prof_lang_text: [
+  prof-lang-text: [
     #strong[Languages:] Common \
     #strong[Armor:] \
     #strong[Weapons:] \
@@ -95,20 +95,20 @@
   ],
 
 /* * * EQUIPMENT * * */
-  equipment_text: [
+  equipment-text: [
   ],
   display-money: true,
   money: (0,0,"-",0,0), // cp, sp, ep, gp, pp
   big-equip: true,
 
 /* * * PERSONALITY * * */
-  personality_traits: [],
+  personality-traits: [],
   ideals: [],
   bonds: [],
   flaws: [],
 
 /* * * FEATURES & TRAITS * * */
-  features_traits: [
+  features-traits: [
   ]
 )
 
@@ -130,9 +130,9 @@
 /* * * TEXT FIELDS * * */
   backstory: [
   ],
-  allies_organizations: [
+  allies-organizations: [
   ],
-  additional_features_traits: [
+  additional-features-traits: [
   ],
   treasure: [
   ],
@@ -149,15 +149,15 @@
 /* * * SPELLS * * */
   // Array of strings, (bool, str) pairs and/or (str, bool) pairs
   cantrips: (),
-  lvl1_spells: (),
-  lvl2_spells: (),
-  lvl3_spells: (),
-  lvl4_spells: (),
-  lvl5_spells: (),
-  lvl6_spells: (),
-  lvl7_spells: (),
-  lvl8_spells: (),
-  lvl9_spells: (),
+  lvl1-spells: (),
+  lvl2-spells: (),
+  lvl3-spells: (),
+  lvl4-spells: (),
+  lvl5-spells: (),
+  lvl6-spells: (),
+  lvl7-spells: (),
+  lvl8-spells: (),
+  lvl9-spells: (),
 
   /* * * SPELL SLOTS * * */
   slots-total: (),

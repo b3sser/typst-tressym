@@ -69,7 +69,7 @@ These are not listed in `example` or `empty`, as to not clutter those, so here i
 - Stat Modifiers: `strmod`, `dexmod`, `conmod`, `intmod`, `wismod`, `chamod` (do not add `+`)
 - Save Modifiers: `strsavemod`, `dexsavemod`, ...
     - for filling the circles correctly, a normal save proficiency entry is still needed, only the number changes with the overwrite
-- Skill Modifiers: `acrobaticsmod`, `animal_handlingmod`, `arcanamod`, ...
+- Skill Modifiers: `acrobaticsmod`, `animal-handlingmod`, `arcanamod`, ...
     - for filling the circles correctly, a normal proficiency entry is still needed, only the number changes with the overwrite
     - note that overwriting skill mods will also affect the passive skills, unless you overwrite those as well
 - Weapons: No need to overwrite, just use the option without auto-calculation
@@ -82,7 +82,7 @@ These are not listed in `example` or `empty`, as to not clutter those, so here i
 - Arguments that are passed, but left empty (e.g. `level; ,`) can lead to errors. Please make sure to either pass a valid value OR remove the argument to use default/auto-calculated values.
 
 ## Contribute
-If you find bugs or have feature requests please submit an issue or pull request to [tressym's github repo](https://github.com/b3sser/typst-tressym).
+If you find bugs or have feature requests, please submit an issue or pull request to [tressym's github repo](https://github.com/b3sser/typst-tressym).
 
 ## Credits & Licensing
 - This package was inspired by the LaTeX DnD 5e Character Sheet by [matsavage](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template).

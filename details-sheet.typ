@@ -15,8 +15,8 @@
   symbol-name: str,
 /* * * TEXT FIELDS * * */
   backstory: str,
-  allies_organizations: str,
-  additional_features_traits: str,
+  allies-organizations: str,
+  additional-features-traits: str,
   treasure: str,
 /* * * for rendering * * */
   settings: (
@@ -136,13 +136,13 @@
     top + left,
     dx: 225pt,
     dy: 132pt,
-    block(width: 168pt, par(justify: true, leading:4.5pt, text(allies_organizations, size: 10pt)))
+    block(width: 168pt, par(justify: true, leading:4.5pt, text(allies-organizations, size: 10pt)))
   )
   place(
     top + left,
     dx: 225pt,
     dy: 376pt,
-    block(width: 350pt, height: 214pt, columns(2, gutter: 12pt)[#par(justify: true, leading:4.8pt, text(additional_features_traits, size: 10pt))])
+    block(width: 350pt, height: 214pt, columns(2, gutter: 12pt)[#par(justify: true, leading:4.8pt, text(additional-features-traits, size: 10pt))])
   )
   place(
     top + left,

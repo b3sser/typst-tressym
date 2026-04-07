@@ -9,15 +9,15 @@
   
 /* * * SPELLS * * */
   cantrips: (),
-  lvl1_spells: (),
-  lvl2_spells: (),
-  lvl3_spells: (),
-  lvl4_spells: (),
-  lvl5_spells: (),
-  lvl6_spells: (),
-  lvl7_spells: (),
-  lvl8_spells: (),
-  lvl9_spells: (),
+  lvl1-spells: (),
+  lvl2-spells: (),
+  lvl3-spells: (),
+  lvl4-spells: (),
+  lvl5-spells: (),
+  lvl6-spells: (),
+  lvl7-spells: (),
+  lvl8-spells: (),
+  lvl9-spells: (),
 
 /* * * SPELL SLOTS * * */
   slots-total: array,
@@ -168,10 +168,10 @@
     }
   }
   
-  if type(lvl1_spells) == str or (type(lvl1_spells) == array and lvl1_spells.len() == 2 and (type(lvl1_spells.at(0)) == bool or type(lvl1_spells.at(1)) == bool)) {
-    lvl1_spells = (lvl1_spells,)
+  if type(lvl1-spells) == str or (type(lvl1-spells) == array and lvl1-spells.len() == 2 and (type(lvl1-spells.at(0)) == bool or type(lvl1-spells.at(1)) == bool)) {
+    lvl1-spells = (lvl1-spells,)
   }
-  if lvl1_spells.len() > 0 {
+  if lvl1-spells.len() > 0 {
     if (spell-y-counter + 41pt) >= 750pt {
       spell-x-counter += 189pt
       spell-y-counter = 137.8pt
@@ -185,7 +185,7 @@
     slot-printer(1, spell-x-counter, spell-y-counter + 10.5pt)
     spell-y-counter += 47.89pt // size of header
     spell-y-counter += 13pt // space between header and first line
-    for i in lvl1_spells {
+    for i in lvl1-spells {
       place(
         top + left,
         dx: spell-x-counter + 8.4pt,
@@ -238,7 +238,7 @@
   }
 
   // combine the spell lists, so we can use a for loop
-  let spells-above-1 = (lvl2_spells, lvl3_spells, lvl4_spells, lvl5_spells, lvl6_spells, lvl7_spells, lvl8_spells, lvl9_spells)
+  let spells-above-1 = (lvl2-spells, lvl3-spells, lvl4-spells, lvl5-spells, lvl6-spells, lvl7-spells, lvl8-spells, lvl9-spells)
 
   for i in range(spells-above-1.len()) {
     if type(spells-above-1.at(i)) == str or (type(spells-above-1.at(i)) == array and spells-above-1.at(i).len() == 2 and (type(spells-above-1.at(i).at(0)) == bool or type(spells-above-1.at(i).at(1)) == bool)) {

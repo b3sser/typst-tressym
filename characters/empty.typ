@@ -1,4 +1,4 @@
-#import "@preview/tressym-dnd:0.2.3": *
+#import "@local/tressym-dnd:0.2.3": *
 /* * * SETTINGS * * */
 #let settings = (
   language: "en", // only changes built-in lang features, no changes are made to the sheet text
@@ -51,7 +51,7 @@
   // set all skills that your character is proficient in to true
   // you may delete any lines that would be "false"
   acrobatics: true,
-  animal_handling: 0,
+  animal-handling: 0,
   arcana: 0.5,
   athletics: 1,
   deception: 1.5,
@@ -65,7 +65,7 @@
   performance: true,
   persuasion: true,
   religion: true,
-  sleight_of_hand: true,
+  sleight-of-hand: true,
   stealth: true,
   survival: true,
 
@@ -104,12 +104,12 @@
   weapons: (
   ("Weapon Name", 0, "1d6+1 slash." ),
   ),
-  attacks_text: [
+  attacks-text: [
     // Freeform Text to display below weapons list
   ],
 
 /* * * OTHER PROFICIENCIES & LANGUAGES * * */
-  prof_lang_text: [
+  prof-lang-text: [
     #strong[Languages:] Common \
     #strong[Armor:] \
     #strong[Weapons:] \
@@ -117,20 +117,20 @@
   ],
 
 /* * * EQUIPMENT * * */
-  equipment_text: [
+  equipment-text: [
   ],
   display-money: true, // true: display money boxes; false: no boxes; default: true
   money: (0,0,"-",0,0), // cp, sp, ep, gp, pp
   big-equip: true, // Gives you a bigger equipment box with two columns, making the Features & Traits box smaller in exchange
 
 /* * * PERSONALITY * * */
-  personality_traits: [],
+  personality-traits: [],
   ideals: [],
   bonds: [],
   flaws: [],
 
 /* * * FEATURES & TRAITS * * */
-  features_traits: [
+  features-traits: [
   ]
 )
 
@@ -155,9 +155,9 @@
 /* * * TEXT FIELDS * * */
   backstory: [
   ],
-  allies_organizations: [
+  allies-organizations: [
   ],
-  additional_features_traits: [
+  additional-features-traits: [
   ],
   treasure: [
   ],
@@ -180,15 +180,15 @@
   If you'd like a line with no text to be printed, add "",
   When you leave a () empty or delete the parameter entirely, no header for that spell level will be printed. */ 
   cantrips: (),
-  lvl1_spells: (),
-  lvl2_spells: (),
-  lvl3_spells: (),
-  lvl4_spells: (),
-  lvl5_spells: (),
-  lvl6_spells: (),
-  lvl7_spells: (),
-  lvl8_spells: (),
-  lvl9_spells: (),
+  lvl1-spells: (),
+  lvl2-spells: (),
+  lvl3-spells: (),
+  lvl4-spells: (),
+  lvl5-spells: (),
+  lvl6-spells: (),
+  lvl7-spells: (),
+  lvl8-spells: (),
+  lvl9-spells: (),
 
   /* * * SPELL SLOTS * * */
   // enter the number of total/expended slots in order of spell level, adding a 0 to skip a level

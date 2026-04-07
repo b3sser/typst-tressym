@@ -445,7 +445,7 @@
 /* * * SKILLS * * */
   // half- and double-proficiencies are a planned future features
   acrobatics: false,
-  animal_handling: false,
+  animal-handling: false,
   arcana: false,
   athletics: false,
   deception: false,
@@ -459,12 +459,12 @@
   performance: false,
   persuasion: false,
   religion: false,
-  sleight_of_hand: false,
+  sleight-of-hand: false,
   stealth: false,
   survival: false,
 
   acrobaticsmod: none,
-  animal_handlingmod: none,
+  animal-handlingmod: none,
   arcanamod: none,
   athleticsmod: none,
   deceptionmod: none,
@@ -478,7 +478,7 @@
   performancemod: none,
   persuasionmod: none,
   religionmod: none,
-  sleight_of_handmod: none,
+  sleight-of-handmod: none,
   stealthmod: none,
   survivalmod: none,
 
@@ -503,21 +503,21 @@
 
 /* * * ATTACKS & SPELLCASTING * * */
   weapons: (),
-  attacks_text: str,
+  attacks-text: str,
 /* * * OTHER PROFICIENCIES & LANGUAGES * * */
-  prof_lang_text: str,
+  prof-lang-text: str,
 /* * * EQUIPMENT * * */
-  equipment_text: str,
+  equipment-text: str,
   display-money: true,
   money: (none,none,none,none,none),
   big-equip: false,
 /* * * PERSONALITY * * */
-  personality_traits: str,
+  personality-traits: str,
   ideals: str,
   bonds: str,
   flaws: str,
 /* * * FEATURES & TRAITS * * */
-  features_traits: str,
+  features-traits: str,
 /* * * for rendering * * */
   settings: (
     language: "en", // only changes built-in lang features, no changes are made to the sheet text
@@ -677,8 +677,8 @@
 
   /* * * SKILLS * * */
   // put all skills in an array
-  let skill_list = ( acrobatics,animal_handling,arcana,athletics,deception,history,insight,intimidation,investigation,medicine,nature,perception,performance,persuasion,religion,sleight_of_hand,stealth,survival )
-  let skillmod_list = ( acrobaticsmod,animal_handlingmod,arcanamod,athleticsmod,deceptionmod,historymod,insightmod,intimidationmod,investigationmod,medicinemod,naturemod,perceptionmod,performancemod,persuasionmod,religionmod,sleight_of_handmod,stealthmod,survivalmod )
+  let skill_list = ( acrobatics,animal-handling,arcana,athletics,deception,history,insight,intimidation,investigation,medicine,nature,perception,performance,persuasion,religion,sleight-of-hand,stealth,survival )
+  let skillmod_list = ( acrobaticsmod,animal-handlingmod,arcanamod,athleticsmod,deceptionmod,historymod,insightmod,intimidationmod,investigationmod,medicinemod,naturemod,perceptionmod,performancemod,persuasionmod,religionmod,sleight-of-handmod,stealthmod,survivalmod )
   // hardcode which stat corresponds to which skill
   let skill_bases = ( 1,4,3,0,5,3,4,5,3,4,3,4,5,5,3,1,1,4 ) // relative to statmod-list
   // iterate over skill list with calculation and printing
@@ -897,7 +897,7 @@
     top + left,
     dx: 224pt,
     dy: 396pt + (20.5pt*weaponnr),
-    block(width: 163pt,par(justify: true, leading:3.5pt, text(attacks_text, size: 10pt)))
+    block(width: 163pt,par(justify: true, leading:3.5pt, text(attacks-text, size: 10pt)))
   )
 
   /* * * OTHER PROFICIENCIES & LANGUAGES * * */
@@ -905,7 +905,7 @@
     top + left,
     dx: 35.2pt,
     dy: if more-passive {629pt + 20.25pt} else {629pt},
-    block(width: 163pt, par(justify: true, leading:5.5pt, text(prof_lang_text, size: 10pt)))
+    block(width: 163pt, par(justify: true, leading:5.5pt, text(prof-lang-text, size: 10pt)))
   )
 
   /* * * EQUIPMENT * * */
@@ -950,9 +950,9 @@
     dx: 223.5pt + equip_x,
     dy: 595pt,
     if big-equip {
-      block(width: 352pt-equip_x, height: 167pt, columns(2, gutter: 8pt)[#par(justify: true, leading:4.8pt, text(equipment_text, size: 10pt))])
+      block(width: 352pt-equip_x, height: 167pt, columns(2, gutter: 8pt)[#par(justify: true, leading:4.8pt, text(equipment-text, size: 10pt))])
     } else {
-      block(width: 163pt-equip_x,par(justify: true, leading:4.5pt, text(equipment_text, size: 10pt)))
+      block(width: 163pt-equip_x,par(justify: true, leading:4.5pt, text(equipment-text, size: 10pt)))
     }
   )
 
@@ -961,7 +961,7 @@
     top + left,
     dx: 418pt,
     dy: 142pt,
-    block(width: 153pt,par(justify: true, leading:4.5pt, text(personality_traits, size: 9pt)))
+    block(width: 153pt,par(justify: true, leading:4.5pt, text(personality-traits, size: 9pt)))
   )
   let personality = (ideals, bonds, flaws)
   for i in range(3) { 
@@ -978,7 +978,7 @@
     top + left,
     dx: 412pt,
     dy: 387pt,
-    block(width: 164pt,par(justify: true, leading:4.6pt, text(features_traits, size: 10pt)))
+    block(width: 164pt,par(justify: true, leading:4.6pt, text(features-traits, size: 10pt)))
   )
   }
 

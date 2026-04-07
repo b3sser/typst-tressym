@@ -1,4 +1,4 @@
-#import "@preview/tressym-dnd:0.2.3": *
+#import "@local/tressym-dnd:0.2.3": *
 /* * * SETTINGS * * */
 #let settings = (
   language: "en", // only changes built-in lang features, no changes are made to the sheet text
@@ -52,7 +52,7 @@
   history: 2,
   nature: true,
   persuasion: true,
-  sleight_of_hand: true,
+  sleight-of-hand: true,
 
   /* Half or Double Proficiency:
   -> Number instead of true/false.
@@ -94,12 +94,12 @@
   ("Dagger", "dp", ("1d4", "pierc.")),
   ),
   // Freeform Text to display below weapons list
-  attacks_text: [
+  attacks-text: [
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   ],
 
 /* * * OTHER PROFICIENCIES & LANGUAGES * * */
-  prof_lang_text: [
+  prof-lang-text: [
     #strong[Languages:] Common \
     #strong[Armor:] light, medium, shields \
     #strong[Weapons:] simple \
@@ -107,7 +107,7 @@
   ],
 
 /* * * EQUIPMENT * * */
-  equipment_text: [
+  equipment-text: [
     Mace, Shortbow, Quiver (20 arrows) \
     Waterskin, Mess Kit, 10 rations \
     50ft Hempen Rope
@@ -117,13 +117,13 @@
   big-equip: false, // Gives you a bigger equipment box with two columns, making the Features & Traits box smaller in exchange
 
 /* * * PERSONALITY * * */
-  personality_traits: [I take great pains to always look my best and follow the latest fashions.],
+  personality-traits: [I take great pains to always look my best and follow the latest fashions.],
   ideals: [#strong[Knowledge.] Knowledge is power, and knowing which horse to back is the key to success.],
   bonds: [Growing up, I had an imaginary friend I could always count on. That friend is still with me. ],
   flaws: [I don't know when to quit. Especially when everyone else is telling me to.],
 
 /* * * FEATURES & TRAITS * * */
-  features_traits: [
+  features-traits: [
     #lorem(80)]
 )
 
@@ -148,9 +148,9 @@
 /* * * TEXT FIELDS * * */
   backstory: [
     #lorem(164)],
-  allies_organizations: [
+  allies-organizations: [
     #lorem(100)],
-  additional_features_traits: [
+  additional-features-traits: [
     #lorem(170)],
   treasure: [
     #lorem(130)],
@@ -173,15 +173,15 @@
   If you'd like a line with no text to be printed, add "",
   When you leave a () empty or delete the parameter entirely, no header for that spell level will be printed. */ 
   cantrips: ("Dancing Lights", "Shillelagh", "Vicious Mockery"),
-  lvl1_spells: ((true, "Absorb Elements"), "Aid", "Alarm", (false, "Animal Friendship"), ("Animal Messenger", true), "Barkskin", "Beast Bond", "Beast Sense", "Commune with Nature", "Conjure Animals", "Conjure Barrage", "Conjure Volley", "Conjure Woodland Beings", "Cordon of Arrows", "Cure Wounds", "Darkvision", "Daylight", "Detect Magic", "Detect Poison and Disease"),
-  lvl2_spells: ("Dominate Beast", "Elemental Weapon", "Enhance Ability", "Ensnaring Strike", "Entangle", "Find Traps", ("Flame Arrows", true), "Fog Cloud", "Freedom of Movement", "Goodberry", "Grasping Vine", "Greater Restoration", "Guardian of Nature", "Gust of Wind", "Hail of Thorns", "Healing Spirit", "Hunter's Mark", "Jump", "Lesser Restoration"),
-  lvl3_spells: ("Lightning Arrow", "Locate Animals or Plants", "Locate Creature", "Locate Object", "Longstrider", "Magic Weapon", "Meld into Stone", "Nondetection", "Pass without Trace", "Plant Growth", "Protection from Energy", "Protection from Poison", "Revivify", "Searing Smite", "Silence", "Snare"),
-  lvl4_spells: ("Speak with Animals", "Speak with Plants", "Spike Growth", "Steel Wind Strike", "Stoneskin", "Summon Beast", "Summon Elemental", "Summon Fey"),
-  lvl5_spells: ("Swift Quiver", "Tree Stride", "Water Breathing", "Water Walk", "Wind Wall", "Wrath of Nature", "Zephyr Strike"),
-  lvl6_spells: ("Tasha's Otherworldly Guys", "Otto's Irresistible Dance"),
-  lvl7_spells: ("Mordenkainens Funny Hideout", "Reverse Gravy"),
-  lvl8_spells: ("Abi-Dalzim's Horrid Quilting", "Glibness"),
-  lvl9_spells: ("Glade of Disaster", "Power Word Feel", "Weird"),
+  lvl1-spells: ((true, "Absorb Elements"), "Aid", "Alarm", (false, "Animal Friendship"), ("Animal Messenger", true), "Barkskin", "Beast Bond", "Beast Sense", "Commune with Nature", "Conjure Animals", "Conjure Barrage", "Conjure Volley", "Conjure Woodland Beings", "Cordon of Arrows", "Cure Wounds", "Darkvision", "Daylight", "Detect Magic", "Detect Poison and Disease"),
+  lvl2-spells: ("Dominate Beast", "Elemental Weapon", "Enhance Ability", "Ensnaring Strike", "Entangle", "Find Traps", ("Flame Arrows", true), "Fog Cloud", "Freedom of Movement", "Goodberry", "Grasping Vine", "Greater Restoration", "Guardian of Nature", "Gust of Wind", "Hail of Thorns", "Healing Spirit", "Hunter's Mark", "Jump", "Lesser Restoration"),
+  lvl3-spells: ("Lightning Arrow", "Locate Animals or Plants", "Locate Creature", "Locate Object", "Longstrider", "Magic Weapon", "Meld into Stone", "Nondetection", "Pass without Trace", "Plant Growth", "Protection from Energy", "Protection from Poison", "Revivify", "Searing Smite", "Silence", "Snare"),
+  lvl4-spells: ("Speak with Animals", "Speak with Plants", "Spike Growth", "Steel Wind Strike", "Stoneskin", "Summon Beast", "Summon Elemental", "Summon Fey"),
+  lvl5-spells: ("Swift Quiver", "Tree Stride", "Water Breathing", "Water Walk", "Wind Wall", "Wrath of Nature", "Zephyr Strike"),
+  lvl6-spells: ("Tasha's Otherworldly Guys", "Otto's Irresistible Dance"),
+  lvl7-spells: ("Mordenkainens Funny Hideout", "Reverse Gravy"),
+  lvl8-spells: ("Abi-Dalzim's Horrid Quilting", "Glibness"),
+  lvl9-spells: ("Glade of Disaster", "Power Word Feel", "Weird"),
 
   /* * * SPELL SLOTS * * */
   // enter the number of total/expended slots in order of spell level, adding a 0 to skip a level
