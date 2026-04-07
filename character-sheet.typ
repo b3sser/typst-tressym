@@ -754,7 +754,7 @@
 
   /* * * HEALTH * * */
   if armorclass == none {
-    armorclass = 10 + dexmod
+    armorclass = 10 + statmod-list.at(1)
   }
   place(
     center,
@@ -764,7 +764,7 @@
   )
 
   if initiative == none {
-    initiative = dexmod
+    initiative = statmod-list.at(1)
   }
   place(
     center,
@@ -864,9 +864,9 @@
       if type(weapon.at(1)) == int {
         weapon.at(2) = (weapon.at(2).at(0),weapon.at(1),weapon.at(2).at(1))
       } else if weapon.at(1) == "sp" or weapon.at(1) == "s" {
-        weapon.at(2) = (weapon.at(2).at(0),strmod,weapon.at(2).at(1))
+        weapon.at(2) = (weapon.at(2).at(0),statmod-list.at(0),weapon.at(2).at(1))
       } else if weapon.at(1) == "dp" or weapon.at(1) == "d" {
-        weapon.at(2) = (weapon.at(2).at(0),dexmod,weapon.at(2).at(1))
+        weapon.at(2) = (weapon.at(2).at(0),statmod-list.at(1),weapon.at(2).at(1))
       } else {
         atk = ""
       }
@@ -875,13 +875,13 @@
     if type(weapon.at(1)) == int {
       atk = weapon.at(1)
     } else if weapon.at(1) == "sp" {
-      atk = strmod + prof-bonus
+      atk = statmod-list.at(0) + prof-bonus
     } else if weapon.at(1) == "dp" {
-      atk = dexmod + prof-bonus
+      atk = statmod-list.at(1) + prof-bonus
     } else if weapon.at(1) == "s" {
-      atk = strmod
+      atk = statmod-list.at(0)
     } else if weapon.at(1) == "d" {
-      atk = dexmod
+      atk = statmod-list.at(1)
     } else {
       atk = weapon.at(1)
     }
