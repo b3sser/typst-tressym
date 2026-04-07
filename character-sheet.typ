@@ -654,11 +654,11 @@
       dy: pos_y,
       {
         // add + sign if non-negative number
-        //if skill-mod >= 0 {
-        //  text([+#skill-mod], size: 12pt)
-        //} else {
+        if skill-mod >= 0 {
+          text([+#skill-mod], size: 12pt)
+        } else {
           text([#skill-mod], size: 12pt)
-        //}
+        }
       }
     )
   }
