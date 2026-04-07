@@ -32,6 +32,9 @@ These are not listed in `example` or `empty`, as to not clutter those, so here i
     - note that overwriting skill mods will also affect the passive skills, unless you overwrite those as well
 - Weapons: No need to overwrite, just use the option without auto-calculation
 - Passive Stats: `passive-perception`, `passive-insight`, `passive-investigation`
+- Overwrites can be `int`, `float` or `string` and will still print correctly.
+    - However, be aware that if the overwritten stat is used in calculations later, you will have to overwrite all other stats dependant on this one if you pass a string.
+    - Example: Setting `perceptionmod: "abc",` will cause an error in the calculation of passive perception, so you have to ALSO set `passive-perception: 16,` or `passive-perception: "def",`
 
 ## Troubleshooting
 - Arguments that are passed, but left empty (e.g. `level; ,`) can lead to errors. Please make sure to either pass a valid value OR remove the argument to use default/auto-calculated values.

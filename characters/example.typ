@@ -69,7 +69,7 @@
   initiative: 0, // default = Dex mod
   speed: 30, //default = 30ft
   hp-max: 40, // hp-current and hp-temp are available as well
-  hitdice-total: 5, // default = Level
+  hitdice-total: 5, // default = Level (or level-print, for multiclassers)
   hitdice-type: "d6",
   deathsave-s: 0, // successes; default = 0
   deathsave-f: 0, // failures; default = 0

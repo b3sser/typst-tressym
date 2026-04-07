@@ -817,7 +817,11 @@
     )
   }
   if hitdice-total == none {
-    hitdice-total = level
+    if level-print != "" {
+      hitdice-total = level-print
+    } else {
+      hitdice-total = level
+    }
   }
   place(
     center,

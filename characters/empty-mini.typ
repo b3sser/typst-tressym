@@ -64,11 +64,11 @@
   more-passive: false,
 
 /* * * HEALTH * * */
-  armorclass: none, // default = 10+Dex
-  initiative: none, // default = Dex mod
-  speed: 30, //default = 30ft
+  // armorclass: , // default = 10+Dex
+  // initiative: , // default = Dex mod
+  // speed: , //default = 30ft
   hp-max: 0,
-  hitdice-total: 0, // default = Level
+  // hitdice-total: , // default = Level
   hitdice-type: "d",
   // hp-current, hp-temp, deathsave-s, deathsave-f
 
