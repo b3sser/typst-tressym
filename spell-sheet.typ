@@ -259,7 +259,7 @@
       center,
       dx: spell-x-counter - 297.7pt,
       dy: 14.4pt + spell-y-counter, // 14.4pt is the space 
-      text([#strong[#(i+1)]], size: 11pt, font: "Noto Sans")
+      text([#strong[#(i+2)]], size: 11pt, font: "Noto Sans")
     )
     slot-printer(i+1, spell-x-counter, spell-y-counter)
     spell-y-counter += 37.12pt // size of header
