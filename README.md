@@ -30,17 +30,17 @@ For example code, please refer to `example.typ`.
 **From Typst Universe** (recommended):
 
 ```typst init @preview/tressym-dnd```
-(some systems may require adding `:0.2.3`)
+(some systems may require adding `:0.2.4`)
 
 **From Github:**
 - Clone the repo to your local typst package directory as explained [here](https://github.com/typst/packages/blob/main/README.md#local-packages)
 - Run `typst init @local/tressym-dnd`
-- Change `#import "@preview/tressym-dnd:0.2.3": *` to `#import "@local/tressym-dnd:0.2.3": *` at the beginning of your character file
+- Change `#import "@preview/tressym-dnd:0.2.4": *` to `#import "@local/tressym-dnd:0.2.4": *` at the beginning of your character file
 
 OR
 
 - Clone the repo to local directory of your choosing
-- Change `#import "@preview/tressym-dnd:0.2.3": *` to `#import "../tressym.typ": *` at the beginning of your character file
+- Change `#import "@preview/tressym-dnd:0.2.4": *` to `#import "../tressym.typ": *` at the beginning of your character file
 
 ## Usage
 1. Make a copy of `example.typ`, `empty.typ` or `empty-mini.typ`.
