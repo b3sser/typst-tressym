@@ -261,7 +261,7 @@
       dy: 14.4pt + spell-y-counter, // 14.4pt is the space 
       text([#strong[#(i+2)]], size: 11pt, font: "Noto Sans")
     )
-    slot-printer(i+1, spell-x-counter, spell-y-counter)
+    slot-printer(i+2, spell-x-counter, spell-y-counter)
     spell-y-counter += 37.12pt // size of header
     spell-y-counter += 11pt // space between header and first line
     for i in spells-above-1.at(i) {
