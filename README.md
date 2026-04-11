@@ -1,4 +1,4 @@
-# Tressym
+# Tressym (dnd)
 ## Render D&D 5e Character Sheets with auto-calculation
 
 ## Features
@@ -12,7 +12,7 @@
 - Spell Sheet
     - automatically size sections for each spell level, allowing the user to add more spells than the static original sheet
     - optional: mark spells as prepared and track expended spell slots
-- All auto-calculation can be overwritten (see `/characters/README.md`)
+- All auto-calculation can be overwritten (see below)
 - Various Customization Options (see below)
 
 ### Planned Features / Roadmap
