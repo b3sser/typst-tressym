@@ -79,7 +79,7 @@ These are not listed in `example` or `empty`, as to not clutter those, so here i
     - Example: Setting `perceptionmod: "abc",` will cause an error in the calculation of passive perception, so you have to ALSO set `passive-perception: 16,` or `passive-perception: "def",`
 
 ### Troubleshooting
-- Arguments that are passed, but left empty (e.g. `level; ,`) can lead to errors. Please make sure to either pass a valid value OR remove the argument to use default/auto-calculated values.
+- Arguments that are passed, but left empty (e.g. `level: ,`) can lead to errors. Please make sure to either pass a valid value OR remove the argument to use default/auto-calculated values.
 
 ## Contribute
 If you find bugs or have feature requests, please submit an issue or pull request to [tressym's github repo](https://github.com/b3sser/typst-tressym).
