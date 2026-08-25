@@ -67,8 +67,9 @@
   // "default" indicates what value this will be set to if the line is deleted (auto-calculation)
   armorclass: 14, // default = 10+Dex (i.e. not wearing armor)
   initiative: 0, // default = Dex mod
-  speed: 30, //default = 30ft
-  hp-max: 40, // hp-current and hp-temp are available as well
+  speed: 30, // default = 30ft
+//  hp-max: 40, // auto-calculation will use the standard value instead of roling a die, will not work for multiclassers and can not take into consideration your Constitution changing at an Ability Score Improvement
+  // hp-current and hp-temp are available as well
   hitdice-total: 5, // default = Level (or level-print, for multiclassers)
   hitdice-type: "d6",
   deathsave-s: 0, // successes; default = 0

@@ -66,8 +66,8 @@
 /* * * HEALTH * * */
   // armorclass: , // default = 10+Dex
   // initiative: , // default = Dex mod
-  // speed: , //default = 30ft
-  hp-max: 0,
+  // speed: , // default = 30ft
+  // hp-max: , // default uses hitdice-type and constitution
   // hitdice-total: , // default = Level
   hitdice-type: "d",
   // hp-current, hp-temp, deathsave-s, deathsave-f

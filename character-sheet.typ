@@ -793,7 +793,21 @@
       }
     }
   )
+  let hitdice-to-hp(hitdice) = {
+    if hitdice == "d6" {
+      return 6
+    } else if hitdice == "d8" {
+      return 8
+    } else if hitdice == "d10" {
+      return 10
+    } else if hitdice == "d12" {
+      return 12
+    }
+  }
 
+  if hp-max == none {
+    hp-max = hitdice-to-hp(hitdice-type) + (level * statmod-list.at(3)) + (level * ((hitdice-to-hp(hitdice-type)/2)+1))
+  }
   place(
     center,
     dx: -2pt,
